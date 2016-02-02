@@ -1,0 +1,151 @@
+From: <Saved by WebKit>
+Subject: Unix To DOS/Windows
+Date: Tue, 19 Oct 2015 06:47:58 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_BF7C_90B57FC8.9DCDED3B"
+
+------=_NextPart_000_BF7C_90B57FC8.9DCDED3B
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://efgh.com/software/unix2dos.htm
+
+<html version=3D"g42dymwpi--nx"><head><meta charset=3D"GBK">
+<title>Unix To DOS/Windows</title>
+<meta name=3D"description" content=3D"A public domain program for convertin=
+g Unix text files to DOS/Windows text files.">
+<style id=3D"style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporatio=
+n. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body>
+
+<table>
+<tbody><tr>
+<td>
+<a href=3D"http://efgh.com/software/index.html"><img src=3D"http://efgh.com=
+/software/sitelogo.gif" width=3D"120" height=3D"114" alt=3D"LOGO"></a>
+</td>
+<td>
+<center><h1>Unix To DOS/Windows</h1></center>
+</td>
+</tr>
+</tbody></table>
+
+<dl>
+<dt>Title:       </dt><dd>Unix To DOS/Windows
+</dd><dt>Language:    </dt><dd>C++
+</dd><dt>Author:      </dt><dd>Philip J. Erdelsky
+                 <ul>
+                 <li><a href=3D"mailto:pje@efgh.com">pje@efgh.com</a>
+                 </li><li><a href=3D"http://www.alumni.caltech.edu/~pje/">
+                     http://www.alumni.caltech.edu/~pje/</a>
+                 </li></ul>
+</dd><dt>Date:        </dt><dd>November 24, 2006
+</dd><dt>Usage:       </dt><dd>Public domain; no restrictions on use
+</dd><dt>Portability: </dt><dd>Any C++ compiler for Windows XP
+</dd><dt>Keywords:    </dt><dd>Unix, DOS, Windows
+</dd><dt>Abstract:    </dt><dd>A simple utility which converts Unix text fi=
+les
+                     to DOS/Windows text files by replacing \n with \r\n.
+</dd><dt>Source:      </dt><dd><a href=3D"http://efgh.com/software/unix2dos=
+.txt">unix2dos.txt</a>
+</dd><dt>Executable:  </dt><dd><a href=3D"http://efgh.com/software/unix2dos=
+.exe">unix2dos.exe</a>
+</dd></dl>
+
+<p>
+Unix text files and DOS/Windows text files are almost identical in format.
+Both use the ASCII character set. However, Unix puts a simple line feed
+character (\n) at the end of each line, but DOS/Windows puts both a carriag=
+e
+return (\r) and a line feed (\n) at the end of each line. This makes
+Unix files display incorrectly in some Windows/DOS utilities, such as the
+Notepad.
+
+</p><p>
+Some transfer utilities, such as FTP, will make the conversion
+automatically, but others will not. A simple conversion utility, running
+under Windows XP, is a great help.
+
+</p><p>
+The utility unix2dos.exe will make file conversions in place. It can be
+run in a DOS window with a command line of the following form:
+
+</p><blockquote>
+unix2dos file1 file2 file3 ... file4
+</blockquote>
+
+<p>
+The specified files will be converted and the results will be written
+back to the same files. No backup copies are kept.
+
+</p><p>
+Under Windows XP, the utility can also be run without a DOS window.
+Just create a shortcut to the file unix2dos.exe and put it on the
+desktop. Then just drag one of more files and drop them on the shortcut.
+Windows XP will open a DOS window, run the utility, and then close the
+DOS window.
+
+</p><p>
+The utility will leave DOS/Windows line terminators unchanged, so if it
+is inadvertently applied to a file that is already in DOS/Waindows
+format, it will make no further changes.
+
+</p><p>
+The source code was compiled with Borland C++, but it should be
+compilable with other C++ compilers, too.
+
+
+
+
+</p><iframe id=3D"GreatFind" src=3D"https://greatfind-a.akamaihd.net/GreatF=
+ind/cf?g=3Dea6268f3-303b-48f9-91b4-bf1ec0aa4f30&amp;pn=3DChrome" t=3D"BLGC"=
+ style=3D"width: 1px; height: 1px; display: none;"></iframe></body></html>
+------=_NextPart_000_BF7C_90B57FC8.9DCDED3B
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://efgh.com/software/sitelogo.gif
+
+R0lGODdheAByAIAAAAAAAP///ywAAAAAeAByAAAC/oSPqcvtD6OctNqL8wu8+w+G4kiW5omWSMq2
+7gurR0zX9h2s+M73n+4LCmPAofEoMyCXzN+sCUUWo9TetIq1XbPc17YLRn3D5NHYZSnDzi0AS6lu
+P2/udz0unmvRd3yyX+OG4WfC9rZG+LfTJ8EBmOgER9fx6JGQA2mmF0hJclmZmbNJA1oYGmKYUqpy
+CpIqRjmB2Wo5SoRIGyu5F7ngOJsrusspMiUY7GiLKxwBnPt6slp7LE0IbaoL4Ux7zZrcWO3X7Ym2
+3Tpulq0djodeXM4e544Kj8y8WAx6jDzvuvyszMs/bgHLCdTQyErBNswoiBoyTMvCQ4ISVuxVIR+P
+/n4/zJmSNBHVqHjRQsIi+SuilY0mo3lkpXIjy5gH4T1CCAilIhz7KN7BeenXopYfbarD2WkozXoM
+QQKdo9MTUZhGvz1NynMqOZ0XrQLFSkdrOq4PvSIVmnVp06oNz75cI/YdWadPf86MKpdtXZB38Q2i
+exVtWLU+0wD+KlgiYVVtwf3cC1YxXnp/H9eNHCgu5QtlG2vATEqzv8pHEYImIrojabOmE2defFIv
+ZNehYSfxvM5y4LdeUqfkLVc3YuBybEtl3eyw28kijWtCnrv0Z9qonacjPvpm69Nwrb/DvQE7qb6T
+wDsQHLR3HeaufCcTb4l6bfnq2U8z6F1jfKX2/mvhz9+eAuRlZdA9r2nTXX+x8OHLNHvFxZETdiTU
+0X49ecOggvTRs5KADHQ2oYbmfejDTccVJ2KBK9mBIhdKpPgYfShFOB5EnegDYiHuoWbViA00pko8
+NNbmFjElAciTGkLuWN2D0x2Zoj0JSgnGkFQ2eaWLTGaZIZdYWOlliGFSAeaYUOahH0RLShESTUiW
+hGaOA54o0hGwwfGmVCrp8MQnWwDBp4ALfpMNoTO82FWg643E6Ht4LipMjo+WhehDTjmaaKaYSqop
+pxF5CKmloQ46aKWVgnipqO955hWl6fUooX+uziprqRedOsykqroK6qZyFhorrpDqauuspna1QOmk
+xOqqbKi52hKoOsbqBuyxnlYbI60NdXbFPHlS2c2rZubx7bjkRmluPuWmuxO7RpTpboBOzktvvfbe
+iy8DBQAAOw==
+------=_NextPart_000_BF7C_90B57FC8.9DCDED3B
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://greatfind-a.akamaihd.net/GreatFind/cf?g=ea6268f3-303b-48f9-91b4-bf1ec0aa4f30&pn=Chrome
+
+<!DOCTYPE html><html><head><meta charset=3D"UTF-8">
+    <title></title>
+</head>
+<body>
+   =20
+
+
+</body></html>
+------=_NextPart_000_BF7C_90B57FC8.9DCDED3B--

@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# $Id: device.map,v 1.4 2003/12/19 14:35:29 kds Exp $
+#
+#
+#UART format
+#type manfid:prodid type speed flags
+
+
+#Nokia card
+uart 0x0124:0x1000 tlp 115200 ring,ctl,low
+
+# Socket card
+uart 0x0104:0x009f tlp 115200 ring,ctl,low
+# Socket 2.5
+uart 0x0104:0x0096 bcsp 230400 pareven,low
+
+# BrainBoxes PCMCIA card (BL620)
+uart 0x0160:0x0002 csr 460800 ctl,low
+
+#COM One Platinium Bluetooth PC Card
+uart 0xffff:0x0101 bcsp 115200 pareven,low
+
+# TDK
+uart 0x0105:0x4254 bcsp 115200 pareven,low
+
+# for legacy UART devices
+uart 0x0000:0x0001 h4
+uart 0x0000:0x0002 tlp
+uart 0x0000:0x0003 bcsp
+uart 0x0000:0x0004 csr
+uart 0x0000:0x0005 ericsson
+uart 0x0000:0x0006 digi
+uart 0x0000:0x0006 swave
+
+# Default is H4 mode for UART cards
+uart 0x0000:0x0000 h4 115200 ctl,low
+

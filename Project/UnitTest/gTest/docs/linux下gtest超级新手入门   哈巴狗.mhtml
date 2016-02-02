@@ -1,0 +1,1673 @@
+From: <Saved by WebKit>
+Subject: linux?gtest?????? | ???
+Date: Tue, 12 Oct 2015 07:11:57 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_A54B_DBB294ED.A2371D7D"
+
+------=_NextPart_000_A54B_DBB294ED.A2371D7D
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.habadog.com/2011/09/06/gtest-newhand-forself/
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml" dir=3D"ltr" lang=3D"zh-CN" version=3D"g42dymwpi--nx"><head =
+profile=3D"http://gmpg.org/xfn/11"><meta charset=3D"UTF-8">
+=09
+    <title>linux=E4=B8=8Bgtest=E8=B6=85=E7=BA=A7=E6=96=B0=E6=89=8B=E5=85=A5=
+=E9=97=A8 | =E5=93=88=E5=B7=B4=E7=8B=97</title>
+		<link rel=3D"stylesheet" type=3D"text/css" media=3D"all" href=3D"http://w=
+ww.habadog.com/wp-content/themes/zbench/style.css">
+	<link rel=3D"pingback" href=3D"http://www.habadog.com/xmlrpc.php">
+	<link rel=3D"alternate" type=3D"application/rss+xml" title=3D"=E5=93=88=E5=
+=B7=B4=E7=8B=97 =C2=BB feed" href=3D"http://www.habadog.com/feed/">
+<link rel=3D"alternate" type=3D"application/rss+xml" title=3D"=E5=93=88=E5=
+=B7=B4=E7=8B=97 =C2=BB =E8=AF=84=E8=AE=BA feed" href=3D"http://www.habadog.=
+com/comments/feed/">
+<link rel=3D"alternate" type=3D"application/rss+xml" title=3D"=E5=93=88=E5=
+=B7=B4=E7=8B=97 =C2=BB linux=E4=B8=8Bgtest=E8=B6=85=E7=BA=A7=E6=96=B0=E6=89=
+=8B=E5=85=A5=E9=97=A8 =E8=AF=84=E8=AE=BA feed" href=3D"http://www.habadog.c=
+om/2011/09/06/gtest-newhand-forself/feed/">
+<link rel=3D"stylesheet" id=3D"mt-shcore-style-css" href=3D"http://www.haba=
+dog.com/wp-content/plugins/syntax-highlighter-mt/styles/shCore.css?ver=3D2.=
+2.4" type=3D"text/css" media=3D"all">
+<link rel=3D"stylesheet" id=3D"mt-theme-style-css" href=3D"http://www.habad=
+og.com/wp-content/plugins/syntax-highlighter-mt/styles/shThemeDefault.css?v=
+er=3D2.2.4" type=3D"text/css" media=3D"all">
+<link rel=3D"stylesheet" id=3D"wp-pagenavi-css" href=3D"http://www.habadog.=
+com/wp-content/themes/zbench/pagenavi-css.css?ver=3D2.70" type=3D"text/css"=
+ media=3D"all">
+
+
+
+<link rel=3D"EditURI" type=3D"application/rsd+xml" title=3D"RSD" href=3D"ht=
+tp://www.habadog.com/xmlrpc.php?rsd">
+<link rel=3D"wlwmanifest" type=3D"application/wlwmanifest+xml" href=3D"http=
+://www.habadog.com/wp-includes/wlwmanifest.xml">=20
+<link rel=3D"index" title=3D"=E5=93=88=E5=B7=B4=E7=8B=97" href=3D"http://ww=
+w.habadog.com/">
+<link rel=3D"start" title=3D"Hello world=EF=BC=81" href=3D"http://www.habad=
+og.com/2011/05/02/hello-world/">
+<link rel=3D"prev" title=3D"sed=E8=B6=85=E7=BA=A7=E7=AE=80=E5=8D=95=E5=85=
+=A5=E9=97=A8" href=3D"http://www.habadog.com/2011/09/05/sed-newhand-forself=
+/">
+<link rel=3D"next" title=3D"gtest=E4=B8=80=E4=BA=9B=E6=9C=89=E7=94=A8=E7=9A=
+=84=E6=8A=80=E5=B7=A7" href=3D"http://www.habadog.com/2011/09/06/gtest-some=
+-useful-skill/">
+<meta name=3D"generator" content=3D"WordPress 3.0.2">
+<link rel=3D"shortlink" href=3D"http://www.habadog.com/?p=3D208">
+
+<!-- All in One SEO Pack 1.6.13.4 by Michael Torbert of Semper Fi Web Desig=
+n[308,360] -->
+<meta name=3D"description" content=3D"=E6=9C=AC=E6=96=87=E4=BB=8B=E7=BB=8D=
+=E4=BA=86gtest=E7=9A=84=E6=A6=82=E5=BF=B5=EF=BC=8C=E4=B8=8B=E8=BD=BD=EF=BC=
+=8C=E5=AE=89=E8=A3=85=EF=BC=8C=E6=B5=8B=E8=AF=95=EF=BC=8C=E5=9F=BA=E6=9C=AC=
+=E8=AF=B4=E6=98=8E=EF=BC=8C=E6=98=AF=E4=B8=80=E4=B8=AA=E5=85=B3=E4=BA=8Egte=
+st=E7=9A=84=E8=B6=85=E7=BA=A7=E6=96=B0=E6=89=8B=E5=85=A5=E9=97=A8=E3=80=82"=
+>
+<meta name=3D"keywords" content=3D"gtest,linux">
+<link rel=3D"canonical" href=3D"http://www.habadog.com/2011/09/06/gtest-new=
+hand-forself/">
+<!-- /all in one seo pack -->
+<style type=3D"text/css">
+#igit_rpwt_css {
+background:#FFFFFF;font-size:12px;=20
+font-style:normal;=20
+color:#000000 !important;
+margin-top:10px;
+margin-bottom:10px;=20
+}
+#igit_title=20
+{
+	padding:2px 2px 2px 8px;
+	text-align:left;
+	font-size:12px;	font-family:Geneva;=09
+}
+#igit_rpwt_css h4{
+padding-bottom:10px;
+border-bottom:1px dashed #585858;
+color:#000000;}
+#igit_title a
+{
+	color:#000000;	font-size:12px;	font-family:Geneva;}
+#igit_title a:hover
+{
+	border-bottom:1px dashed #000000;
+	text-decoration:none;
+}
+#igit_rpwt_thumb, #description=20
+{
+	margin-left:0px;=20
+	border:1px solid #DDDDDD;=20
+	padding: 3px;
+}
+.igit_relpost:hover
+{
+	border-bottom:4px solid #808080;
+	background-color:#DDDDDD;=09
+}
+#igit_rpwt_css h4
+{
+	    margin: 0 0 0px;
+}
+.igit_relpost {
+padding-top:7px;
+border-right-color-value:#DDDDDD;
+border-right-style-value:solid;
+border-right-width-value:1px;
+border-bottom:4px solid #FFFFFF;float:left;
+
+width:25%;
+}
+#igit_rpwt_main_image {
+height:105px;
+line-height:15;
+padding-bottom:10px;
+padding-left:2px;
+padding-right:2px;
+padding-top:2px;
+text-align:center;
+}
+</style>
+  =20
+
+	<style type=3D"text/css">.recentcomments a{display:inline !important;paddi=
+ng:0 !important;margin:0 !important;}</style>
+	<meta name=3D"description" content=3D"habadog=E7=9A=84=E4=B8=AA=E4=BA=BA=
+=E4=B8=BB=E9=A1=B5=EF=BC=8C=E4=B8=BB=E8=A6=81=E5=AD=A6=E4=B9=A0=E8=AE=A8=E8=
+=AE=BA=E6=9E=B6=E6=9E=84=EF=BC=8C=E5=AD=98=E5=82=A8=EF=BC=8C=E7=BD=91=E7=BB=
+=9C=E7=AD=89=E5=90=8E=E7=AB=AF=E6=8A=80=E6=9C=AF=EF=BC=8C=E4=BB=A5=E5=8F=8A=
+=E5=AF=B9IT=E8=A1=8C=E4=B8=9A=E7=9A=84=E6=80=9D=E8=80=83=E5=92=8C=E6=B5=85=
+=E6=9E=90=E3=80=82">
+	<meta name=3D"keywords" content=3D"=E6=9E=B6=E6=9E=84 =E5=AD=98=E5=82=A8 =
+=E7=BD=91=E7=BB=9C =E5=90=8E=E7=AB=AF=E6=8A=80=E6=9C=AF">
+	<meta name=3D"author" content=3D"habadog">=09
+<style id=3D"style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporatio=
+n. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body class=3D"single single-post postid-208">
+<div id=3D"nav">
+	<div id=3D"menus">
+		<ul><li><a href=3D"http://www.habadog.com/">=E9=A6=96=E9=A1=B5</a></li></=
+ul>
+		<div class=3D"menu"><ul><li class=3D"page_item page-item-2"><a href=3D"ht=
+tp://www.habadog.com/about/" title=3D"=E5=85=B3=E4=BA=8E">=E5=85=B3=E4=BA=
+=8E</a></li><li class=3D"page_item page-item-15"><a href=3D"http://www.haba=
+dog.com/guestbook/" title=3D"=E7=95=99=E8=A8=80">=E7=95=99=E8=A8=80</a></li=
+></ul></div>
+	</div>
+	<div id=3D"search">
+		<form id=3D"searchform" method=3D"get" action=3D"http://www.habadog.com/"=
+>
+<input type=3D"text" value=3D"=E7=AB=99=E5=86=85=E6=90=9C=E7=B4=A2" onfocus=
+=3D"if (this.value =3D=3D '=E7=AB=99=E5=86=85=E6=90=9C=E7=B4=A2') {this.val=
+ue =3D '';}" onblur=3D"if (this.value =3D=3D '') {this.value =3D '=E7=AB=99=
+=E5=86=85=E6=90=9C=E7=B4=A2';}" size=3D"35" maxlength=3D"50" name=3D"s" id=
+=3D"s">
+<input type=3D"submit" id=3D"searchsubmit" value=3D"=E6=90=9C=E7=B4=A2">
+</form>	</div>
+</div>
+<div id=3D"wrapper">
+	<div id=3D"header">
+		<h1><a href=3D"http://www.habadog.com/">=E5=93=88=E5=B7=B4=E7=8B=97</a></=
+h1>
+		<h2>=E8=AE=A8=E8=AE=BA=E6=9E=B6=E6=9E=84=E6=8A=80=E6=9C=AF=E7=9A=84=E7=8B=
+=97=E7=AA=9D</h2>
+		<div class=3D"clear"></div>
+			</div>
+<hr>
+<div id=3D"content">
+		<div class=3D"post-208 post type-post hentry category-linux-dir tag-gtest=
+ tag-linux post-single" id=3D"post-208"><!-- post div -->
+		<h2 class=3D"title title-single">linux=E4=B8=8Bgtest=E8=B6=85=E7=BA=A7=E6=
+=96=B0=E6=89=8B=E5=85=A5=E9=97=A8</h2>
+		<div class=3D"post-info-top">
+			<span class=3D"post-info-date">=E4=BD=9C=E8=80=85: habadog =E6=97=A5=E6=
+=9C=9F: 2011 =E5=B9=B4 09 =E6=9C=88 06 =E6=97=A5 </span>
+			<span id=3D"addcomment"><a href=3D"http://www.habadog.com/2011/09/06/gte=
+st-newhand-forself/#respond" rel=3D"nofollow" title=3D"Leave a comment ?">=
+=E5=8F=91=E8=A1=A8=E8=AF=84=E8=AE=BA</a> (1)</span>
+			<span id=3D"gotocomments"><a href=3D"http://www.habadog.com/2011/09/06/g=
+test-newhand-forself/#comments" rel=3D"nofollow" title=3D"Go to comments ?"=
+>=E6=9F=A5=E7=9C=8B=E8=AF=84=E8=AE=BA</a></span>
+		</div>
+		<div class=3D"clear"></div>
+		<div class=3D"entry">
+			<p><strong>=EF=BC=880=EF=BC=89gtest=E6=98=AF=E4=BB=80=E4=B9=88</strong><=
+br>
+gtest=E6=98=AF=E4=B8=80=E4=B8=AA=E8=B7=A8=E5=B9=B3=E5=8F=B0=E7=9A=84C++=E6=
+=B5=8B=E8=AF=95=E6=A1=86=E6=9E=B6=EF=BC=8Cgoogle=E4=BD=9C=E5=93=81=E3=80=82=
+<br>
+=E5=AE=83=E6=94=AF=E6=8C=81=E8=87=AA=E5=8A=A8=E5=8F=91=E7=8E=B0=E6=B5=8B=E8=
+=AF=95=EF=BC=8C=E6=96=AD=E8=A8=80=E9=9B=86=EF=BC=8C=E7=94=A8=E6=88=B7=E5=AE=
+=9A=E4=B9=89=E7=9A=84=E6=96=AD=E8=A8=80=EF=BC=8Cdeath=E6=B5=8B=E8=AF=95=EF=
+=BC=8C=E8=87=B4=E5=91=BD=E4=B8=8E=E9=9D=9E=E8=87=B4=E5=91=BD=E7=9A=84=E5=A4=
+=B1=E8=B4=A5=EF=BC=8C=E7=B1=BB=E5=9E=8B=E5=8F=82=E6=95=B0=E5=8C=96=E6=B5=8B=
+=E8=AF=95=EF=BC=8C=E5=90=84=E7=B1=BB=E8=BF=90=E8=A1=8C=E6=B5=8B=E8=AF=95=E7=
+=9A=84=E9=80=89=E9=A1=B9=E5=92=8CXML=E7=9A=84=E6=B5=8B=E8=AF=95=E6=8A=A5=E5=
+=91=8A=E3=80=82</p>
+<p><strong>=EF=BC=881=EF=BC=89=E4=B8=8B=E8=BD=BDgtest</strong><br>
+=E5=9C=B0=E5=9D=80=EF=BC=9A<br>
+<a href=3D"http://code.google.com/p/googletest/downloads/list">http://code.=
+google.com/p/googletest/downloads/list</a><br>
+=E7=AC=94=E8=80=85=E4=B8=8B=E8=BD=BD=E7=9A=84=E7=89=88=E6=9C=AC=E6=98=AF1.6=
+.0<br>
+<a href=3D"http://googletest.googlecode.com/files/gtest-1.6.0.zip">http://g=
+oogletest.googlecode.com/files/gtest-1.6.0.zip</a></p>
+<p><strong>=EF=BC=882=EF=BC=89=E5=AE=89=E8=A3=85gtest</strong></p>
+<div><div id=3D"highlighter_76565" class=3D"syntaxhighlighter  shell"><div =
+class=3D"toolbar"><span><a href=3D"http://www.habadog.com/2011/09/06/gtest-=
+newhand-forself/#" class=3D"toolbar_item command_help help">?</a></span></d=
+iv><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td c=
+lass=3D"gutter"><div class=3D"line number1 index0 alt2">1</div><div class=
+=3D"line number2 index1 alt1">2</div><div class=3D"line number3 index2 alt2=
+">3</div><div class=3D"line number4 index3 alt1">4</div></td><td class=3D"c=
+ode"><div class=3D"container"><div class=3D"line number1 index0 alt2"><code=
+ class=3D"shell plain">unzip gtest-1.6.0.zip</code></div><div class=3D"line=
+ number2 index1 alt1"><code class=3D"shell functions">cd</code> <code class=
+=3D"shell plain">gtest-1.6.0</code></div><div class=3D"line number3 index2 =
+alt2"><code class=3D"shell plain">.</code><code class=3D"shell plain">/conf=
+igure</code></div><div class=3D"line number4 index3 alt1"><code class=3D"sh=
+ell functions">make</code></div></div></td></tr></tbody></table></div></div=
+>
+<p>=E7=A1=AE=E8=AE=A4lib=E7=9B=AE=E5=BD=95=E4=B8=8B=E7=94=9F=E6=88=90=E4=BA=
+=86libgtest.a=E5=92=8Clibgtest_main.a=EF=BC=8C<br>
+=E8=BF=99=E4=B8=A4=E4=B8=AA=E5=BA=93=E6=98=AF=E5=90=8E=E7=BB=AD=E6=B5=8B=E8=
+=AF=95=E7=A8=8B=E5=BA=8F=E9=9C=80=E8=A6=81=E9=93=BE=E6=8E=A5=E7=9A=84=E5=BA=
+=93=E3=80=82</p>
+<p><strong>=EF=BC=883=EF=BC=89=E6=B5=8B=E8=AF=95gtest</strong><br>
+=E4=B8=8D=E5=A6=A8=E8=AE=BE=E6=88=91=E4=BB=AC=E9=9C=80=E8=A6=81=E6=B5=8B=E8=
+=AF=95foo.h=E4=B8=AD=E7=9A=84=E4=B8=80=E4=B8=AAmax=E5=87=BD=E6=95=B0=EF=BC=
+=88=E6=B1=82=E4=B8=A4=E4=B8=AA=E6=95=B0=E4=B8=AD=E8=BE=83=E5=A4=A7=E7=9A=84=
+=E4=B8=80=E4=B8=AA=EF=BC=89<br>
+foo.h=E6=96=87=E4=BB=B6=E5=86=85=E5=A6=82=E5=A6=82=E4=B8=8B=EF=BC=9A</p>
+<div><div id=3D"highlighter_491426" class=3D"syntaxhighlighter  c"><div cla=
+ss=3D"toolbar"><span><a href=3D"http://www.habadog.com/2011/09/06/gtest-new=
+hand-forself/#" class=3D"toolbar_item command_help help">?</a></span></div>=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td clas=
+s=3D"gutter"><div class=3D"line number1 index0 alt2">1</div><div class=3D"l=
+ine number2 index1 alt1">2</div><div class=3D"line number3 index2 alt2">3</=
+div><div class=3D"line number4 index3 alt1">4</div><div class=3D"line numbe=
+r5 index4 alt2">5</div><div class=3D"line number6 index5 alt1">6</div><div =
+class=3D"line number7 index6 alt2">7</div></td><td class=3D"code"><div clas=
+s=3D"container"><div class=3D"line number1 index0 alt2"><code class=3D"c pr=
+eprocessor">#ifndef __FOO_H__</code></div><div class=3D"line number2 index1=
+ alt1"><code class=3D"c preprocessor">#define __FOO_H__</code></div><div cl=
+ass=3D"line number3 index2 alt2"><code class=3D"c color1 bold">int</code> <=
+code class=3D"c plain">max(</code><code class=3D"c color1 bold">int</code> =
+<code class=3D"c plain">a, </code><code class=3D"c color1 bold">int</code> =
+<code class=3D"c plain">b)</code></div><div class=3D"line number4 index3 al=
+t1"><code class=3D"c plain">{</code></div><div class=3D"line number5 index4=
+ alt2"><code class=3D"c keyword bold">return</code> <code class=3D"c plain"=
+>a&gt;b?a:b;</code></div><div class=3D"line number6 index5 alt1"><code clas=
+s=3D"c plain">}</code></div><div class=3D"line number7 index6 alt2"><code c=
+lass=3D"c preprocessor">#endif</code></div></div></td></tr></tbody></table>=
+</div></div>
+<p>=E6=92=B0=E5=86=99=E6=B5=8B=E8=AF=95=E7=A8=8B=E5=BA=8Ffoo_test.cpp=E6=9D=
+=A5=E5=AF=B9foo=E8=BF=9B=E8=A1=8C=E6=B5=8B=E8=AF=95=EF=BC=9A<br>
+foo_test.cpp=E6=96=87=E4=BB=B6=E5=86=85=E5=A6=82=E5=A6=82=E4=B8=8B=EF=BC=9A=
+</p>
+<div><div id=3D"highlighter_405898" class=3D"syntaxhighlighter  c"><div cla=
+ss=3D"toolbar"><span><a href=3D"http://www.habadog.com/2011/09/06/gtest-new=
+hand-forself/#" class=3D"toolbar_item command_help help">?</a></span></div>=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td clas=
+s=3D"gutter"><div class=3D"line number1 index0 alt2">1</div><div class=3D"l=
+ine number2 index1 alt1">2</div><div class=3D"line number3 index2 alt2">3</=
+div><div class=3D"line number4 index3 alt1">4</div><div class=3D"line numbe=
+r5 index4 alt2">5</div><div class=3D"line number6 index5 alt1">6</div><div =
+class=3D"line number7 index6 alt2">7</div><div class=3D"line number8 index7=
+ alt1">8</div><div class=3D"line number9 index8 alt2">9</div><div class=3D"=
+line number10 index9 alt1">10</div><div class=3D"line number11 index10 alt2=
+">11</div><div class=3D"line number12 index11 alt1">12</div><div class=3D"l=
+ine number13 index12 alt2">13</div><div class=3D"line number14 index13 alt1=
+">14</div></td><td class=3D"code"><div class=3D"container"><div class=3D"li=
+ne number1 index0 alt2"><code class=3D"c preprocessor">#include "gtest/gtes=
+t.h"</code></div><div class=3D"line number2 index1 alt1"><code class=3D"c p=
+reprocessor">#include "foo.h"</code></div><div class=3D"line number3 index2=
+ alt2">&nbsp;</div><div class=3D"line number4 index3 alt1"><code class=3D"c=
+ plain">TEST(foo, max)</code></div><div class=3D"line number5 index4 alt2">=
+<code class=3D"c plain">{</code></div><div class=3D"line number6 index5 alt=
+1"><code class=3D"c plain">EXPECT_EQ(2, max(2,-1));</code></div><div class=
+=3D"line number7 index6 alt2"><code class=3D"c plain">EXPECT_EQ(3, max(2,3)=
+);</code></div><div class=3D"line number8 index7 alt1"><code class=3D"c pla=
+in">}</code></div><div class=3D"line number9 index8 alt2">&nbsp;</div><div =
+class=3D"line number10 index9 alt1"><code class=3D"c color1 bold">int</code=
+> <code class=3D"c plain">main(</code><code class=3D"c color1 bold">int</co=
+de> <code class=3D"c plain">argc, </code><code class=3D"c color1 bold">char=
+</code><code class=3D"c plain">** argv)</code></div><div class=3D"line numb=
+er11 index10 alt2"><code class=3D"c plain">{</code></div><div class=3D"line=
+ number12 index11 alt1"><code class=3D"c plain">::testing::InitGoogleTest(&=
+amp;argc, argv);</code></div><div class=3D"line number13 index12 alt2"><cod=
+e class=3D"c keyword bold">return</code> <code class=3D"c plain">RUN_ALL_TE=
+STS();</code></div><div class=3D"line number14 index13 alt1"><code class=3D=
+"c plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>=E7=BC=96=E8=AF=91foo_test.cpp=EF=BC=8C=E7=BC=96=E8=AF=91=E5=91=BD=E4=BB=
+=A4=E5=A6=82=E4=B8=8B=EF=BC=9A</p>
+<div><div id=3D"highlighter_219911" class=3D"syntaxhighlighter  shell"><div=
+ class=3D"toolbar"><span><a href=3D"http://www.habadog.com/2011/09/06/gtest=
+-newhand-forself/#" class=3D"toolbar_item command_help help">?</a></span></=
+div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td =
+class=3D"gutter"><div class=3D"line number1 index0 alt2">1</div><div class=
+=3D"line number2 index1 alt1">2</div><div class=3D"line number3 index2 alt2=
+">3</div></td><td class=3D"code"><div class=3D"container"><div class=3D"lin=
+e number1 index0 alt2"><code class=3D"shell plain">g++ -g foo_test.cpp -o f=
+oo_test \</code></div><div class=3D"line number2 index1 alt1"><code class=
+=3D"shell plain">-I.</code><code class=3D"shell plain">/gtest-1</code><code=
+ class=3D"shell plain">.6.0</code><code class=3D"shell plain">/include</cod=
+e> <code class=3D"shell plain">\</code></div><div class=3D"line number3 ind=
+ex2 alt2"><code class=3D"shell plain">-L.</code><code class=3D"shell plain"=
+>/gtest-1</code><code class=3D"shell plain">.6.0</code><code class=3D"shell=
+ plain">/lib</code> <code class=3D"shell plain">-lgtest -lgtest_main -lpthr=
+ead</code></div></div></td></tr></tbody></table></div></div>
+<p>=E9=9C=80=E8=A6=81=E6=B3=A8=E6=84=8F=E7=9A=84=E6=98=AF=EF=BC=8C=E8=A6=81=
+=E9=93=BE=E6=8E=A5pthread=E8=BF=99=E4=B8=AA=E5=BA=93=E3=80=82</p>
+<p>=E6=89=A7=E8=A1=8C=E7=BB=93=E6=9E=9C=E5=A6=82=E4=B8=8B=EF=BC=9A<br>
+[=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D] Running 1 test from 1 test case.<br>
+[=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D] Global test environment set-up.<br>
+[=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D] 1 test from foo<br>
+[ RUN &nbsp;      &nbsp; &nbsp; ] foo.max<br>
+[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;OK ] foo.max (0 ms)<br>
+[=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D] 1 test from foo (0 ms total)</p>
+<p>[=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D] Global test environment tear-down<br>
+[=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D] 1 test from 1 test case ran. (0 ms total)<=
+br>
+[    PASSED    ] 1 test.</p>
+<p><strong>=EF=BC=884=EF=BC=89=E7=AE=80=E8=A6=81=E8=AF=B4=E6=98=8E</strong>=
+</p>
+<div><div id=3D"highlighter_82982" class=3D"syntaxhighlighter  c"><div clas=
+s=3D"toolbar"><span><a href=3D"http://www.habadog.com/2011/09/06/gtest-newh=
+and-forself/#" class=3D"toolbar_item command_help help">?</a></span></div><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td class=
+=3D"gutter"><div class=3D"line number1 index0 alt2">1</div><div class=3D"li=
+ne number2 index1 alt1">2</div><div class=3D"line number3 index2 alt2">3</d=
+iv><div class=3D"line number4 index3 alt1">4</div></td><td class=3D"code"><=
+div class=3D"container"><div class=3D"line number1 index0 alt2"><code class=
+=3D"c plain">TEST(name1, name2)</code></div><div class=3D"line number2 inde=
+x1 alt1"><code class=3D"c plain">{</code></div><div class=3D"line number3 i=
+ndex2 alt2"><code class=3D"c plain">EXPECT_EQ(value1, value2);</code></div>=
+<div class=3D"line number4 index3 alt1"><code class=3D"c plain">}</code></d=
+iv></div></td></tr></tbody></table></div></div>
+<p>=E8=BF=99=E6=98=AF=E8=A6=81=E6=89=A7=E8=A1=8C=E7=9A=84=E6=B5=8B=E8=AF=95=
+=E7=94=A8=E4=BE=8B=EF=BC=8C=E5=90=8E=E9=9D=A2=E6=98=AF=E6=89=A7=E8=A1=8C=E5=
+=86=85=E5=AE=B9<br>
+name1=EF=BC=9A=E6=B5=8B=E8=AF=95=E7=94=A8=E4=BE=8B=E5=90=8D=E7=A7=B0<br>
+name2=EF=BC=9A=E6=B5=8B=E8=AF=95=E5=90=8D=E7=A7=B0<br>
+=E8=BF=99=E4=B8=A4=E4=B8=AA=E5=8F=82=E6=95=B0=E9=83=BD=E5=8F=AA=E8=B5=B7=E5=
+=88=B0=E6=8F=90=E7=A4=BA=E4=BD=9C=E7=94=A8=EF=BC=8C=E6=88=91=E4=BB=AC=E4=B9=
+=9F=E5=8F=AF=E4=BB=A5=E8=BF=99=E4=B9=88=E4=BD=BF=E7=94=A8<br>
+name1=EF=BC=9A=E7=B1=BB=E5=90=8D<br>
+name2=EF=BC=9A=E6=96=B9=E6=B3=95=E5=90=8D<br>
+=E6=88=96=E8=80=85<br>
+name1=EF=BC=9A=E6=96=87=E4=BB=B6=E5=90=8D<br>
+name2=EF=BC=9A=E5=87=BD=E6=95=B0=E5=90=8D</p>
+<p>EXPECT_EQ(value1, value2);<br>
+=E7=94=A8=E4=BE=8B=E6=89=A7=E8=A1=8C=E6=88=90=E5=8A=9F=E6=97=B6=EF=BC=8C=E6=
+=9C=9F=E6=9C=9Bvalue1=E5=92=8Cvalue2=E6=98=AF=E7=9B=B8=E7=AD=89=E7=9A=84=EF=
+=BC=8C=E7=9B=B8=E7=AD=89=E6=89=8D=E7=AE=97=E9=80=9A=E8=BF=87=E6=B5=8B=E8=AF=
+=95=EF=BC=8C=E5=A6=82=E4=B8=8A=E4=BE=8B=E4=B8=AD=E7=9A=84=EF=BC=9A<br>
+EXPECT_EQ(2, max(2,-1));<br>
+max(2, -1)=E7=9A=84=E6=89=A7=E8=A1=8C=E7=BB=93=E6=9E=9C=E5=80=BC=E6=9C=9F=
+=E6=9C=9B=E6=98=AF2=E5=A6=82=E6=9E=9C=E4=B8=8D=E7=AD=89=EF=BC=8C=E5=88=99=
+=E7=94=A8=E4=BE=8B=E8=BF=90=E8=A1=8C=E5=A4=B1=E8=B4=A5=E3=80=82</p>
+<div><div id=3D"highlighter_141133" class=3D"syntaxhighlighter  c"><div cla=
+ss=3D"toolbar"><span><a href=3D"http://www.habadog.com/2011/09/06/gtest-new=
+hand-forself/#" class=3D"toolbar_item command_help help">?</a></span></div>=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td clas=
+s=3D"gutter"><div class=3D"line number1 index0 alt2">1</div><div class=3D"l=
+ine number2 index1 alt1">2</div><div class=3D"line number3 index2 alt2">3</=
+div><div class=3D"line number4 index3 alt1">4</div><div class=3D"line numbe=
+r5 index4 alt2">5</div></td><td class=3D"code"><div class=3D"container"><di=
+v class=3D"line number1 index0 alt2"><code class=3D"c color1 bold">int</cod=
+e> <code class=3D"c plain">main(</code><code class=3D"c color1 bold">int</c=
+ode> <code class=3D"c plain">argc, </code><code class=3D"c color1 bold">cha=
+r</code><code class=3D"c plain">** argv)</code></div><div class=3D"line num=
+ber2 index1 alt1"><code class=3D"c plain">{</code></div><div class=3D"line =
+number3 index2 alt2"><code class=3D"c plain">::testing::InitGoogleTest(&amp=
+;argc, argv);</code></div><div class=3D"line number4 index3 alt1"><code cla=
+ss=3D"c keyword bold">return</code> <code class=3D"c plain">RUN_ALL_TESTS()=
+;</code></div><div class=3D"line number5 index4 alt2"><code class=3D"c plai=
+n">}</code></div></div></td></tr></tbody></table></div></div>
+<p>=E8=BF=99=E4=B8=AA=E6=98=AFmain=E5=87=BD=E6=95=B0=EF=BC=8CInitGoogleTest=
+=E4=BC=9A=E5=88=9D=E5=A7=8B=E5=8C=96=E4=B8=80=E4=BA=9B=E7=8E=AF=E5=A2=83=E5=
+=8F=98=E9=87=8F=EF=BC=8CRUN_ALL_TESTS()=E4=BC=9A=E8=B0=83=E7=94=A8=E6=89=80=
+=E6=9C=89=E7=9A=84TEST(name1, name2)</p>
+<p><strong>=EF=BC=886=EF=BC=89=E7=BB=93=E6=9D=9F=E8=AF=AD</strong><br>
+=E6=83=B3=E4=BA=86=E8=A7=A3=E6=9B=B4=E8=AF=A6=E7=BB=86=E7=9A=84=E5=85=B3=E4=
+=BA=8Egtest=E7=9A=84=E4=BF=A1=E6=81=AF=EF=BC=8C=E8=A7=81=E5=AE=98=E7=BD=91=
+=EF=BC=9A<br>
+<a href=3D"http://code.google.com/p/googletest/">http://code.google.com/p/g=
+oogletest/</a></p>
+<div id=3D"igit_rpwt_css" style=3D"border: 0pt none ; margin: 0pt; padding:=
+ 0pt; clear: both;"><h4>=E7=9B=B8=E5=85=B3=E6=96=87=E7=AB=A0 :</h4><div cla=
+ss=3D"igit_relpost"><div id=3D"igit_title"><a href=3D"http://www.habadog.co=
+m/2014/01/18/multi-process-void-defunct/" target=3D"_top">=E5=A4=9A=E8=BF=
+=9B=E7=A8=8B=E5=B9=B6=E5=8F=91=E6=A8=A1=E5=9E=8B=E5=A6=82=E4=BD=95=E9=81=BF=
+=E5=85=8D=E5=83=B5=E5=B0=B8=E8=BF=9B=E7=A8=8B...</a></div> </div><div class=
+=3D"igit_relpost"><div id=3D"igit_title"><a href=3D"http://www.habadog.com/=
+2014/01/06/linux-df-du-different/" target=3D"_top">linux=E4=B8=8Bdf=E5=92=
+=8Cdu=E6=89=A7=E8=A1=8C=E7=BB=93=E6=9E=9C=E5=B7=AE=E5=BC=82=E5=8E=9F=E5=9B=
+=A0</a></div> </div><div class=3D"igit_relpost"><div id=3D"igit_title"><a h=
+ref=3D"http://www.habadog.com/2013/02/18/rsync-handbook/" target=3D"_top">r=
+sync=E6=94=BB=E7=95=A5</a></div> </div><div class=3D"igit_relpost"><div id=
+=3D"igit_title"><a href=3D"http://www.habadog.com/2012/12/21/makefile-rule-=
+pattern/" target=3D"_top">makefile=E4=B9=8B=E8=A7=84=E5=88=99=E6=A8=A1=E5=
+=BC=8F</a></div> </div></div>					</div><!-- END entry -->
+		<div class=3D"add-info">
+					</div>
+		<div class=3D"post-info-bottom">
+			<span class=3D"post-info-category"><a href=3D"http://www.habadog.com/cat=
+egory/linux-dir/" title=3D"=E6=9F=A5=E7=9C=8B Linux =E7=9A=84=E5=85=A8=E9=
+=83=A8=E6=96=87=E7=AB=A0" rel=3D"category tag">Linux</a></span><span class=
+=3D"post-info-tags"><a href=3D"http://www.habadog.com/tag/gtest/" rel=3D"ta=
+g">gtest</a>, <a href=3D"http://www.habadog.com/tag/linux/" rel=3D"tag">lin=
+ux</a></span>
+		</div>
+		<div id=3D"nav-below">
+			<div class=3D"nav-previous"><a href=3D"http://www.habadog.com/2011/09/05=
+/sed-newhand-forself/" rel=3D"prev"><span class=3D"meta-nav">=E2=86=90</spa=
+n> sed=E8=B6=85=E7=BA=A7=E7=AE=80=E5=8D=95=E5=85=A5=E9=97=A8</a></div>
+			<div class=3D"nav-next"><a href=3D"http://www.habadog.com/2011/09/06/gte=
+st-some-useful-skill/" rel=3D"next">gtest=E4=B8=80=E4=BA=9B=E6=9C=89=E7=94=
+=A8=E7=9A=84=E6=8A=80=E5=B7=A7 <span class=3D"meta-nav">=E2=86=92</span></a=
+></div>
+		</div><!-- #nav-below -->				=09
+	</div><!-- END post -->
+	<!-- You can start editing here. -->
+
+				<div id=3D"comments-div"><span id=3D"comments-addcomment"><a href=3D"ht=
+tp://www.habadog.com/2011/09/06/gtest-newhand-forself/#respond" rel=3D"nofo=
+llow" title=3D"=E5=8F=91=E8=A1=A8=E8=AF=84=E8=AE=BA=EF=BC=9F">=E5=8F=91=E8=
+=A1=A8=E8=AF=84=E8=AE=BA=EF=BC=9F</a></span><h2 id=3D"comments">1 =E6=9D=A1=
+=E8=AF=84=E8=AE=BA=E3=80=82</h2></div>
+			<ol class=3D"commentlist" id=3D"thecomments">
+								</ol>
+			<div class=3D"navigation"></div>
+=09
+=09
+											<div class=3D"trackbacks-pingbacks">
+			<h3>Trackbacks and Pingbacks:</h3>
+			<ul id=3D"pinglist">
+				    <li id=3D"comment-3708">
+        <a href=3D"http://www.lianpingd.com/2014/02/11/linux-gtest/" rel=3D=
+"external nofollow" class=3D"url">=E8=91=A3=E8=BF=9E=E5=B9=B3 lianpingd =C2=
+=BB linux gtest=E5=85=A5=E9=97=A8</a> - Pingback on 2014/07/22/ 13:46</li>
+			</ul>
+		</div>
+	</div><!--content-->
+<div id=3D"sidebar-border">
+		<div id=3D"rss"><a href=3D"http://feed.feedsky.com/habadog" rel=3D"nofoll=
+ow" title=3D"RSS =E8=AE=A2=E9=98=85">RSS =E8=AE=A2=E9=98=85</a></div>
+			<div id=3D"sidebar">
+
+<div id=3D"search-2" class=3D"widget widget_search"><form id=3D"searchform"=
+ method=3D"get" action=3D"http://www.habadog.com/">
+<input type=3D"text" value=3D"=E7=AB=99=E5=86=85=E6=90=9C=E7=B4=A2" onfocus=
+=3D"if (this.value =3D=3D '=E7=AB=99=E5=86=85=E6=90=9C=E7=B4=A2') {this.val=
+ue =3D '';}" onblur=3D"if (this.value =3D=3D '') {this.value =3D '=E7=AB=99=
+=E5=86=85=E6=90=9C=E7=B4=A2';}" size=3D"35" maxlength=3D"50" name=3D"s" id=
+=3D"s">
+<input type=3D"submit" id=3D"searchsubmit" value=3D"=E6=90=9C=E7=B4=A2">
+</form></div>		<div id=3D"recent-posts-2" class=3D"widget widget_recent_ent=
+ries">		<h3 class=3D"widgettitle">=E6=9C=80=E8=BF=91=E6=96=87=E7=AB=A0</h3>=
+		<ul>
+				<li><a href=3D"http://www.habadog.com/2015/05/20/im-protocol-choose/" t=
+itle=3D"im=E5=8D=8F=E8=AE=AE=E8=AE=BE=E8=AE=A1=E9=80=89=E5=9E=8B=EF=BC=88=
+=E4=B8=8A=EF=BC=89">im=E5=8D=8F=E8=AE=AE=E8=AE=BE=E8=AE=A1=E9=80=89=E5=9E=
+=8B=EF=BC=88=E4=B8=8A=EF=BC=89</a></li>
+				<li><a href=3D"http://www.habadog.com/2015/04/29/webim-msg-send-ack/" t=
+itle=3D"webim=E5=A6=82=E4=BD=95=E4=BF=9D=E8=AF=81=E6=B6=88=E6=81=AF=E7=9A=
+=84=E5=8F=AF=E9=9D=A0=E6=8A=95=E9=80=92">webim=E5=A6=82=E4=BD=95=E4=BF=9D=
+=E8=AF=81=E6=B6=88=E6=81=AF=E7=9A=84=E5=8F=AF=E9=9D=A0=E6=8A=95=E9=80=92</a=
+></li>
+				<li><a href=3D"http://www.habadog.com/2015/04/28/webim-msg-ontime/" tit=
+le=3D"webim=E4=BD=BF=E7=94=A8http=E9=95=BF=E8=BD=AE=E8=AF=A2=E5=A6=82=E4=BD=
+=95=E4=BF=9D=E8=AF=81=E6=B6=88=E6=81=AF=E7=9A=84=E7=BB=9D=E5=AF=B9=E5=AE=9E=
+=E6=97=B6=E6=80=A7">webim=E4=BD=BF=E7=94=A8http=E9=95=BF=E8=BD=AE=E8=AF=A2=
+=E5=A6=82=E4=BD=95=E4=BF=9D=E8=AF=81=E6=B6=88=E6=81=AF=E7=9A=84=E7=BB=9D=E5=
+=AF=B9=E5=AE=9E=E6=97=B6=E6=80=A7</a></li>
+				<li><a href=3D"http://www.habadog.com/2015/04/27/seckill/" title=3D"=E7=
+=A7=92=E6=9D=80=E7=B3=BB=E7=BB=9F=E6=9E=B6=E6=9E=84=E4=BC=98=E5=8C=96=E6=80=
+=9D=E8=B7=AF">=E7=A7=92=E6=9D=80=E7=B3=BB=E7=BB=9F=E6=9E=B6=E6=9E=84=E4=BC=
+=98=E5=8C=96=E6=80=9D=E8=B7=AF</a></li>
+				<li><a href=3D"http://www.habadog.com/2015/03/03/jie/" title=3D"=E2=80=
+=9C=E6=89=80=E7=BD=97=E9=97=A8=E7=8E=8B=E7=BB=93=E2=80=9D=E5=90=AF=E7=A4=BA=
+=EF=BC=9A=E8=B7=B3=E5=87=BA=E7=A6=81=E9=94=A2=E7=9C=8B=E9=97=AE=E9=A2=98">=
+=E2=80=9C=E6=89=80=E7=BD=97=E9=97=A8=E7=8E=8B=E7=BB=93=E2=80=9D=E5=90=AF=E7=
+=A4=BA=EF=BC=9A=E8=B7=B3=E5=87=BA=E7=A6=81=E9=94=A2=E7=9C=8B=E9=97=AE=E9=A2=
+=98</a></li>
+				</ul>
+		</div><div id=3D"recent-comments-2" class=3D"widget widget_recent_comment=
+s"><h3 class=3D"widgettitle">=E8=BF=91=E6=9C=9F=E8=AF=84=E8=AE=BA</h3><ul i=
+d=3D"recentcomments"><li class=3D"recentcomments"><a href=3D"http://www.mak=
+aidong.com/blog/31043.html" rel=3D"external nofollow" class=3D"url">=E4=BA=
+=92=E8=81=94=E7=BD=91=E5=B9=BF=E5=91=8A=E4=B8=8E=E5=B9=BF=E5=91=8A=E4=BD=8D=
+=E7=AB=9E=E4=BB=B7=E4=BA=8C=E4=B8=89=E4=BA=8B =E2=80=93 =E9=A9=AC=E5=BC=80=
+=E4=B8=9C=E5=8D=9A=E5=AE=A2</a> =E5=9C=A8 <a href=3D"http://www.habadog.com=
+/2014/01/14/ad-ppc-auction/#comment-4540">=E4=BA=92=E8=81=94=E7=BD=91=E5=B9=
+=BF=E5=91=8A=E5=AE=9A=E4=BB=B7=E7=AD=96=E7=95=A5=E4=B8=8E=E7=AE=97=E6=B3=95=
+=EF=BC=88=E4=BA=8C=EF=BC=89=E6=8B=8D=E5=8D=96=E7=90=86=E8=AE=BA</a> =E4=B8=
+=8A=E7=9A=84=E8=AF=84=E8=AE=BA</li><li class=3D"recentcomments"><a href=3D"=
+http://www.lianpingd.com/2014/02/11/linux-gtest/" rel=3D"external nofollow"=
+ class=3D"url">=E8=91=A3=E8=BF=9E=E5=B9=B3 lianpingd =C2=BB linux gtest=E5=
+=85=A5=E9=97=A8</a> =E5=9C=A8 <a href=3D"http://www.habadog.com/2011/09/06/=
+gtest-newhand-forself/#comment-3708">linux=E4=B8=8Bgtest=E8=B6=85=E7=BA=A7=
+=E6=96=B0=E6=89=8B=E5=85=A5=E9=97=A8</a> =E4=B8=8A=E7=9A=84=E8=AF=84=E8=AE=
+=BA</li><li class=3D"recentcomments"><a href=3D"http://ww.www.www/" rel=3D"=
+external nofollow" class=3D"url">lynn</a> =E5=9C=A8 <a href=3D"http://www.h=
+abadog.com/2012/03/03/centos-model-switch/#comment-2247">CentOS=E4=B8=8B=E5=
+=88=87=E6=8D=A2=E6=A1=8C=E9=9D=A2=E6=A8=A1=E5=BC=8F=E4=B8=8E=E5=91=BD=E4=BB=
+=A4=E8=A1=8C=E6=A8=A1=E5=BC=8F</a> =E4=B8=8A=E7=9A=84=E8=AF=84=E8=AE=BA</li=
+><li class=3D"recentcomments">sandy =E5=9C=A8 <a href=3D"http://www.habadog=
+.com/2012/01/10/work-attitude-is-everything/#comment-2246">=E5=B7=A5=E4=BD=
+=9C=E6=80=81=E5=BA=A6=E5=86=B3=E5=AE=9A=E5=B7=A5=E4=BD=9C=E7=9A=84=E4=B8=80=
+=E5=88=87</a> =E4=B8=8A=E7=9A=84=E8=AF=84=E8=AE=BA</li><li class=3D"recentc=
+omments">habadog =E5=9C=A8 <a href=3D"http://www.habadog.com/2011/08/02/mon=
+godb-cpp-interface-intro/#comment-2240">mongodb=E7=9A=84c++=E6=8E=A5=E5=8F=
+=A3=E7=9A=84=E8=AF=B4=E6=98=8E</a> =E4=B8=8A=E7=9A=84=E8=AF=84=E8=AE=BA</li=
+></ul></div><div id=3D"categories-2" class=3D"widget widget_categories"><h3=
+ class=3D"widgettitle">=E5=88=86=E7=B1=BB=E7=9B=AE=E5=BD=95</h3>		<ul>
+	<li class=3D"cat-item cat-item-17"><a href=3D"http://www.habadog.com/categ=
+ory/bigtable-dir/" title=3D"Google BigTable">BigTable</a>
+</li>
+	<li class=3D"cat-item cat-item-14"><a href=3D"http://www.habadog.com/categ=
+ory/boost/" title=3D"=E5=87=86c++=E6=A0=87=E5=87=86boost=E5=BA=93">boost</a=
+>
+</li>
+	<li class=3D"cat-item cat-item-33"><a href=3D"http://www.habadog.com/categ=
+ory/chubby/" title=3D"Google Chubby lock service">Chubby</a>
+</li>
+	<li class=3D"cat-item cat-item-25"><a href=3D"http://www.habadog.com/categ=
+ory/dynamo-dir/" title=3D"Amazon Dynamo=EF=BC=8C=E5=88=86=E5=B8=83=E5=BC=8F=
+kv=E5=AD=98=E5=82=A8=E7=B3=BB=E7=BB=9F=EF=BC=8C=E6=A0=B8=E5=BF=83=E6=80=9D=
+=E6=83=B3=E6=98=AF=E5=8E=BB=E4=B8=AD=E5=BF=83=E5=8C=96=E3=80=82">Dynamo</a>
+</li>
+	<li class=3D"cat-item cat-item-3"><a href=3D"http://www.habadog.com/catego=
+ry/gfs/" title=3D"google file system=E6=9E=B6=E6=9E=84=E7=A0=94=E7=A9=B6">G=
+FS</a>
+</li>
+	<li class=3D"cat-item cat-item-39"><a href=3D"http://www.habadog.com/categ=
+ory/linux-dir/" title=3D"linux">Linux</a>
+</li>
+	<li class=3D"cat-item cat-item-15"><a href=3D"http://www.habadog.com/categ=
+ory/mapreduce-dir/" title=3D"google MapReduce">MapReduce</a>
+</li>
+	<li class=3D"cat-item cat-item-35"><a href=3D"http://www.habadog.com/categ=
+ory/mongodb/" title=3D"mongodb">mongodb</a>
+</li>
+	<li class=3D"cat-item cat-item-64"><a href=3D"http://www.habadog.com/categ=
+ory/mysql-proxy/" title=3D"mysql-proxy">mysql-proxy</a>
+</li>
+	<li class=3D"cat-item cat-item-50"><a href=3D"http://www.habadog.com/categ=
+ory/pm-dir/" title=3D"=E4=BA=A7=E5=93=81=E7=BB=8F=E7=90=86">=E4=BA=A7=E5=93=
+=81=E7=BB=8F=E7=90=86</a>
+</li>
+	<li class=3D"cat-item cat-item-62"><a href=3D"http://www.habadog.com/categ=
+ory/im-dir/" title=3D"=E5=8D=B3=E6=97=B6=E9=80=9A=E8=AE=AF">=E5=8D=B3=E6=97=
+=B6=E9=80=9A=E8=AE=AF</a>
+</li>
+	<li class=3D"cat-item cat-item-57"><a href=3D"http://www.habadog.com/categ=
+ory/tech-trends/" title=3D"=E6=8A=80=E6=9C=AF=E5=89=8D=E6=B2=BF">=E6=8A=80=
+=E6=9C=AF=E5=89=8D=E6=B2=BF</a>
+</li>
+	<li class=3D"cat-item cat-item-1"><a href=3D"http://www.habadog.com/catego=
+ry/undefined/" title=3D"=E6=9C=AA=E5=88=86=E7=B1=BB">=E6=9C=AA=E5=88=86=E7=
+=B1=BB</a>
+</li>
+	<li class=3D"cat-item cat-item-32"><a href=3D"http://www.habadog.com/categ=
+ory/chief-software-architect/" title=3D"=E9=A6=96=E5=B8=AD=E6=9E=B6=E6=9E=
+=84=E5=B8=88">=E6=9E=B6=E6=9E=84=E5=B8=88</a>
+</li>
+	<li class=3D"cat-item cat-item-21"><a href=3D"http://www.habadog.com/categ=
+ory/anything-else/" title=3D"=E7=94=9F=E6=B4=BB=E4=B8=AD=E7=9A=84=E4=B8=80=
+=E5=88=87">=E7=94=9F=E6=B4=BB=E7=82=B9=E6=BB=B4</a>
+</li>
+	<li class=3D"cat-item cat-item-48"><a href=3D"http://www.habadog.com/categ=
+ory/movie-dir/" title=3D"=E8=AE=B0=E5=BD=95=E7=94=B5=E5=BD=B1=E4=B8=B4=E6=
+=97=B6=E9=93=BE=E6=8E=A5">=E7=94=B5=E5=BD=B1</a>
+</li>
+	<li class=3D"cat-item cat-item-19"><a href=3D"http://www.habadog.com/categ=
+ory/program-skill/" title=3D"=E4=B8=80=E4=BA=9B=E7=BC=96=E7=A8=8B=E6=8A=80=
+=E5=B7=A7">=E7=BC=96=E7=A8=8B=E6=8A=80=E5=B7=A7</a>
+</li>
+	<li class=3D"cat-item cat-item-7"><a href=3D"http://www.habadog.com/catego=
+ry/network/" title=3D"=E4=BA=92=E8=81=94=E4=BA=92=E9=80=9A">=E7=BD=91=E7=BB=
+=9C</a>
+</li>
+	<li class=3D"cat-item cat-item-53"><a href=3D"http://www.habadog.com/categ=
+ory/self-food/" title=3D"=E8=87=AA=E5=B7=B1=E5=AD=A6=E5=81=9A=E4=B8=9C=E8=
+=A5=BF=E5=90=83">=E8=87=AA=E5=88=B6=E7=BE=8E=E9=A3=9F</a>
+</li>
+	<li class=3D"cat-item cat-item-60"><a href=3D"http://www.habadog.com/categ=
+ory/nice-algorithm/" title=3D"=E8=B6=A3=E5=91=B3=E7=AE=97=E6=B3=95">=E8=B6=
+=A3=E5=91=B3=E7=AE=97=E6=B3=95</a>
+</li>
+	<li class=3D"cat-item cat-item-55"><a href=3D"http://www.habadog.com/categ=
+ory/self-tour/" title=3D"=E8=87=AA=E5=B7=B1=E5=87=BA=E5=8E=BB=E7=8E=A9">=E8=
+=B6=B3=E8=BF=B9=E5=A4=A9=E4=B8=8B</a>
+</li>
+		</ul>
+</div><div id=3D"linkcat-2" class=3D"widget widget_links"><h3 class=3D"widg=
+ettitle">=E5=8F=8B=E6=83=85=E9=93=BE=E6=8E=A5</h3>
+	<ul class=3D"xoxo blogroll">
+<li><a href=3D"http://www.58.com/" title=3D"58=E5=90=8C=E5=9F=8E=EF=BC=8C=
+=E4=B8=80=E4=B8=AA=E7=A5=9E=E5=A5=87=E7=9A=84=E7=BD=91=E7=AB=99=EF=BC=81" t=
+arget=3D"_blank">58=E5=90=8C=E5=9F=8E</a></li>
+<li><a href=3D"http://www.bangbang.com/" title=3D"58=E5=B8=AE=E5=B8=AE=EF=
+=BC=8C=E4=B8=80=E4=B8=AA=E7=A5=9E=E5=A5=87=E7=9A=84=E8=BD=AF=E4=BB=B6=EF=BC=
+=81" target=3D"_blank">58=E5=B8=AE=E5=B8=AE</a></li>
+
+	</ul>
+</div>
+<div id=3D"tag_cloud-2" class=3D"widget widget_tag_cloud"><h3 class=3D"widg=
+ettitle">=E6=A0=87=E7=AD=BE</h3><div><a href=3D"http://www.habadog.com/tag/=
+api/" class=3D"tag-link-30" title=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=
+=3D"font-size: 8pt;">api</a>
+<a href=3D"http://www.habadog.com/tag/awk/" class=3D"tag-link-28" title=3D"=
+1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">awk</a>
+<a href=3D"http://www.habadog.com/tag/bigtable-tag/" class=3D"tag-link-18" =
+title=3D"4 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 12.628099173554=
+pt;">bigtable</a>
+<a href=3D"http://www.habadog.com/tag/boost/" class=3D"tag-link-14" title=
+=3D"2 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 10.082644628099pt;">=
+boost</a>
+<a href=3D"http://www.habadog.com/tag/cplusplus/" class=3D"tag-link-36" tit=
+le=3D"5 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 13.553719008264pt;=
+">c++</a>
+<a href=3D"http://www.habadog.com/tag/chubby-lock-service/" class=3D"tag-li=
+nk-34" title=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">ch=
+ubby</a>
+<a href=3D"http://www.habadog.com/tag/dynamo-tag/" class=3D"tag-link-24" ti=
+tle=3D"4 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 12.628099173554pt=
+;">Dynamo</a>
+<a href=3D"http://www.habadog.com/tag/gfs/" class=3D"tag-link-3" title=3D"3=
+ =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 11.471074380165pt;">GFS</=
+a>
+<a href=3D"http://www.habadog.com/tag/gtest/" class=3D"tag-link-43" title=
+=3D"2 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 10.082644628099pt;">=
+gtest</a>
+<a href=3D"http://www.habadog.com/tag/lighttpd/" class=3D"tag-link-40" titl=
+e=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">lighttpd</a>
+<a href=3D"http://www.habadog.com/tag/linux/" class=3D"tag-link-11" title=
+=3D"18 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 19.338842975207pt;"=
+>linux</a>
+<a href=3D"http://www.habadog.com/tag/lvs/" class=3D"tag-link-44" title=3D"=
+1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">lvs</a>
+<a href=3D"http://www.habadog.com/tag/makefile/" class=3D"tag-link-27" titl=
+e=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">Makefile</a>
+<a href=3D"http://www.habadog.com/tag/mapreduce-tag/" class=3D"tag-link-16"=
+ title=3D"3 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 11.47107438016=
+5pt;">mapreduce</a>
+<a href=3D"http://www.habadog.com/tag/mongodb/" class=3D"tag-link-35" title=
+=3D"6 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 14.363636363636pt;">=
+mongodb</a>
+<a href=3D"http://www.habadog.com/tag/mysql/" class=3D"tag-link-46" title=
+=3D"7 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 14.942148760331pt;">=
+mysql</a>
+<a href=3D"http://www.habadog.com/tag/news/" class=3D"tag-link-58" title=3D=
+"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">news</a>
+<a href=3D"http://www.habadog.com/tag/perl/" class=3D"tag-link-29" title=3D=
+"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">perl</a>
+<a href=3D"http://www.habadog.com/tag/php/" class=3D"tag-link-38" title=3D"=
+4 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 12.628099173554pt;">php<=
+/a>
+<a href=3D"http://www.habadog.com/tag/pm/" class=3D"tag-link-51" title=3D"6=
+ =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 14.363636363636pt;">pm</a=
+>
+<a href=3D"http://www.habadog.com/tag/proxy/" class=3D"tag-link-65" title=
+=3D"4 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 12.628099173554pt;">=
+proxy</a>
+<a href=3D"http://www.habadog.com/tag/sed/" class=3D"tag-link-42" title=3D"=
+1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">sed</a>
+<a href=3D"http://www.habadog.com/tag/shell/" class=3D"tag-link-37" title=
+=3D"2 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 10.082644628099pt;">=
+shell</a>
+<a href=3D"http://www.habadog.com/tag/sql/" class=3D"tag-link-63" title=3D"=
+1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">sql</a>
+<a href=3D"http://www.habadog.com/tag/svn/" class=3D"tag-link-26" title=3D"=
+1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">svn</a>
+<a href=3D"http://www.habadog.com/tag/tcp/" class=3D"tag-link-10" title=3D"=
+1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">TCP</a>
+<a href=3D"http://www.habadog.com/tag/twitter/" class=3D"tag-link-49" title=
+=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">twitter</a>
+<a href=3D"http://www.habadog.com/tag/udp/" class=3D"tag-link-8" title=3D"1=
+ =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">UDP</a>
+<a href=3D"http://www.habadog.com/tag/westpoint/" class=3D"tag-link-22" tit=
+le=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">westpoint</a=
+>
+<a href=3D"http://www.habadog.com/tag/product-manager/" class=3D"tag-link-6=
+7" title=3D"8 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 15.520661157=
+025pt;">=E4=BA=A7=E5=93=81=E7=BB=8F=E7=90=86</a>
+<a href=3D"http://www.habadog.com/tag/protocol/" class=3D"tag-link-9" title=
+=3D"2 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 10.082644628099pt;">=
+=E5=8D=8F=E8=AE=AE</a>
+<a href=3D"http://www.habadog.com/tag/im/" class=3D"tag-link-6" title=3D"4 =
+=E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 12.628099173554pt;">=E5=8D=
+=B3=E6=97=B6=E9=80=9A=E8=AE=AF</a>
+<a href=3D"http://www.habadog.com/tag/ad-ppc/" class=3D"tag-link-66" title=
+=3D"10 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 16.561983471074pt;"=
+>=E5=B9=BF=E5=91=8A=E5=AE=9A=E4=BB=B7</a>
+<a href=3D"http://www.habadog.com/tag/continuous-integration/" class=3D"tag=
+-link-31" title=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;"=
+>=E6=8C=81=E7=BB=AD=E9=9B=86=E6=88=90</a>
+<a href=3D"http://www.habadog.com/tag/tour/" class=3D"tag-link-56" title=3D=
+"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">=E6=97=85=E6=B8=
+=B8</a>
+<a href=3D"http://www.habadog.com/tag/smart-pointer/" class=3D"tag-link-41"=
+ title=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">=E6=99=
+=BA=E8=83=BD=E6=8C=87=E9=92=88</a>
+<a href=3D"http://www.habadog.com/tag/architecture/" class=3D"tag-link-5" t=
+itle=3D"31 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 22pt;">=E6=9E=
+=B6=E6=9E=84</a>
+<a href=3D"http://www.habadog.com/tag/architect/" class=3D"tag-link-52" tit=
+le=3D"11 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 17.02479338843pt;=
+">=E6=9E=B6=E6=9E=84=E5=B8=88</a>
+<a href=3D"http://www.habadog.com/tag/endless-loop/" class=3D"tag-link-20" =
+title=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">=E6=AD=BB=
+=E5=BE=AA=E7=8E=AF</a>
+<a href=3D"http://www.habadog.com/tag/movie/" class=3D"tag-link-47" title=
+=3D"2 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 10.082644628099pt;">=
+=E7=94=B5=E5=BD=B1</a>
+<a href=3D"http://www.habadog.com/tag/algorithm/" class=3D"tag-link-59" tit=
+le=3D"8 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 15.520661157025pt;=
+">=E7=AE=97=E6=B3=95</a>
+<a href=3D"http://www.habadog.com/tag/absolute-path/" class=3D"tag-link-23"=
+ title=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">=E7=BB=
+=9D=E5=AF=B9=E8=B7=AF=E5=BE=84</a>
+<a href=3D"http://www.habadog.com/tag/network-programming/" class=3D"tag-li=
+nk-12" title=3D"2 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 10.08264=
+4628099pt;">=E7=BD=91=E7=BB=9C=E7=BC=96=E7=A8=8B</a>
+<a href=3D"http://www.habadog.com/tag/nice-food/" class=3D"tag-link-54" tit=
+le=3D"1 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 8pt;">=E7=BE=8E=E9=
+=A3=9F</a>
+<a href=3D"http://www.habadog.com/tag/read-note/" class=3D"tag-link-4" titl=
+e=3D"21 =E4=B8=AA=E8=AF=9D=E9=A2=98" style=3D"font-size: 20.03305785124pt;"=
+>=E9=98=85=E8=AF=BB=E7=AC=94=E8=AE=B0</a></div>
+</div>
+
+	</div><!-- end: #sidebar -->
+</div><!-- end: #sidebar-border --></div><!--wrapper-->
+<div class=3D"clear"></div>
+<div id=3D"footer">
+	<div id=3D"footer-inside">
+		<p>
+			=E7=89=88=E6=9D=83=E6=89=80=E6=9C=89&nbsp;=C2=A9&nbsp;2015&nbsp;=E5=93=
+=88=E5=B7=B4=E7=8B=97			&nbsp;|&nbsp; WordPress
+			&nbsp;|&nbsp; zBench
+			&nbsp;|&nbsp; <a href=3D"http://www.habadog.com/sitemap.html">BaiduSiteM=
+ap.html</a>
+			&nbsp;|&nbsp; <a href=3D"http://www.habadog.com/sitemap_baidu.xml">Baidu=
+SiteMap.xml</a>
+			&nbsp;|&nbsp; <a href=3D"http://www.habadog.com/sitemap.xml">GoogleSiteM=
+ap</a>
+		</p>
+		<span id=3D"back-to-top">=CE=94 <a href=3D"http://www.habadog.com/2011/09=
+/06/gtest-newhand-forself/#nav" rel=3D"nofollow" title=3D"Back to top">=E5=
+=9B=9E=E5=88=B0=E9=A1=B6=E9=83=A8</a></span>
+	</div>
+</div><!--footer-->
+
+
+
+
+<iframe id=3D"GreatFind" src=3D"https://greatfind-a.akamaihd.net/GreatFind/=
+cf?g=3Dea6268f3-303b-48f9-91b4-bf1ec0aa4f30&amp;pn=3DChrome" t=3D"BLGC" sty=
+le=3D"width: 1px; height: 1px; display: none;"></iframe></body></html>
+------=_NextPart_000_A54B_DBB294ED.A2371D7D
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.habadog.com/wp-content/themes/zbench/images/search-input-bg.gif
+
+R0lGODlhGQAZALMAAM7OzsrKysXFxcHBwbm5ubW1tbGxsaWlpaCgoJycnJmZmQAAAAAAAAAAAAAA
+AAAAACH5BAEHAAoALAAAAAAZABkAAARTUMlJq7046827/2BIGQIQCIU4CAaSFMEAGgFCHeyXV4Xw
+ARdE4GerHIaeHaX3oR1GAQJoECgcDjCA4NkUBE6EUoArUhy1ZBHOVJ4cke24fE6vtyMAOw==
+------=_NextPart_000_A54B_DBB294ED.A2371D7D
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.habadog.com/wp-content/themes/zbench/images/icons.gif
+
+R0lGODlhcwAsAfcAAAAAAPn79tPmwRuQywBZotSRFeHb1czMzHRSDqSlpU6aBt7m7rTBzJmZmXNz
+dABDhdyaSd7j5zMzM87z/1Cl0tTmwnStPiBjl/+0E6Xk+YmZebm7vABLia+DHCccBBDD/37a+iyQ
+xdy8mf/kQlI8DeuODPLGLqnOhtLU1d+yfZFzG8Ps+UzQ/JzL4xwcHMPExlZWVitmmWaZM7na6/jz
+8N+OJuvq60lJSTPM/2ZmZuK1KiorK3+11MTw/3PX+farFbGyssTWsr/Bw+bm5v/XO4WGhh10rBMN
+Au7x87vp+eaoKeCqZEKOvLN5Efa5JmhGCtbY27mVJejj4fD2+SqAtM6aIDOZzOjx+PKmEuTh383X
+xYS5UufNtbrXnb7P2lrW/0EwDXlbFdq2kCjI/+ns73Ou0f/IJUmItKytrv///+zq6GBLEpm+d93I
+sdvNvtyXQ+q+ML7AwuWaFtPx+ve2JPf39/ygCkp+pjkoBiDG/4/f+oZnGJmZmfSrHXDb/6B3GMqr
+L+X4/2Gcwo+0bHd4eOePDv/MMzrN/+e9isCfKt2wfNDg6evd0GemLPb6/72KGufq7j6k1w4ODt7g
+4rzS39zrzTyOv1OdDffMLZDj/+jXyPanEvGZDf63Ihh6tLPTlNXW2OCiUCiWzllZWfD3/ru8vCEh
+IVLT//3dQGxYGHe+4QBVlOLBNuSsI/P8//+qDcDv/93Rxa/N3rS1teK8lN/3//Tw7vz49To6OuCL
+GoPd+r+ADeCiHu65Kat8F0SWxnqzRN2wKv/mSv6+JsSdJ+OdO/CTEsjg7YHA4KChodfhzbvFzfnE
+LtXb3VCaCihsnmFOFW2rMf++IOLq8+aRGJR7IiwgBsXY5GtQEeKTHsWmLfumDzqSw+nSvujEn+C1
+hVJSWkHP/97e3lelzzWPwuvLOfGmGYxvHc/R0+/v773r+fDr6CrK//f+///rRcjKxcvy/+jy33xW
+EP+1Gv6sGQBPjBvF/33e/8rt+VDQ/Lx/EzSf1P/EK4zi/3h4eP///yH5BAEHAP8ALAAAAABzACwB
+AAj/AP8JFBhgCBRQCBMqXMiwocOHCyelG0ixIpQDGDNq1AilIkUocUKKHDmyY8Uhk2zU8ciypcuX
+L5FEiLCyJRRxSGD+QyLOZEVQNtIJTYekqNGjSEANDCDOhsA6UKNKnUq1qtWqjhwx8oaoK6N2/+o0
+ZXkTSVR16q6K9SkQikqdBG2YhJKzDtK7ePPqzeuK0RIlvUwIVhKqG1hxQzweQBKgcQaBc1g0njwZ
+yYGKLyZSpjylc9as6V78k/hPKN5ZL4yi3rv3RYO7pLjUMDPCnW3bmOTQcvUPZ8UDKuvo+ZfJTzt8
+Vm1cphgnXYCqqiJF2nfsX+N0cZBMKi10FgAALlBM/9qBS5J28uaLev/OWr0/pKQ0ZWOmDVC5ESNQ
+6SciR4SrOttRBBxU6kxgzwf9/AOCDz6kFZVyFTVH1T/IDGCFKAPMEFYd2E3C4VCzEJJOAqMUkUA6
+EpmIIogiDuXii9216CIE0sCBBxjQVMMKKkT0yE8NWTgyhFMDDViHOrCMMcY9ArUDloN1QMhcOlVR
+IIooLRxDRlTY0WRDUOkA0SIuhAAxVJkvijlUArg0IBSbbqbTAC5FyCgUF3Lww0wwxJwDTSqJEGHI
+oFh8Q0o64ghoQ1Hq9KBkOF9EegqTGRQl5UDNIXXLP+OEEEJOt7gYxxBpEkJGHDnEsYM4ZJy6aqut
+iv/Zqji4ALEDOrTaig46OwBBJqytpoAFP05EEYwhOqiQShSD8kNHKGQkpahQjY6BAzt5ZJvHB7BM
+IdSlAjXnIg2L8PALOdzwUMY1NAw1ajpffgmEC7jc0FQDksTxJb76yvtdm8nYAEQDDQQ8MME2JENI
+vF8u8cMwrZBAwh46YKLCGlUYMkwnxUghbZHxVmvtISTjcIorSXy7HKYv3iKLJ+RY8osnBMhCQ7xx
+NMUwEKMkgwvOOwAdLxAOfOnAdwA4cPR3SgMhcNEML7FJJ3RU0QECYQTTyxrYODHMPB2TgY6iX4p8
+DymBpP1PIAyvHC688dJACRN0U2GEEdess86QcQD/xTAaRTvQQLw5oEG44TYAbjTiNjjAuOOJQx2v
+Ipx0YjkdrSDQ9R/WPDLMJqFAMoTbwJXtaB4JDjTFEKwP6fY/zTEcryBGEODF3qyn1HfrrANu0A4H
+sA4DRsIHP4TvQyTjgEFQKM+88zksz3sbhcxjDgLy9PGINb7w4gEC0nDyzRU9Kcr6CrWww0448KQd
+iCu1tA4u7OnI/6UtZ6yyyu2T9K+7OIhpHfJgcAMX7AAGQyiCARHYO+kNYQc7cEEpHhjBUkCBXjdw
+YOveYAdzPAEPj+jDEUhAjyPgAQM1MAAkUEAG8w1BF//4Qh7UR7JDnIIU6mDd/PTFO9ap4Rn68wJK
+//xnAyEgAR097OEGNtC6JSaRd2h4hwClaBAmJhESscjFNgrQhB/8oAn6oEcTdlECEUwDgL+xQevS
+Fg57aGtb3dLh64RggyzYsXVZeEY96rEMKYiDiELoDRSeSMhCGvKQ02hDDewwD3rQYx6NfIUxxDCN
+CKCjJiDz3xdI0Y5+RCpSlOrf/Ojov1I+gwMcWEYWSllEgSBkJrCMpSxnScta2jIC04jFErJhDE74
+khoQaMM0JgEcxWjHf/lYgUdW4D/LYAZFpezfBR7wAAaskoii+Uc7oACFaHrzm+AMpzgXsIBYiEER
+ihCDGyKwACigg0gW+WM0WfDJSEWTLf/o5jfvEP+DGCwjmnKhiA1AgYKbyFOcCE3oN9lJzgVMwp3i
+wKRHbqLQ/uHTlRXtn1I8MgQUbOSjIA2pSEe6Ed/A5CIkxUgzXILSlF4ULjCNqUxnStOa2vSmOM2p
+TnfK05769KdADapQh0rUovq0AUZNqlIHQrClOnWnBIvqP6KKVKQ+9ao4tWoDNmNVrHo1pl19DVK6
++tWytoSsg2MYWc3KVqZSdapRzcJa20rXs861rnilyF3zyte++vWvgA2sYAdL2MIa9rCITaxi8UrV
+xjZ1sUTd61QhG9l/LEcjk6WsULe6mQM0RrKazWkD6nCAqHj2s6EN6mhNmxEagDa1NnXTAWAkJ9j/
+/jStstuXbY+qnNGpATjAee1uZdqAQgp3uDBtQBYOsNzmHmASx0WuThoAwOpaN7rSfYljG5vd7nr3
+u+ANr3jHS97ymve8seUuesFqRztid73bdex6zwqT94YXqSLN7HwrslqolNa/ULEveOOUjtkKxcC1
+3S9/v1Q65ahVwfwdXUiHIODvKlecFfZufNUL4Q57+MMgDrGIR0ziEpv4xChOsYpXzOIWu/jFMI6x
+jGdM4xrb+MY4zjFPN/zYD782w91Fajs8e4AhW1YgQM5uf62SZOnK1hazjXKBE+xh3OZWtz5mXfC2
+PDrWNRm5Dehfe6/pvy+DmWDu5XCIlSvXFDPX/8zibcDrdEznOtv5znjWMY/hvNsfg1jIRDbycvgM
+2yVXhdCpfbKUpYzo0Fo5XkNQRhCCoIF4BKDKWu7yO4IwCGBYQAYnqMSlIRzmSYxZC2xoxCX+4Yxo
+nCAeVUazXDUgA2c44x8KuMQWKvFn9woAGBUBhgBA/OZ/VGILl1AArnXNax8vJx4niMaqL+FqWI84
+AJU4wRaAsYVQj3rENKhAFz7RhQrQIM/oTre6183udrv73fCOt7znTe962/ve+M63vvfN7377+98A
+D7jAB07wghv84AhPuMIXzvCGO/zhEI+4xCdO8Ypb/OIYz7jGN87xjnv84yAPuchHTvKSm/zkKKRP
+ucpXzvKWu5zEaoa5Xk+81kYPl7MEQy3MA9xfm9t2yQeggWtLHCcpU1nEaQUulkfcADX81rdq8Hmh
+M01hmrdX6jcXB9bB/PKue/3rYA/7idHwD7KbvcVkJzHZc8D2HLj5ADm4TNpHTHa4YyTFbXf73EW8
+9xSf/exiD7zgB0/4wnv872VHe4nrnpG3373vIGb83VGMWch/2PImRjzmDc/5zt85IAA7
+------=_NextPart_000_A54B_DBB294ED.A2371D7D
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.habadog.com/wp-content/themes/zbench/style.css
+
+* { margin: 0px; padding: 0px; }
+
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form,=
+ p, blockquote, fieldset, input { margin: 0px; padding: 0px; }
+
+abbr[title], acronym[title] { border-bottom-width: thin; border-bottom-styl=
+e: solid; cursor: help; }
+
+body { font-size: 12px; font-family: Tahoma, Arial, Helvetica, sans-serif; =
+color: rgb(51, 51, 51); text-align: left; background: rgb(247, 247, 247); }
+
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+h1 { font-size: 24px; line-height: 30px; }
+
+h2 { font-size: 20px; line-height: 26px; }
+
+h3 { font-size: 16px; line-height: 24px; }
+
+h4 { font-size: 14px; line-height: 20px; }
+
+h5 { font-size: 14px; line-height: 20px; }
+
+h6 { font-size: 14px; line-height: 20px; }
+
+small { font-size: 10px; line-height: 16px; }
+
+dl { font-size: 12px; }
+
+dt { width: 120px; font-weight: bold; }
+
+a { color: rgb(0, 68, 119); text-decoration: none; outline: none; }
+
+a:hover { color: rgb(74, 99, 15); text-decoration: none; }
+
+fieldset, img { border: none; }
+
+hr { display: none; }
+
+.clear { clear: both; margin: 0px; padding: 0px; }
+
+#search, #sidebar-border, #sidebar, .sticky, #commentform textarea, .page-t=
+itle, .page-title h1, #header_image, #header_image_border { border-radius: =
+6px; }
+
+#author, #email, #url, #submit { border-radius: 3px; }
+
+#menus a { border-radius: 6px 6px 0px 0px; }
+
+#menus ul ul a { border-radius: 0px; }
+
+#nav { z-index: 5; position: relative; height: 31px; margin: 0px auto; padd=
+ing-top: 20px; clear: both; background: rgb(69, 69, 70); }
+
+#menus { width: 700px; height: 31px; margin: 0px auto; padding-right: 260px=
+; font-size: 14px; text-shadow: rgb(0, 0, 0) 0px 1px 0px; }
+
+#menus a { border-top-width: 1px; border-right-width: 1px; border-left-widt=
+h: 1px; border-style: solid solid none; border-top-color: rgb(85, 85, 85); =
+border-right-color: rgb(85, 85, 85); border-left-color: rgb(85, 85, 85); co=
+lor: rgb(171, 170, 170); display: block; line-height: 30px; padding: 0px 10=
+px; background: rgb(51, 51, 51); }
+
+#menus ul { list-style: none; margin: 0px; }
+
+#menus li { float: left; position: relative; margin-right: 8px; }
+
+#menus li:hover > a { color: rgb(255, 255, 255); background: rgb(34, 34, 34=
+); }
+
+#menus ul li.current_page_item > a, #menus ul li.current-menu-ancestor > a,=
+ #menus ul li.current-menu-item > a, #menus ul li.current-menu-parent > a {=
+ color: rgb(51, 51, 51); text-shadow: rgb(255, 255, 255) 0px 1px 0px; backg=
+round: rgb(247, 247, 247); }
+
+#menus ul li.current_page_item:hover > a, #menus ul li.current-menu-ancesto=
+r:hover > a, #menus ul li.current-menu-item:hover > a, #menus ul li.current=
+-menu-parent:hover > a { color: rgb(255, 255, 255); text-shadow: rgb(0, 0, =
+0) 0px 1px 0px; background: rgb(34, 34, 34); }
+
+#menus ul li:hover > ul { display: block; }
+
+#menus ul ul a { width: 160px; height: auto; background: rgb(34, 34, 34); }
+
+#menus ul ul { display: none; position: absolute; top: 31px; left: 0px; flo=
+at: left; width: 150px; z-index: 99999; }
+
+#menus ul ul li { min-width: 150px; }
+
+#menus ul ul ul { left: 100%; top: 0px; }
+
+#search { box-shadow: rgb(119, 119, 119) 2px 2px 5px; -webkit-box-shadow: r=
+gb(119, 119, 119) 2px 2px 5px; position: absolute; right: 50%; margin-right=
+: -450px; bottom: -14px; width: 230px; height: 26px; overflow: hidden; bord=
+er: 1px solid rgb(153, 153, 153); background: rgb(86, 86, 87); }
+
+#search form { padding: 0px; }
+
+#search input#s { width: 190px; height: 14px; border: none; color: rgb(221,=
+ 221, 221); padding: 6px; font-size: 12px; background: transparent; }
+
+#search form input#searchsubmit { cursor: pointer; position: absolute; righ=
+t: 2px; top: 0px; width: 30px; height: 26px; padding-left: 30px; border-sty=
+le: none none none solid; border-left-width: 1px; border-left-color: rgb(15=
+3, 153, 153); text-indent: -9999px; background: url(http://www.habadog.com/=
+wp-content/themes/zbench/images/search-input-bg.gif) 100% 0px no-repeat rgb=
+(86, 86, 87); }
+
+#wrapper { margin: 0px auto; width: 960px; }
+
+#header { overflow: hidden; z-index: 1; position: relative; margin: 30px au=
+to; }
+
+#header h1 { float: left; padding: 0px 0px 0px 10px; text-shadow: rgb(153, =
+153, 153) 1px 1px 1px; font-size: 28px; font-family: Georgia, 'Times New Ro=
+man', Times, serif; }
+
+#header h1 a { color: rgb(34, 34, 34); line-height: 30px; }
+
+#header h2 { float: left; height: 20px; overflow: hidden; line-height: 18px=
+; padding: 10px 0px 0px 20px; color: rgb(34, 34, 34); font-size: 12px; font=
+-weight: normal; text-shadow: rgb(255, 255, 255) 0px 1px 0px; }
+
+#header_image { width: 952px; height: 182px; margin: 30px 0px 0px; padding:=
+ 3px; border: 1px solid rgb(204, 204, 204); }
+
+#header_image_border { overflow: hidden; width: 950px; height: 180px; borde=
+r: 1px solid rgb(255, 255, 255); background: rgb(86, 86, 87); }
+
+#content { overflow: hidden; float: left; width: 640px; padding: 0px; margi=
+n-right: 20px; }
+
+.page-title { margin: 0px 0px 20px; border: 1px solid rgb(204, 204, 204); b=
+ackground: rgb(238, 238, 238); }
+
+.page-title h1 { font-size: 18px; height: 30px; line-height: 30px; padding:=
+ 5px 10px; border: 1px solid rgb(255, 255, 255); }
+
+.post { position: relative; width: 640px; margin: 0px 0px 10px; padding: 0p=
+x; }
+
+div.post-single { margin: 0px; }
+
+div.post-page { margin: 0px; border-bottom-width: 1px; border-bottom-style:=
+ solid; border-bottom-color: rgb(255, 255, 255); }
+
+h2.title { border-bottom-width: 1px; border-bottom-style: solid; border-bot=
+tom-color: rgb(255, 255, 255); font-size: 16px; text-shadow: rgb(170, 170, =
+170) 1px 1px 3px; margin: 0px; padding: 2px 10px; }
+
+h2.title a { color: rgb(51, 68, 85); }
+
+h2.title a:hover { color: rgb(74, 99, 15); }
+
+h2.title-single { color: rgb(51, 68, 85); }
+
+.entry { font-size: 13px; overflow: hidden; padding: 0px 10px; }
+
+.entry ul, .entry ol { margin: 0px 30px 18px; }
+
+.entry li { line-height: 18px; }
+
+.entry hr { display: block; }
+
+.entry p { line-height: 18px; margin: 0px 0px 18px; }
+
+.entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6 { margin: =
+0px 0px 18px; color: rgb(85, 85, 85); }
+
+.entry a { color: rgb(51, 51, 51); text-decoration: underline; }
+
+.entry a:hover { color: rgb(74, 99, 15); text-decoration: none; }
+
+.entry img { border: 1px solid rgb(221, 221, 221); padding: 5px; background=
+: rgb(255, 255, 255); }
+
+.entry img.wp-smiley { border: none; padding: 0px; background: rgb(255, 255=
+, 255); }
+
+.entry table { border: 2px solid rgb(204, 204, 204); border-collapse: colla=
+pse; margin: 5px 0px 10px; background: rgb(255, 255, 255); }
+
+.entry th, .entry td { border: 1px solid rgb(204, 204, 204); padding: 3px 1=
+0px; text-align: left; vertical-align: top; }
+
+.entry .entry tr.even td { background: rgb(247, 247, 247); }
+
+.entry th { background: rgb(237, 239, 240); }
+
+.entry blockquote { color: rgb(85, 85, 85); padding: 10px; margin: 0px 0px =
+20px; border: 1px solid rgb(221, 221, 221); background: rgb(238, 238, 238);=
+ }
+
+.entry code { color: rgb(221, 221, 221); background: rgb(51, 51, 51); }
+
+.entry pre { overflow: auto; width: 95%; line-height: 16px; margin: 0px 0px=
+ 20px; padding: 0px 5px 16px; color: rgb(85, 85, 85); font-family: 'Courier=
+ New', FixedSys; font-size: 12px; border-width: 1px 1px 1px 15px; border-st=
+yle: solid; border-color: rgb(204, 204, 204); background: rgb(250, 250, 250=
+); }
+
+.post-info-top { border-top-width: 1px; border-top-style: solid; border-top=
+-color: rgb(221, 221, 221); line-height: 18px; height: 18px; position: rela=
+tive; color: rgb(153, 153, 153); margin: 0px 0px 18px; padding: 2px 10px; o=
+verflow: hidden; display: block; }
+
+.post-info-bottom { border-bottom-width: 1px; border-bottom-style: solid; b=
+order-bottom-color: rgb(255, 255, 255); line-height: 24px; position: relati=
+ve; color: rgb(153, 153, 153); margin: 0px; padding: 2px 10px; overflow: hi=
+dden; display: block; }
+
+.post-info-top a, .post-info-bottom a { color: rgb(153, 153, 153); }
+
+.post-info-top a:hover, .post-info-bottom a:hover { color: rgb(74, 99, 15);=
+ text-decoration: underline; }
+
+.entry p.read-more a, .entry p a.more-link, .post-info-date, .post-info-cat=
+egory, .post-info-tags, #gotocomments, #addcomment { display: block; paddin=
+g-left: 20px; background: url(http://www.habadog.com/wp-content/themes/zben=
+ch/images/icons.gif) 0px 0px no-repeat scroll; }
+
+.post-info-date { float: left; background-position: 0px -40px; }
+
+.post-info-category { display: inline; background-position: -35px -60px; }
+
+.post-info-tags { display: inline; margin-left: 10px; background-position: =
+-20px -240px; }
+
+#gotocomments { float: right; margin-right: 10px; background-position: 0px =
+-100px; }
+
+#addcomment { float: right; background-position: 0px -120px; }
+
+.entry p.read-more a, .entry p a.more-link { display: inline; font-weight: =
+bold; color: rgb(74, 99, 15); text-decoration: none; background-position: 0=
+px -20px; }
+
+.entry p a.more-link { display: block; margin-top: 18px; }
+
+.entry p.read-more a:hover, .entry p a.more-link:hover { color: rgb(51, 68,=
+ 85); }
+
+.sticky { width: 638px; border: 1px solid rgb(204, 204, 204); background: r=
+gb(242, 242, 242); }
+
+h2.sticky-h2 a { color: rgb(255, 78, 0); }
+
+.page_link { clear: both; padding: 10px 0px 18px; }
+
+.add-info { padding: 0px 10px; }
+
+.add-info h3 { line-height: 16px; font-size: 12px; color: rgb(74, 99, 15); =
+margin-bottom: 5px; background: rgb(229, 229, 229); }
+
+.add-info ul { list-style: square; }
+
+#sidebar-border { position: relative; float: left; width: 298px; border: 1p=
+x solid rgb(204, 204, 204); background: rgb(242, 242, 242); }
+
+#rss { position: absolute; top: -10px; right: 120px; }
+
+#rss a { display: block; width: 66px; height: 20px; text-indent: -9999em; b=
+ackground: url(http://www.habadog.com/wp-content/themes/zbench/images/icons=
+.gif) 0px 0px no-repeat; }
+
+#twitter { position: absolute; top: -10px; right: 95px; }
+
+#twitter a { display: block; width: 20px; height: 20px; text-indent: -9999e=
+m; background: url(http://www.habadog.com/wp-content/themes/zbench/images/i=
+cons.gif) -70px 0px no-repeat; }
+
+#facebook { position: absolute; top: -10px; right: 191px; }
+
+#facebook a { display: block; width: 20px; height: 20px; text-indent: -9999=
+em; background: url(http://www.habadog.com/wp-content/themes/zbench/images/=
+icons.gif) -95px 0px no-repeat; }
+
+#sidebar { overflow: hidden; width: 276px; border: 1px solid rgb(255, 255, =
+255); padding: 20px 10px 10px; }
+
+#sidebar a { color: rgb(85, 85, 85); text-shadow: rgb(250, 250, 250) 0px 1p=
+x 0px; }
+
+#sidebar a:hover { color: rgb(153, 153, 153); }
+
+#sidebar h3, #sidebar h2 { text-shadow: rgb(170, 170, 170) 1px 1px 3px; col=
+or: rgb(51, 68, 85); font-size: 16px; margin: 0px; padding: 0px 5px; line-h=
+eight: 30px; border-bottom-width: 1px; border-bottom-style: solid; border-b=
+ottom-color: rgb(255, 255, 255); }
+
+#sidebar li { line-height: 20px; }
+
+#sidebar .widget { margin-bottom: 10px; }
+
+#sidebar .widget div { padding: 8px 5px; border-top-width: 1px; border-top-=
+style: solid; border-top-color: rgb(221, 221, 221); }
+
+#sidebar .widget div div { padding: 0px; border-top-style: none; }
+
+#sidebar .widget div.clear { padding: 0px; margin: 0px; border: none; }
+
+#sidebar ul { list-style: none; padding: 8px 5px; border-top-width: 1px; bo=
+rder-top-style: solid; border-top-color: rgb(221, 221, 221); }
+
+#sidebar ul li { padding-left: 15px; background: url(http://www.habadog.com=
+/wp-content/themes/zbench/images/icons.gif) 0px -280px no-repeat; }
+
+#sidebar ul li:hover { background: url(http://www.habadog.com/wp-content/th=
+emes/zbench/images/icons.gif) -10px -260px no-repeat; }
+
+#sidebar ul ul { padding: 0px; border-top-style: none; }
+
+#sidebar .widget input#s { width: 190px; height: 22px; line-height: 22px; p=
+adding: 0px 5px; }
+
+#sidebar .widget input#searchsubmit { width: 65px; }
+
+#sidebar ul li.rc-item, #sidebar ul li.rc-navi { padding: 0px; margin: 3px =
+0px; background: none; }
+
+#sidebar ul li.rc-item div { padding: 0px; border: none; }
+
+#sidebar ul li.rc-item .rc-avatar img { border: 1px solid rgb(221, 221, 221=
+); }
+
+#comments-div { border-top-width: 1px; border-top-style: solid; border-top-=
+color: rgb(221, 221, 221); position: relative; line-height: 24px; height: 2=
+4px; text-shadow: rgb(153, 153, 153) 1px 1px 1px; text-align: right; margin=
+: 0px 0px 30px; padding: 2px 10px; }
+
+h2#comments { line-height: 24px; font-size: 12px; font-weight: normal; widt=
+h: 300px; float: right; }
+
+span#comments-addcomment { position: absolute; left: 10px; top: 2px; paddin=
+g-left: 20px; background: url(http://www.habadog.com/wp-content/themes/zben=
+ch/images/icons.gif) 0px -115px no-repeat; }
+
+span#comments-addcomment a { color: rgb(0, 68, 119); text-decoration: none;=
+ }
+
+span#comments-addcomment a:hover { color: rgb(74, 99, 15); text-decoration:=
+ none; }
+
+ol.commentlist li { position: relative; list-style: none; height: 1%; margi=
+n: 0px 20px; padding-bottom: 20px; }
+
+ol.commentlist li div em.approved { margin-left: 55px; color: rgb(255, 0, 0=
+); }
+
+ol.commentlist li div.comment-author { margin: 0px; padding: 0px; line-heig=
+ht: 16px; height: 16px; border-bottom-width: 1px; border-bottom-style: soli=
+d; border-bottom-color: rgb(221, 221, 221); display: block; }
+
+ol.commentlist li div.vcard img.avatar { position: absolute; left: 0px; top=
+: 0px; width: 40px; height: 40px; padding: 2px; border: 1px solid rgb(221, =
+221, 221); background: rgb(255, 255, 255); }
+
+ol.commentlist li div.vcard cite.fn { margin-left: 55px; font-style: normal=
+; font-weight: bold; }
+
+ol.commentlist li div.vcard cite.fn a.url { color: rgb(0, 68, 119); }
+
+ol.commentlist li.bypostauthor div.vcard cite.fn a.url { text-shadow: rgb(1=
+19, 119, 119) 1px 1px 1px; }
+
+ol.commentlist li.bypostauthor div.vcard cite.fn a.url:hover { color: rgb(0=
+, 0, 0); }
+
+ol.commentlist li div.vcard cite.fn a.url:hover { color: rgb(170, 170, 170)=
+; }
+
+ol.commentlist li span.comment-meta { }
+
+ol.commentlist li span.comment-meta a { color: rgb(170, 170, 170); }
+
+ol.commentlist li span.comment-meta a:hover { color: rgb(85, 85, 85); }
+
+ol.commentlist li div.comment-text { border-top-width: 1px; border-top-styl=
+e: solid; border-top-color: rgb(255, 255, 255); margin: 0px 0px 10px; paddi=
+ng-top: 10px; }
+
+ol.commentlist li.bypostauthor div.comment-text { color: rgb(119, 119, 119)=
+; }
+
+ol.commentlist li p, ol.commentlist li blockquote { margin: 0px 50px 0px 55=
+px; padding-bottom: 10px; }
+
+ol.commentlist li blockquote { padding: 5px; border: 1px dotted rgb(221, 22=
+1, 221); color: rgb(153, 153, 153); background: rgb(250, 250, 250); }
+
+ol.commentlist li blockquote p { margin-left: 0px; }
+
+ol.commentlist li code { margin-bottom: 10px; padding: 2px; color: rgb(221,=
+ 221, 221); background: rgb(119, 119, 119); }
+
+ol.commentlist li div.reply { position: absolute; right: 0px; top: 8px; }
+
+ol.commentlist li div.reply a { display: block; width: 30px; text-align: ce=
+nter; color: rgb(170, 170, 170); padding: 0px 5px; border: 1px solid rgb(22=
+3, 223, 223); border-radius: 12px; background: rgb(250, 250, 250); }
+
+ol.commentlist li div.reply a:hover { background: rgb(242, 242, 242); }
+
+ol.commentlist li ul.children li { margin: 0px 0px 0px 30px; padding-bottom=
+: 0px; border-bottom-style: none; color: rgb(85, 85, 85); }
+
+ol.commentlist li ul.children li.depth-2 { margin: 0px 0px 0px 55px; }
+
+ol.commentlist li ul.children li div { border-top-width: 1px; border-top-st=
+yle: solid; border-top-color: rgb(223, 223, 223); }
+
+ol.commentlist li ul.children li div div { border-top-style: none; }
+
+ol.commentlist li ul.children li div.comment-author { border-top-width: 1px=
+; border-top-style: solid; border-top-color: rgb(255, 255, 255); border-bot=
+tom-style: none; }
+
+ol.commentlist li ul.children li div.vcard img.avatar { top: -8px; width: 2=
+4px; height: 24px; }
+
+ol.commentlist li ul.children li div.vcard cite.fn { margin-left: 40px; }
+
+ol.commentlist li ul.children li p, ol.commentlist li ul.children li blockq=
+uote { margin: 0px 0px 0px 40px; }
+
+ol.commentlist li ul.children li blockquote p { margin-left: 0px; }
+
+ol.commentlist li ul.children li div.reply { top: -8px; }
+
+ol.commentlist li ul.children li div.reply a { background: rgb(242, 242, 24=
+2); }
+
+ol.commentlist li ul.children li div.reply a:hover { background: rgb(250, 2=
+50, 250); }
+
+#pagination, #nav-below { display: block; width: 620px; line-height: 18px; =
+margin: 0px; padding: 2px 10px; border-top-width: 1px; border-top-style: so=
+lid; border-top-color: rgb(221, 221, 221); }
+
+.navigation { border-bottom-width: 1px; border-bottom-style: solid; border-=
+bottom-color: rgb(255, 255, 255); text-align: right; line-height: 24px; mar=
+gin: 0px; padding: 2px 10px; }
+
+#nav-below { display: inline-block; padding: 20px 10px; border-top-width: 1=
+px; border-top-style: solid; border-top-color: rgb(221, 221, 221); border-b=
+ottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(255,=
+ 255, 255); }
+
+.nav-previous { float: left; width: 50%; }
+
+.nav-next { float: right; width: 50%; text-align: right; }
+
+#respond { margin: 0px 0px 20px; padding: 20px 0px 0px 55px; border-top-wid=
+th: 1px; border-top-style: solid; border-top-color: rgb(221, 221, 221); }
+
+#respond small { font-size: 12px; }
+
+#respond h2, #respond h3 { text-shadow: rgb(153, 153, 153) 1px 1px 1px; fon=
+t-family: Georgia, 'Times New Roman', Times, serif; margin-bottom: 10px; }
+
+#respond a#cancel-comment-reply-link { color: rgb(146, 0, 23); text-shadow:=
+ none; }
+
+#respond a#cancel-comment-reply-link:hover { color: rgb(255, 78, 0); }
+
+#commentform { margin: 0px 55px 0px 0px; padding: 0px; }
+
+#commentform p { margin: 0px 0px 10px; padding: 0px; }
+
+#commentform p.smilies { margin: 0px 0px 3px; padding: 0px 3px; }
+
+#commentform p.comment-notes { margin: 10px 0px; color: rgb(153, 153, 153);=
+ }
+
+#commentform textarea { padding: 3px; border: 1px solid rgb(221, 221, 221);=
+ background: rgb(255, 255, 255); }
+
+#commentform .comment-form-comment label { display: none; }
+
+#author, #email, #url { height: 16px; margin-right: 5px; padding: 3px; bord=
+er: 1px solid rgb(221, 221, 221); background: rgb(255, 255, 255); }
+
+#comment { width: 80%; height: 125px; }
+
+#submit { font-weight: bold; color: rgb(204, 204, 204); height: 25px; paddi=
+ng: 2px 10px; border: 1px solid rgb(85, 85, 85); background: rgb(34, 34, 34=
+); }
+
+#submit:hover { color: rgb(255, 255, 255); }
+
+.trackbacks-pingbacks h3 { font-weight: bold; margin-bottom: 10px; border-b=
+ottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(221,=
+ 221, 221); color: rgb(85, 85, 85); padding: 3px 0px; }
+
+.trackbacks-pingbacks ul { margin: 5px 20px 15px; list-style-type: circle; =
+}
+
+.trackbacks-pingbacks ul li { margin-bottom: 4px; }
+
+#footer { margin: 20px auto 0px; height: 50px; background: rgb(69, 69, 70);=
+ }
+
+#footer-inside { position: relative; width: 640px; margin: 0px auto; paddin=
+g: 5px 320px 5px 0px; color: rgb(170, 170, 170); }
+
+#footer-inside a { border-bottom-width: 1px; border-bottom-style: dashed; b=
+order-bottom-color: rgb(170, 170, 170); color: rgb(170, 170, 170); }
+
+#footer-inside #back-to-top { position: absolute; top: 5px; right: 150px; c=
+olor: rgb(242, 242, 242); font-size: 14px; }
+
+#footer-inside #back-to-top a { border: none; color: rgb(242, 242, 242); }
+
+.aligncenter, div.aligncenter { display: block; margin: auto; }
+
+.alignleft { float: left; }
+
+.alignright { float: right; }
+
+.wp-caption { text-align: center; padding-top: 4px; margin: 10px; border-ra=
+dius: 3px; }
+
+.wp-caption img { margin: 0px; padding: 0px; border: 0px none; }
+
+.wp-caption p.wp-caption-text { font-size: 12px; line-height: 17px; padding=
+: 0px 4px 5px; margin: 0px; }
+
+.widget_calendar h3 { display: none; }
+
+#wp-calendar { width: 100%; }
+
+#wp-calendar #today { background: rgb(230, 230, 230); }
+
+#wp-calendar tbody a { font-weight: bolder; }
+
+#wp-calendar caption { font-family: Arial; font-weight: bolder; letter-spac=
+ing: -0.05em; font-size: 150%; text-align: left; padding-bottom: 5px; }
+
+#wp-calendar th, #wp-calendar td { text-align: center; }
+
+#wp-calendar tbody td { border: 1px solid rgb(204, 204, 204); }
+
+#wp-calendar tbody td.pad { border: 0px none; }
+
+#wp-calendar th { color: rgb(255, 255, 255); background: rgb(153, 153, 153)=
+; }
+
+#wp-calendar td#prev { text-align: left; padding-top: 5px; }
+
+#wp-calendar td#next { text-align: right; padding-top: 5px; }
+
+#content .gallery .gallery-caption { color: rgb(136, 136, 136); font-size: =
+12px; margin: 0px 0px 12px; }
+------=_NextPart_000_A54B_DBB294ED.A2371D7D
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.habadog.com/wp-content/plugins/syntax-highlighter-mt/styles/shCore.css?ver=2.2.4
+
+.syntaxhighlighter a, .syntaxhighlighter div, .syntaxhighlighter code, .syn=
+taxhighlighter table, .syntaxhighlighter table td, .syntaxhighlighter table=
+ tr, .syntaxhighlighter table tbody, .syntaxhighlighter table thead, .synta=
+xhighlighter table caption, .syntaxhighlighter textarea { border-radius: 0p=
+x !important; border: 0px !important; bottom: auto !important; float: none =
+!important; height: auto !important; left: auto !important; line-height: 1.=
+1em !important; margin: 0px !important; outline: 0px !important; overflow: =
+visible !important; padding: 0px !important; position: static !important; r=
+ight: auto !important; text-align: left !important; top: auto !important; v=
+ertical-align: baseline !important; width: auto !important; box-sizing: con=
+tent-box !important; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Co=
+urier New', Courier, monospace !important; font-weight: normal !important; =
+font-style: normal !important; font-size: 1em !important; min-height: inher=
+it !important; background: none !important; }
+
+.syntaxhighlighter { width: 100% !important; margin: 1em 0px !important; po=
+sition: relative !important; overflow: auto !important; font-size: 1em !imp=
+ortant; }
+
+.syntaxhighlighter.source { overflow: hidden !important; }
+
+.syntaxhighlighter .bold { font-weight: bold !important; }
+
+.syntaxhighlighter .italic { font-style: italic !important; }
+
+.syntaxhighlighter .line { white-space: pre !important; }
+
+.syntaxhighlighter table { width: 100% !important; }
+
+.syntaxhighlighter table caption { text-align: left !important; padding: 0.=
+5em 0px 0.5em 1em !important; }
+
+.syntaxhighlighter table td.code { width: 100% !important; }
+
+.syntaxhighlighter table td.code .container { position: relative !important=
+; }
+
+.syntaxhighlighter table td.code .container textarea { box-sizing: border-b=
+ox !important; position: absolute !important; left: 0px !important; top: 0p=
+x !important; width: 100% !important; height: 100% !important; border: none=
+ !important; padding-left: 1em !important; overflow: hidden !important; whi=
+te-space: pre !important; background: white !important; }
+
+.syntaxhighlighter table td.gutter .line { text-align: right !important; pa=
+dding: 0px 0.5em 0px 1em !important; }
+
+.syntaxhighlighter table td.code .line { padding: 0px 1em !important; }
+
+.syntaxhighlighter.nogutter td.code .container textarea, .syntaxhighlighter=
+.nogutter td.code .line { padding-left: 0em !important; }
+
+.syntaxhighlighter.show { display: block !important; }
+
+.syntaxhighlighter.collapsed table { display: none !important; }
+
+.syntaxhighlighter.collapsed .toolbar { padding: 0.1em 0.8em 0em !important=
+; font-size: 1em !important; position: static !important; width: auto !impo=
+rtant; height: auto !important; }
+
+.syntaxhighlighter.collapsed .toolbar span { display: inline !important; ma=
+rgin-right: 1em !important; }
+
+.syntaxhighlighter.collapsed .toolbar span a { padding: 0px !important; dis=
+play: none !important; }
+
+.syntaxhighlighter.collapsed .toolbar span a.expandSource { display: inline=
+ !important; }
+
+.syntaxhighlighter .toolbar { position: absolute !important; right: 1px !im=
+portant; top: 1px !important; width: 11px !important; height: 11px !importa=
+nt; font-size: 10px !important; z-index: 10 !important; }
+
+.syntaxhighlighter .toolbar span.title { display: inline !important; }
+
+.syntaxhighlighter .toolbar a { display: block !important; text-align: cent=
+er !important; text-decoration: none !important; padding-top: 1px !importan=
+t; }
+
+.syntaxhighlighter .toolbar a.expandSource { display: none !important; }
+
+.syntaxhighlighter.ie { font-size: 0.9em !important; padding: 1px 0px !impo=
+rtant; }
+
+.syntaxhighlighter.ie .toolbar { line-height: 8px !important; }
+
+.syntaxhighlighter.ie .toolbar a { padding-top: 0px !important; }
+
+.syntaxhighlighter.printing .line.alt1 .content, .syntaxhighlighter.printin=
+g .line.alt2 .content, .syntaxhighlighter.printing .line.highlighted .numbe=
+r, .syntaxhighlighter.printing .line.highlighted.alt1 .content, .syntaxhigh=
+lighter.printing .line.highlighted.alt2 .content { background: none !import=
+ant; }
+
+.syntaxhighlighter.printing .line .number { color: rgb(187, 187, 187) !impo=
+rtant; }
+
+.syntaxhighlighter.printing .line .content { color: black !important; }
+
+.syntaxhighlighter.printing .toolbar { display: none !important; }
+
+.syntaxhighlighter.printing a { text-decoration: none !important; }
+
+.syntaxhighlighter.printing .plain, .syntaxhighlighter.printing .plain a { =
+color: black !important; }
+
+.syntaxhighlighter.printing .comments, .syntaxhighlighter.printing .comment=
+s a { color: rgb(0, 130, 0) !important; }
+
+.syntaxhighlighter.printing .string, .syntaxhighlighter.printing .string a =
+{ color: blue !important; }
+
+.syntaxhighlighter.printing .keyword { color: rgb(0, 102, 153) !important; =
+font-weight: bold !important; }
+
+.syntaxhighlighter.printing .preprocessor { color: gray !important; }
+
+.syntaxhighlighter.printing .variable { color: rgb(170, 119, 0) !important;=
+ }
+
+.syntaxhighlighter.printing .value { color: rgb(0, 153, 0) !important; }
+
+.syntaxhighlighter.printing .functions { color: rgb(255, 20, 147) !importan=
+t; }
+
+.syntaxhighlighter.printing .constants { color: rgb(0, 102, 204) !important=
+; }
+
+.syntaxhighlighter.printing .script { font-weight: bold !important; }
+
+.syntaxhighlighter.printing .color1, .syntaxhighlighter.printing .color1 a =
+{ color: gray !important; }
+
+.syntaxhighlighter.printing .color2, .syntaxhighlighter.printing .color2 a =
+{ color: rgb(255, 20, 147) !important; }
+
+.syntaxhighlighter.printing .color3, .syntaxhighlighter.printing .color3 a =
+{ color: red !important; }
+
+.syntaxhighlighter.printing .break, .syntaxhighlighter.printing .break a { =
+color: black !important; }
+------=_NextPart_000_A54B_DBB294ED.A2371D7D
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.habadog.com/wp-content/plugins/syntax-highlighter-mt/styles/shThemeDefault.css?ver=2.2.4
+
+.syntaxhighlighter { background-color: white !important; }
+
+.syntaxhighlighter .line.alt1 { background-color: white !important; }
+
+.syntaxhighlighter .line.alt2 { background-color: white !important; }
+
+.syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlig=
+hted.alt2 { background-color: rgb(224, 224, 224) !important; }
+
+.syntaxhighlighter .line.highlighted.number { color: black !important; }
+
+.syntaxhighlighter table caption { color: black !important; }
+
+.syntaxhighlighter .gutter { color: rgb(175, 175, 175) !important; }
+
+.syntaxhighlighter .gutter .line { border-right-width: 3px !important; bord=
+er-right-style: solid !important; border-right-color: rgb(108, 226, 108) !i=
+mportant; }
+
+.syntaxhighlighter .gutter .line.highlighted { color: white !important; bac=
+kground-color: rgb(108, 226, 108) !important; }
+
+.syntaxhighlighter.printing .line .content { border: none !important; }
+
+.syntaxhighlighter.collapsed { overflow: visible !important; }
+
+.syntaxhighlighter.collapsed .toolbar { color: blue !important; border: 1px=
+ solid rgb(108, 226, 108) !important; background: white !important; }
+
+.syntaxhighlighter.collapsed .toolbar a { color: blue !important; }
+
+.syntaxhighlighter.collapsed .toolbar a:hover { color: red !important; }
+
+.syntaxhighlighter .toolbar { color: white !important; border: none !import=
+ant; background: rgb(108, 226, 108) !important; }
+
+.syntaxhighlighter .toolbar a { color: white !important; }
+
+.syntaxhighlighter .toolbar a:hover { color: black !important; }
+
+.syntaxhighlighter .plain, .syntaxhighlighter .plain a { color: black !impo=
+rtant; }
+
+.syntaxhighlighter .comments, .syntaxhighlighter .comments a { color: rgb(0=
+, 130, 0) !important; }
+
+.syntaxhighlighter .string, .syntaxhighlighter .string a { color: blue !imp=
+ortant; }
+
+.syntaxhighlighter .keyword { color: rgb(0, 102, 153) !important; }
+
+.syntaxhighlighter .preprocessor { color: gray !important; }
+
+.syntaxhighlighter .variable { color: rgb(170, 119, 0) !important; }
+
+.syntaxhighlighter .value { color: rgb(0, 153, 0) !important; }
+
+.syntaxhighlighter .functions { color: rgb(255, 20, 147) !important; }
+
+.syntaxhighlighter .constants { color: rgb(0, 102, 204) !important; }
+
+.syntaxhighlighter .script { font-weight: bold !important; color: rgb(0, 10=
+2, 153) !important; }
+
+.syntaxhighlighter .color1, .syntaxhighlighter .color1 a { color: gray !imp=
+ortant; }
+
+.syntaxhighlighter .color2, .syntaxhighlighter .color2 a { color: rgb(255, =
+20, 147) !important; }
+
+.syntaxhighlighter .color3, .syntaxhighlighter .color3 a { color: red !impo=
+rtant; }
+
+.syntaxhighlighter .keyword { font-weight: bold !important; }
+------=_NextPart_000_A54B_DBB294ED.A2371D7D
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.habadog.com/wp-content/themes/zbench/pagenavi-css.css?ver=2.70
+
+.wp-pagenavi { padding: 5px 0px; border-top-width: 1px; border-top-style: s=
+olid; border-top-color: rgb(221, 221, 221); }
+
+.wp-pagenavi a { padding: 5px 7px; text-decoration: none; border: 1px solid=
+ rgb(247, 247, 247); }
+
+.wp-pagenavi a:hover { border: 1px solid rgb(247, 247, 247); text-decoratio=
+n: none; background: rgb(247, 247, 247); }
+
+.wp-pagenavi span.pages { height: 16px; line-height: 16px; padding: 1px 7px=
+ 1px 22px !important; }
+
+* + html .wp-pagenavi span.pages { padding: 2px 7px 2px 22px !important; }
+
+.wp-pagenavi span.current { padding: 5px 7px; border: 1px solid rgb(247, 24=
+7, 247); font-weight: bold; background: rgb(247, 247, 247); }
+
+.wp-pagenavi span.extend { padding: 2px 4px; }
+------=_NextPart_000_A54B_DBB294ED.A2371D7D
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://greatfind-a.akamaihd.net/GreatFind/cf?g=ea6268f3-303b-48f9-91b4-bf1ec0aa4f30&pn=Chrome
+
+<!DOCTYPE html><html><head><meta charset=3D"UTF-8">
+    <title></title>
+</head>
+<body>
+   =20
+
+
+</body></html>
+------=_NextPart_000_A54B_DBB294ED.A2371D7D--

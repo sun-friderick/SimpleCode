@@ -1,0 +1,181 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta name="robots" content="noindex,follow">
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<title>Linux ARP协议源码详细讲解58</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>三亿文库</o:Author>
+  <o:LastAuthor>三亿文库</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>3</o:TotalTime>
+  <o:Created>2011-07-03T05:27:00Z</o:Created>
+  <o:LastSaved>2015/10/16 15:16:41Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>9</o:Words>
+  <o:Company>http://3y.uu456.com</o:Company>
+  <o:Paragraphs>1</o:Paragraphs>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:PunctuationKerning/>
+  <w:DrawingGridVerticalSpacing>7.8 磅</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:AdjustLineHeightInTable/>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 9 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:"\@仿宋_GB2312";
+	panose-1:2 1 6 9 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:13.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;}
+h1
+	{mso-style-next:正文;
+	margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:140%;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:18.0pt;}
+ /* Page Definitions */
+ @page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:42.55pt;
+	mso-footer-margin:49.6pt;
+	mso-paper-source:0;
+	layout-grid:15.6pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:普通表格;
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+<body lang=ZH-CN style='tab-interval:21.0pt;text-justify-trim:punctuation'>
+<div class=Section1 style='layout-grid:14pt'>
+
+
+<p class=MsoNormal align=left style='text-align:left;line-height:150%;margin-top:3.6pt;'><span lang=EN-US style='font-size:9.0pt;line-height:150%'><a href="http://3y.uu456.com/ss_02402x03203903c00w01t02a028ggfrlalu8npdrmup1irler8j01h01k_1.html"><span lang=EN-US style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";text-decoration:none;text-underline:none'><span lang=EN-US>点这里，有很多篇《Linux ARP协议源码详细讲解58》</span></span></a><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";color:#993300'>在线阅读本文：</span><span lang=EN-US style='font-size:12.0pt;color:#999999'><a href="http://3y.uu456.com/bp_270r97oypx5gf8x599gs_1.html"><span
+style='text-decoration:none;text-underline:none'>http://3y.uu456.com/bp_270r97oypx5gf8x599gs_1.html</span></a><o:p></o:p></span></p>
+
+<h1 align=center style='text-align:center'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>Linux ARP协议源码详细讲解58</span></h1>
+
+
+<div class=MsoNormal style='margin-top:7.8pt;margin-right:0cm;margin-bottom:7.8pt;
+margin-left:0cm;mso-para-margin-top:.5gd;mso-para-margin-right:0cm;mso-para-margin-bottom:
+.5gd;mso-para-margin-left:0cm;text-indent:2em;mso-char-indent-count:2.0;
+line-height:20pt;mso-line-height-rule:exactly;font-family:宋体;
+mso-hansi-font-family:宋体;'><hr color="#FFFFFF" width="300"><p>Linux ARP协议源码详细讲解</p><p>arp_tbl是一个类型为struct neigh_table的全局变量，它是一个ARP的缓存表，也称为邻居表。协议栈通过ARP协议获取到的网络上邻居主机的IP地址与MAC地址的对应关 系都会保存在这个表中，以备下次与邻居通讯时使用，同时，ARP模块自身也会提供一套相应的机制来更新和维护这个邻居表。下面逐个分析arp_tbl中的 重要成员数据与函数。</p><p>entry_size，key_len，kmem_cachep。</p><p>entry_size是一个入口的大小，也就是arp_tbl中一个邻居的大小，邻居用struct neighbour结构体表示，该结构体的最后一个成员是u8 primary_key[0]，用于存放IP地址，作为这个邻居的哈希主键。所以entry_size的大小就是sizeof(struct neighbour) + 4，因为是用IP地址作主键，所以key_len就是4。kmem_cachep是一个后备高速缓存，创建一个邻居需要的内存从这个后备高速缓存中去取。</p><p>hash_buckets，hash_mask，entries，hash。</p><p>hash_buckets是一个哈希数组，里面存放了arp_tbl当前维护的所有的邻居，hash_mask是哈希数组大小的掩码，其初始值为1，所以 hash_buckets的初始大小为2(0到hash_mask的空间范围)。entries是整个arp_tbl中邻居的数量，当entries大于 hash_mask+1的时候，hash_buckets增长为原来的两部。成员hash是一个哈希函数指针，用于计算哈希值。</p><p>phash_buckets，PNEIGH_HASHMASK。</p><p>这是用于代理ARP的邻居哈希表，PNEIGH_HASHMASK固定为0xF,所以phash_buckets固定有16项，其它与hash_buckets相同。</p><p>id。</p><p>id作为这个邻居表的一个名称，是一个字符串信息，内核协议栈的arp_tbl的id是arp_cache。</p><p>gc_interval，gc_thresh1，gc_thresh2，gc_thresh3。</p><p>gc_thresh3是arp_tbl中允许拥有的邻居数量的上限，一旦超过这个上限，并且表中没有可以清理掉的垃圾邻居，那么就无法创建新的邻居，这个 值缺省被置为1024。gc_thresh2是第二个阀值，如果表中的邻居数量超过这个阀值，并且在需要创建新的邻居时，发现已经超过5秒时间表没有被刷 新过，则必须立即刷新arp_tbl表，进行强制垃圾回收，这个值缺省被置为512。gc_thresh1的用途暂时还没有发现，它缺省被置为128。 gc_interval应该是常规的垃圾回收间隔时间，被缺省置为30秒，但目前在源代码中似乎没有看到它的应用。强制垃圾收集的工作即是把引用计数为 1，且状态中没有NUD_PERMANENT的邻居全部从arp_tbl表中删除。</p><p>gc_timer。</p><p>这是一个常规垃圾回收的定时器，其定时处理函数是neigh_periodic_timer。该定时器超时后，处理函数处理hash_buckets表中 的一项，下次超时后，再处理下一项，这里的垃圾回收比强制垃圾回收条件要宽松得多，如果邻居的状态为NUD_PERMANENT或 NUD_IN_TIMER(该邻居正在解析中)，则不能回收。当邻居的引用计数为1时，并且邻居状态为NUD_FAILED(解析失败)或者该邻居距最近 一次被使用时间已超过参数表中gc_staletime的值(缺省为60秒),则可以作为垃圾回收。回收完毕后，要设置下一次进行回收的时间</p><p class="noIndent">(gc_timer的超时时间)，下次回收时间为参数表中base_reachable_time的值(缺省设为30秒)的一半，再除以 hash_buckets哈希表中的项数。也就是，基本上15秒左右会把整个arp_tbl缓存表进行一次垃圾回收。</p><p>proxy_timer，proxy_queue，proxy_redo。</p><p>proxy_timer是一个关于代理ARP的定时器，proxy_queue是一个待处理的代理ARP数据包的队列，每次定时器超时，处理函数 neigh_proxy_process依次检查队列中每一个代理ARP数据包(struct sk_buff)，对于超时，且满足相关条件的，调用proxy_redo进行处理。有关代理ARP，将专门分析讲述，这里暂时略过。</p><p>constructor。</p><p>这是一个邻居的初始化函数指针，每次创建出一个邻居后，需要马上调用这个函数对新创建的邻居进行一些初始化操作。邻居创建完，已经被赋于一个IP地址(邻 居结构体的primary_key成员)，该函数首先根据这个IP地址来确定其地址类型，然后为邻居选择相应的操作函数集(初始化邻居结构体的一些成员， 在讲到邻居结构体内容时再进行分析)。</p><p>pconstructor，pdestructor。</p><p>这是代理ARP的邻居的构建和析构函数指针，在IPv4模块中，未提供这两个函数，所以它们的指针值为空。</p><p>parms。</p><p>这是一个结构体struct neigh_parms的链表，系统中每个网络设备接口对应链表中一个节点，表示该设备接口上的邻居的一些传输参数。同时，链表中还有一个缺省的项。</p><p>last_rand，hash_rand</p><p>这两个成员其实没有联系，hash_rand是用于邻居哈希表hash_buckets的一个随机数，last_rand用于记录一个时间，即上次为 parms链表中每个节点生成reachable_time的时间，reachable_time是需要被定时刷新的。</p><p>stats。</p><p>记录arp_tbl被操作次数的一些统计数据。</p><p>结构体struct neigh_table是一个哈希表，用于描述物理上互相连接的机器的信息。ARP缓存myarp_tbl就是这样的一个结构。在分析ARP相关的初始化之前，我们先来看一下这个结构体：</p><p>truct neigh_table</p><p>{</p><p>struct neigh_table *next;</p><p>int family;</p><p>int entry_size;</p><p>int key_len;</p><p>__u32 (*hash)(const void *pkey, const struct net_device *);    int (*constructor)(struct neighbour *);</p><p>int (*pconstructor)(struct pneigh_entry *);</p><p>void (*pdestructor)(struct pneigh_entry *);</p><p>void (*proxy_redo)(struct sk_buff *skb);</p><p>char *id;</p><p>struct neigh_parms parms;</p><p>/* HACK. gc_* shoul follow parms without a gap! */</p><p>int gc_interval;</p><p>int gc_thresh1;</p><p>int gc_thresh2;</p><p>int gc_thresh3;</p><p>unsigned long last_flush;</p><p>struct timer_list gc_timer;</p><p>struct timer_list proxy_timer;</p><p>struct sk_buff_head proxy_queue;</p><p>atomic_t entries;</p><p>rwlock_t lock;</p><p>unsigned long last_rand;</p><p>kmem_cache_t *kmem_cachep; struct neigh_statistics *stats; struct neighbour **hash_buckets; unsigned int hash_mask;</p><p>__u32 hash_rnd;</p><p>unsigned int hash_chain_gc;</p><p>struct pneigh_entry **phash_buckets;</p><p>#ifdef CONFIG_PROC_FS</p><p>struct proc_dir_entry *pde;</p><p>#endif</p><p>};</p><p>entry_size是一个入口的长度，一个入口代表一个neighbour的信息,hash_buckets即为存放所有邻居的一个哈希数组，每一项对 应一条neighbour链表。struct neighbour用于代表一个neighbour，包含了其信息，下面是其重要的一些成员：</p><p>dev代表与这个邻居相连的网络设备；nud_state代表邻居的状态（未完成，无法访问，过时，失败）；ha表示邻居的mac地址；hh是以太网包的 头部缓存；arp_queue是等待这个邻居的硬件地址的IP包队列；ops是对该neighbour节点操作的一套函数；primary_key是哈希 表的主键，一般为IP地址。</p><p>key_len是哈希表主键的长度，一般IP地址长度为4。</p><p>几个函数分别为哈希函数，构造和析构函数。</p><p>parms是ARP缓存的一些参数，包括ARP包传输时间，重发时间，队列长度和代理队列长度等等。</p><p>ARP缓存有一个回收机制（garbage collection），上面以gc_开头的参数用来设置回收的频率和阀值等等。</p><p>stats是一些关于邻居的统计信息。</p><p>ARP初始化的第一个步是初始化ARP缓存myarp_tbl，并把它加到全局链表neigh_tables的表头，其实，系统中所有的neigh_table都放在这个表中。    ptype_base是一个有16项的哈希数组，每种协议包类型都注册在这个数组中。arp包，其类型是ETH_P_ARP，其接收函数是 myarp_rcv。有了这个注册信息，当设备上收到一个网络包（packet）的时候，会分配一个sk_buff(skb)，将数据拷贝进这个缓冲区， 然后调用netif_rx把skb放入等待队列（input_pkt_queue）中，并且产生一个软中断。当系统处理这个软中断的时候，会调用 net_rx_action，它根据网络包的类型，调用相应的接收函数来处理。如</p><p class="noIndent">果是ARP包，则调用myarp_rcv。</p><p> </p><p>ARP缓存myarp_tbl是用于描述物理上相互连接的机器的信息的一个哈希表，关于这个缓存，我们前面作过分析。现在我们来看看，当主机收到一个需要本地接收的ARP请求时，如何向ARP缓存中更新一个ARP信息。</p><p>当网络设备收到一个ARP数据包后，最终会调用到协议栈中的myarp_process处理函数，这个函数的处理会涉及到路由表的查询和更新。但我们现在的my_inet模块还没有真正完成路由表的初始化，所以略过其中很多细节，只关注ARP缓存的更新与查询。</p><p>myarp_process通过调用__neigh_lookup函数更新ARP缓存，下面是该函数的定义：</p><p>static inline struct neighbour * __neigh_lookup(struct neigh_table *tbl,</p><p>const void *pkey,</p><p>struct net_device *dev,</p><p>int creat)</p><p>参数tbl是ARP缓存哈希表，传入全局变量myarp_tbl。pkey是哈希主键，传入发送端ip地址，在我们的实验环境中，是通过 172.16.48.1向172.16.48.11发送icmp回显请求包来触发myarp_process的执行，所以，pkey就是ip地址 172.16.48.1。dev是接收到该数据包的网络接口。create表示在缓存中不存在该机器的信息时，是否需要创建一个，我们现在的目的是更新， 所以选择是，传入1。</p><p>该函数首先调用neigh_lookup在ARP缓存中查找。neigh_lookup首先通过pkey,dev计算得到一个哈希值hash_val，再 找到myarp_tbl中的一个链表myarp_tbl-&gt;hash_buckets[hash_val]，遍历该链表，如果能找到dev, pkey都相等的项，就是我们所要找的struct neighbour。在这里，还要更新myarp_tbl的成员stats中的一统计数据。</p><p>显然，第一次收到ARP请求包，我们是找不到ARP缓存信息的，所以neigh_lookup返回NULL，__neigh_lookup判断 create值，如果不需要创建，就直接返回，如果需要，则调用neigh_create进行缓存信息的创建。</p><p>neigh_create首先在内存中分配一个struct neighbour结构体。myarp_tbl的成员entries记录了该ARP缓存中已经存在了多少条缓存信息，如果数量超过了gc_thresh3 (1024)，或者数量超过了gc_thresh2(512)，并且距离上次缓存刷新时间还不到5秒，则需要先强制进行缓存垃圾回收，对于一些未使用的缓 存信息进行清理。如果清理后，缓存数量还是超过gc_thresh3，则无法再进行创建，出错返回。对于新创建的neighbour，先给赋一些缺省值。    然后调用myarp_tbl的构造函数，对新创建的 neighbour进一步初始化。具体的初始化步骤不再详述，我们可以从最后创建出来的neighbour的内容看到一些东西。</p><p>接下来，由于新增加了缓存项，需要对myarp_tbl的大小进行调整，如果有需要，需要扩大其容量。</p><p>最后，把新创建的neighbour添加到链表示，</p><p>新创建的neighbour的内容应该是这样子的：</p><p>struct neighbour</p><p>{</p><p>struct neighbour *next =原来的链表头;</p><p>struct neigh_table *tbl =myarp_tbl;</p><p>struct neigh_parms *parms =in_dev-&gt;arp_parms;</p><p>struct net_device *dev =dev;</p><p>unsigned long used =now;</p><p>unsigned long confirmed =now - 60秒;</p><p>unsigned long updated =now;</p><p>__u8 flags;</p><p>__u8 nud_state =NUD_NONE;</p><p>__u8 type =RTN_LOCAL;</p><p>__u8 dead =1;</p><p>atomic_t probes;</p><p>rwlock_t lock;</p><p>unsigned char ha[(MAX_ADDR_LEN+sizeof(unsigned long)-1)&amp;~(sizeof(unsigned long)-1)];</p><p>//ha是mac地址，在后续的操作会给它赋上值。</p><p>struct hh_cache *hh =NULL;</p><p>atomic_t refcnt =1;</p><p>int (*output)(struct sk_buff *skb) = this-&gt;ops-&gt;connected_output;    struct sk_buff_head arp_queue;</p><p>struct timer_list timer;</p><p>timer.function = neigh_timer_handler;</p><p>timer.data = this;</p><p>struct neigh_ops *ops =&amp;myarp_hh_ops;</p><p>u8 primary_key[0] =172.16.48.1（分配内存时，本身就加了4的);    };</p><p> </p><p>在发送一个IP数据报时，当在确定数据报的输出路由时，需要为本次通讯绑定一个邻居，TCP/IP协议栈用结构体struct neighbour表示一个邻居。绑定邻居首先调用的函数是arp_bind_neighbour，该函数调用_neigh_lookup_errno函 数从ARP缓存表中以目的IP地址(网关IP或者同一子网内的对端IP地址)为哈希主键，寻找相应的邻居，如果找不到，则创建。</p><p>首先是调用neigh_lookup函数从arp_tbl的成员hash_buckets中寻找，如果找到的邻居的成员dev等于当前的网络设备接口，且primary_key等于当前的目的IP地址，则即为需要的邻居，返回即可。</p><p>如果找不到，则需要通过调用neigh_create函数创建一个新的邻居。下面看一下表示邻居的结构体struct neighbour的成员，以及创建时为这些成员初始化了什么样的值。</p><p>parms。</p><p>parms指向ARP缓存表arp_tbl的parms成员，包含了该邻居上的一些传输参数。</p><p><a href=http://3y.uu456.com>三亿文库3y.uu456.com</a>包含各类专业文献、高等教育、应用写作文书、幼儿教育、小学教育、生活休闲娱乐、专业论文、文学作品欣赏、Linux ARP协议源码详细讲解58等内容。</p><dl class=showpage><a href=bp_270r97oypx5gf8x599gs_1.html id=on >1</a><a href=bp_270r97oypx5gf8x599gs_2.html>2</a></dl><p>　</p></div>
+
+<p class=MsoFooter align=center style='text-align:center'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";color:#993300'>三亿文库</span><span lang=EN-US><a
+href="http://3y.uu456.com/">http://3y.uu456.com/</a></span></p>
+
+<p class=MsoFooter align=center style='text-align:center'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";color:#993300'>上亿文档资料，等你来发现</span><span lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:10.0pt;color:#993300'><o:p></o:p></span></p>
+</div>
+</body></html>

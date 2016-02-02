@@ -1,0 +1,511 @@
+#!/bin/sh
+# 
+#   Affix - Bluetooth Protocol Stack for Linux
+#   Copyright (C) 2001 Nokia Corporation
+#   Original Author: Dmitry Kasatkin <dmitry.kasatkin@nokia.com>
+#
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
+#
+#   This program is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#   General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License along
+#   with this program; if not, write to the Free Software Foundation, Inc.,
+#   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+#
+#   $Id: Configure,v 1.47 2004/07/22 14:38:03 chineape Exp $
+#
+#   Configuration script (adopted from PCMCIA package) 
+#   
+#   Fixes:	Dmitry Kasatkin <dmitry.kasatkin@nokia.com>
+#		Imre Deak <ext-imre.deak@nokia.com>
+#
+
+fail ()
+{
+    echo ""
+    echo "Configuration failed."
+    echo ""
+    exit 1
+}
+
+write_bool() {
+    value=`eval echo '$'$1`
+    if [ "$value" = "y" ] ; then
+	echo "$1=y" >> $CONFIG
+	echo "$1=y" >> $CONFIG_MK
+	echo "#define $1 1" >> $CONFIG_H
+    else
+	echo "# $1 is not defined" >> $CONFIG
+	echo "# $1 is not defined" >> $CONFIG_MK
+	echo "#undef  $1" >> $CONFIG_H
+    fi
+}
+
+write_int () {
+    value=`eval echo '$'$1`
+    echo "$1"=$value >> $CONFIG
+    echo "$1=$value" >> $CONFIG_MK
+    echo "#define $1 $value" >> $CONFIG_H
+}
+
+write_str () {
+    value=`eval echo '$'$1`
+    echo "$1"=\"$value\" >> $CONFIG
+    echo "$1=$value" >> $CONFIG_MK
+    echo "#define $1 \"$value\"" >> $CONFIG_H
+}
+
+write_str_cfg () {
+    value=`eval echo '$'$1`
+    echo "$1"=\"$value\" >> $CONFIG
+    echo "$1=$value" >> $CONFIG_MK
+}
+
+write_str_ne () {
+	value=`eval echo '$'$1`
+	if [ "$value" != "" ] ; then
+		echo "$1"=\"$value\" >> $CONFIG
+	    	echo "$1=$value" >> $CONFIG_MK
+	fi
+}
+
+write_nl () {
+	echo "" >> $CONFIG
+	echo "" >> $CONFIG_MK
+	echo "" >> $CONFIG_H
+}
+
+prompt () {
+    eval $3=\"$2\"
+    if [ "$PROMPT" = "y" ] ; then
+	/bin/echo -e "$1 [$2]: \c"
+	read tmp
+	if [ ! -t 1 ] ; then echo $tmp ; fi
+	if [ -n "$tmp" ] ; then eval $3=\"$tmp\" ; fi
+    else
+	/bin/echo "$1 [$2]"
+    fi
+}
+
+ask_bool () {
+    default=`eval echo '$'$2`
+    if [ ! "$default" ] ; then default=n ; fi
+    answer=""
+    while [ "$answer" != "n" -a "$answer" != "y" ] ; do
+	prompt "$1 (y/n)" "$default" answer
+    done
+    eval "$2=$answer"
+#    write_bool $2
+}
+
+ask_str () {
+    default=`eval echo '$'$2`
+    prompt "$1" "`echo $default`" answer
+    eval $2=\"$answer\"
+#    write_str $2
+}
+
+ask_yes () {
+    default=`eval echo '$'$2`
+    if [ ! "$default" ] ; then default=n ; fi
+    answer=""
+    while [ "$answer" != "n" -a "$answer" != "y" ] ; do
+	prompt "$1 (y/n)" "$default" answer
+    done
+    eval "$2=$answer"
+}
+
+# check based on presence of config options
+configcheck () {
+    eval "$1=n"
+    if grep "^$1=y" $LINUX_CONFIG_MK >/dev/null ; then
+	eval "$1=y"
+    elif grep "^$1=m" $LINUX_CONFIG_MK >/dev/null ; then
+	eval "$1=y"
+    fi
+}
+
+# 
+
+arg () {
+    VALUE="`echo X"$2" | sed -e 's/^X--[a-zA-Z_]*=//'`"
+    eval $1=\"$VALUE\"
+}
+
+usage () {
+    echo "usage: $0 [option] ... [option]"
+    echo ""
+    echo "  -n, --noprompt     non-interactive mode: no prompting"
+    echo "  --kernel=DIR       use kernel source tree at DIR"
+    echo "  --target=DIR       install all files using DIR as root"
+    echo "  --moddir=DIR       install modules under DIR"
+    echo "  --arch=ARCH        select target architecture for build"
+    echo "  --cc=PATH          use another C compiler"
+    echo "  --ld=PATH          use another linker"
+    echo "  --srctree          read kernel configuration from source tree"
+    echo "  --{no}debug        disable or enable debugging"
+    exit 1
+}
+
+#=======================================================================
+
+echo ""
+echo "    -------- Affix Configuration Script --------"
+echo ""
+echo ""
+
+CONFIG_PCMCIA=n
+CONFIG_AFFIX_EXT_PCMCIA=n
+
+# Read initial or previous options
+if [ -r config.out ] ; then
+    . ./config.out 2>/dev/null
+    # read some stuff from original
+    eval `grep AFFIX_VERSION config.in`
+else
+    if [ ! -r config.in ] ; then
+	echo "config.in does not exist!"
+	fail
+    fi
+    . ./config.in
+fi
+
+PROMPT=y
+
+while [ $# -gt 0 ] ; do
+    case "$1" in
+    -n|--noprompt)	PROMPT=n		;;
+    --kernel=*)		arg LINUX $1 		;;
+    --target=*)		arg DESTDIR $1		;;
+    --moddir=*)		arg MODDIR $1		;;
+    --cc=*)		arg CC "$1"		;;
+    --ld=*)		arg LD "$1"		;;
+    --arch=*)		arg ARCH "$1"		;;
+    --debug)		CONFIG_AFFIX_DEBUG=y	;;
+    --nodebug)		CONFIG_AFFIX_DEBUG=n	;;
+    *)			usage			;;
+    esac
+    shift
+done
+
+
+CONFIG=config.new
+CONFIG_MK=config.mk
+CONFIG_H=include/affix.h
+
+echo ""
+
+LINUX=${KSRC:=$LINUX};
+ask_str "Linux source directory" LINUX
+
+if [ ! -f $LINUX/kernel/Makefile ] ; then
+    echo "Linux source tree $LINUX is incomplete or missing!"
+    if [ -d $LINUX/include/linux ] ; then
+	echo "    The kernel header files are present, but not " \
+	     "the full source code."
+    fi
+    echo "    See the HOWTO for a list of FTP sites for current" \
+	 "kernel sources."
+    fail
+fi
+
+# What kernel are we compiling for?
+
+version () {
+    expr $1 \* 65536 + $2 \* 256 + $3
+}
+
+echo ""
+for TAG in VERSION PATCHLEVEL SUBLEVEL EXTRAVERSION ; do
+    eval `sed -ne "/^$TAG/{s/[ 	]//gp;q}" $LINUX/Makefile`
+done
+UTS_RELEASE=$VERSION.$PATCHLEVEL.$SUBLEVEL$EXTRAVERSION
+VERSION_CODE=`version $VERSION $PATCHLEVEL $SUBLEVEL`
+echo "The kernel source tree is version $UTS_RELEASE."
+if [ $VERSION_CODE -lt `version 2 6 2` ] ; then
+    echo "This package requires at least a 2.6 series kernel."
+    fail
+fi
+
+echo ""
+
+LINUX_CONFIG_MK=$LINUX/.config
+
+if [ ! -r $LINUX_CONFIG_MK ] ; then
+	echo "Config file $LINUX_CONFIG_MK not present!"
+	echo "    To fix, run 'make config' in $LINUX."
+	fail
+fi
+
+# reading kernel configuration file
+source $LINUX_CONFIG_MK
+
+if [ "$CONFIG_AFFIX" = "y" -o "$CONFIG_AFFIX" = "m" ] ; then
+	echo "--> You already have AFFIX support in the kernel."
+	ask_yes "--> Do you want to quit?" tmp
+	if [ "$tmp" = "y" ] ; then
+		echo "bye..."
+		fail
+	fi
+	echo ""
+fi
+
+BTDIR=`pwd`
+
+rm -f .prereq.ok $CONFIG $CONFIG_H $CONFIG_MK
+
+# define header for config.mk
+cat << 'EOF' > $CONFIG_MK
+#
+# Automatically generated by 'make config' -- don't edit!
+#
+EOF
+
+# define header for config.h
+cat << 'EOF' > $CONFIG_H
+/*
+  Automatically generated by 'make config' -- don't edit!
+*/
+
+#ifndef _AFFIX_CONFIG_H
+#define _AFFIX_CONFIG_H
+
+EOF
+
+
+HOST_ARCH=`uname -m | sed -e 's/i.86/i386/'`
+ARCH=${ARCH:-$HOST_ARCH}
+ask_str "Target architecture (i386,arm,ppc,...)" ARCH
+if [ $ARCH != $HOST_ARCH ] ; then
+    echo "Different target and host platforms"
+    echo "Please specify path and prefix to cross compilers"
+    ask_str "Cross Compiler path and prefix:" CROSS_COMPILE
+    echo "Please specify compiler options (like -I/usr/libc6-arm-dev)"
+    ask_str "Compiler flags:" CROSS_CPPFLAGS
+    echo "Please specify linker options (like -L/usr/libc6-arm-dev)"
+    ask_str "Linker flags:" CROSS_LDFLAGS
+    AS=${CROSS_COMPILE}as
+    LD=${CROSS_COMPILE}ld
+    CC=${CROSS_COMPILE}gcc
+    CPP="${CC} -E"
+    AR=${CROSS_COMPILE}ar
+    NM=${CROSS_COMPILE}nm
+fi
+ARCH=${ARCH:-$HOST_ARCH}
+
+echo ""
+
+if [ ! "$MODDIR" ] ; then
+    if [ -d /lib/modules/preferred ] ; then
+	MODDIR=/lib/modules/preferred
+    else
+	MODDIR=/lib/modules/$UTS_RELEASE
+    fi
+else
+    MODDIR=`echo $MODDIR | sed -e "s/[0-9]\.[0-9]\.[0-9]*.*/$UTS_RELEASE/"`
+fi
+
+ask_str "Module install directory" MODDIR
+echo ""
+
+
+echo "CHECK=\"$LINUX_CONFIG_MK\"" >> $CONFIG
+echo "CKSUM=\"`cksum < $LINUX_CONFIG_MK`\"" >> $CONFIG
+
+
+# -- Check kernel configuration
+CONFIG_AFFIX=n
+
+# -- set Affix options --
+# kernel space things
+echo "	Common Section"
+echo ""
+ask_bool "Debug enabled" CONFIG_AFFIX_DEBUG 
+echo ""
+echo "	Protocol Section"
+echo ""
+ask_bool "SCO support (Audio)" CONFIG_AFFIX_SCO
+ask_bool "L2CAP support" CONFIG_AFFIX_L2CAP 
+if [ "$CONFIG_AFFIX_L2CAP" = "y" ] ; then
+	ask_bool "RFCOMM support" CONFIG_AFFIX_RFCOMM_MODULE
+else
+	CONFIG_AFFIX_RFCOMM_MODULE=n
+fi
+ask_bool "PAN support" CONFIG_AFFIX_PAN_MODULE
+ask_bool "HID support" CONFIG_AFFIX_HIDP_MODULE
+ask_bool "BLUETOOTH 1.2 support" CONFIG_AFFIX_BT_1_2
+
+echo ""
+echo "	Drivers Section"
+echo ""
+ask_bool "USB device support" CONFIG_AFFIX_USB_MODULE
+ask_bool "UART device support (required for PCMCIA UART)" CONFIG_AFFIX_UART_MODULE
+if [ "$CONFIG_AFFIX_UART_MODULE" = "y" ] ; then
+	ask_bool "HCI UART H4 protocol support" CONFIG_AFFIX_UART_H4
+	ask_bool "HCI UART BCSP (CSR) protocol support" CONFIG_AFFIX_UART_BCSP
+	ask_bool "PCMCIA UART device support" CONFIG_AFFIX_UART_CS_MODULE
+	if [ "$CONFIG_AFFIX_UART_CS_MODULE" = "y" ] ; then
+		ask_bool "PCMCIA Nokia DTL-1/DTL-4, Socket-F device support" CONFIG_AFFIX_UART_TLP
+	fi
+else
+	CONFIG_AFFIX_UART_CS_MODULE=n
+fi
+
+ask_bool "PCMCIA Bluecard device support (Anycom)" CONFIG_AFFIX_BLUECARD_CS_MODULE
+ask_bool "PCMCIA 3COM device support" CONFIG_AFFIX_BT3C_CS_MODULE
+ask_bool "PCMCIA bt950 device support (Ambicom/Pretec CF cards)" CONFIG_AFFIX_BT950UART_CS_MODULE
+
+echo ""
+
+if [ "$CONFIG_AFFIX_UART_CS_MODULE" != "n" -o \
+	"$CONFIG_AFFIX_BLUECARD_CS_MODULE" != "n" -o \
+	"$CONFIG_AFFIX_BT3C_CS_MODULE" != "n" -o \
+	"$CONFIG_AFFIX_BT950UART_CS_MODULE" != "n" ] ; then
+
+	# PCMCIA support needed
+	ask_bool "PCMCIA support needed. Do yo want to use external PCMCIA package?" CONFIG_AFFIX_EXT_PCMCIA
+	if [ $CONFIG_AFFIX_EXT_PCMCIA = "y" ] ; then
+	    ask_str "PCMCIA package source tree directory" PCMCIA
+	    CONFIG_PCMCIA=y
+	fi
+	if [ "$CONFIG_PCMCIA" = "n" ] ; then
+		echo "--> PCMCIA support required to compile selected drivers disabled"
+		echo "--> Enable it in the kernel or use extrnal package"
+		echo "--> or disable drivers requiring PCMCIA support"
+		fail
+		echo "--> skipping PCMCIA drivers configuration..."
+		CONFIG_AFFIX_UART_CS_MODULE=n
+		CONFIG_AFFIX_BLUECARD_CS_MODULE=n
+		CONFIG_AFFIX_BT3C_CS_MODULE=n
+		CONFIG_AFFIX_BT950UART_CS_MODULE=n
+	fi
+fi
+
+if [ "$CONFIG_AFFIX_UART_TLP" != "y" ] ; then
+	CONFIG_AFFIX_DTL1_FIX=n
+fi
+
+echo ""
+echo "-------->>> Experimental Changes by shrirangb@aftek.com <<<--------"
+echo ""
+
+# Shrirang 31/7/03
+ask_bool "Fast UART Bottom Half Handler" CONFIG_AFFIX_UART_NEW_BH
+
+# Shrirang 27 Oct. 2003
+ask_bool "HCI ACL Piconet Broadcast (Function and Socket Interface) " CONFIG_AFFIX_HCI_BROADCAST
+if [ "$CONFIG_AFFIX_HCI_BROADCAST" = "y" ] ; then
+	ask_bool "L2CAP Groups Support (Function and Socket Interface)" CONFIG_AFFIX_L2CAP_GROUPS
+else
+	CONFIG_AFFIX_L2CAP_GROUPS=n
+fi
+
+# Shrirang 07 Feb. 2004
+ask_bool "Update Clock Offset On Connection ( Faster Connection Establishment ) " CONFIG_AFFIX_UPDATE_CLOCKOFFSET
+
+if [ "$CONFIG_MODVERSIONS" = "y" ] ; then
+	MODVER="$LINUX/include/config/modversions.h"
+	if [ ! -r "$MODVER" ] ; then
+	    echo "$MODVER does not exist!"
+	    echo "    To fix, run 'make dep' in $LINUX."
+	    fail
+	fi
+	MFLAG="-DMODVERSIONS -include $MODVER"
+else
+	MFLAG="-DMODVERSIONS" 
+fi
+
+CPPFLAGS="-I$LINUX/include -I$LINUX/arch/$ARCH -include $BTDIR/$CONFIG_H -D__KERNEL__ -DMODULE $MFLAG"
+LDFLAGS="${CROSS_LDFLAGS:-}"
+
+if [ "$CONFIG_AFFIX_EXT_PCMCIA" = "y" ] ; then
+    # Use our kernel config, then kernel headers, then our headers
+    CPPFLAGS="-I${PCMCIA}/include $CPPFLAGS"
+fi
+
+CPPFLAGS="-I${BTDIR}/include $CPPFLAGS"
+
+# For 2.6 kernels 
+EXTRA_CFLAGS="-I${BTDIR}/include -include $BTDIR/$CONFIG_H"
+EXTRA_LDFLAGS=""
+
+if [ "$CONFIG_AFFIX_DEBUG" = "y" ] ; then
+    CFLAGS="-g -O1 -Wall -Wstrict-prototypes -pipe"
+    LDFLAGS="$LDFLAGS -g"
+    EXTRA_CFLAGS="-g $EXTRA_CFLAGS"
+    EXTRA_LDFLAGS="-g"
+else
+    CFLAGS="-O2 -Wall -Wstrict-prototypes -fomit-frame-pointer -pipe"
+fi
+
+#=======================================================================
+
+# write options
+write_str AFFIX_VERSION
+#write_str UTS_RELEASE
+
+for x in AS LD CC CPP AR NM; do
+    write_str_ne $x
+done
+
+NEW_KERNEL=1
+
+for x in LINUX DESTDIR MODDIR EXTRA_CFLAGS EXTRA_LDFLAGS ARCH HOST_ARCH NEW_KERNEL \
+	BTDIR # CPPFLAGS CFLAGS LDFLAGS PCMCIA CROSS_COMPILE CROSS_CPPFLAGS CROSS_LDFLAGS
+	do write_str_cfg $x
+done
+
+write_nl
+
+# write Affix options
+write_int CONFIG_AFFIX_DBMASK 
+
+for x in CONFIG_AFFIX_DEBUG CONFIG_AFFIX_L2CAP CONFIG_AFFIX_SCO CONFIG_AFFIX_RFCOMM_MODULE \
+	 CONFIG_AFFIX_USB_MODULE CONFIG_AFFIX_UART_MODULE CONFIG_AFFIX_UART_CS_MODULE \
+	 CONFIG_AFFIX_BLUECARD_CS_MODULE CONFIG_AFFIX_BT3C_CS_MODULE CONFIG_AFFIX_PAN_MODULE CONFIG_AFFIX_HIDP_MODULE CONFIG_AFFIX_BT_1_2 \
+	 CONFIG_AFFIX_DTL1_FIX CONFIG_AFFIX_BT950UART_CS_MODULE \
+	 CONFIG_AFFIX_UART_TLP CONFIG_AFFIX_UART_H4 CONFIG_AFFIX_UART_BCSP \
+	 CONFIG_AFFIX_EXT_PCMCIA CONFIG_AFFIX_UART_NEW_BH CONFIG_AFFIX_HCI_BROADCAST CONFIG_AFFIX_L2CAP_GROUPS \
+	 CONFIG_AFFIX_UPDATE_CLOCKOFFSET; do
+    	 write_bool $x
+done
+write_nl
+
+# add Linux include
+echo "-include \$(LINUX)/.config" >> $CONFIG_MK
+
+#=======================================================================
+
+# Optional stuff
+
+#=======================================================================
+
+if [ ! -r $LINUX/include/asm ] ; then
+    cd $LINUX/include ; ln -s asm-$ARCH asm 2>/dev/null
+fi
+
+if [ ! -r $LINUX/include/asm ] ; then
+    echo "$LINUX/include/asm does not exist!"
+    echo "    To fix, do 'ln -s asm-$ARCH asm' in $LINUX/include."
+    fail
+fi
+
+#=======================================================================
+
+echo "" >> $CONFIG_H
+echo "#endif /* _AFFIX_CONFIG_H */" >> $CONFIG_H
+
+mv $CONFIG config.out
+
+touch .prereq.ok
+
+echo ""
+echo "Configuration successful."
+echo ""

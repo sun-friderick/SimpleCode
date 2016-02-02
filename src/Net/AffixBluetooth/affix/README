@@ -1,0 +1,104 @@
+# 
+#   Affix - Bluetooth Protocol Stack for Linux
+#   Copyright (C) 2001 Nokia Corporation
+#
+#   Written by Dmitry Kasatkin <dmitry.kasatkin@nokia.com>
+#
+#   $Id: README,v 1.9 2003/03/06 09:29:22 kds Exp $
+#
+
+
+Contents
+
+1. Introduction
+2. System requirements
+3. Compilation and Installation
+4. Maling Lists
+
+
+1. Introduction
+
+	Affix - Bluetooth Protocol Stack for Linux has been developed at 
+	Nokia Research Center in Helsinki, Finland.
+
+	This package contains user level part of the Affix stack and includes:
+	- Affix core libraries and tools.
+	  libaffix.so, libaffix_utils.so, btctl, btsrv
+	- Service Discovery client/server libraries and daemon.
+	  libaffix_sdp.so, libaffix_sdpsvc.so, btsdp.
+	- OBEX client/server libraries and daemon.
+	  libaffix_obex.so, btobex
+
+        This Affix package supports the following profiles:
+	- General Access Profie
+	- Service Discovery Profile
+	- Serial Port Profile
+	- DialUp Networking Profile
+	- LAN Access Profile
+	- OBEX Object Push Profile
+	- OBEX File Transfer Profile
+	- PAN Profile
+
+
+2. System requirements
+
+	*affix-kernel* package has to be installed in order to compile 
+	*affix* package (it exports some header files).
+
+	Install the following packages as well:
+	- libopenobex1 		: *openobex* libraries
+	- libopenobex-dev 	: *openobex* headers
+	- python gtk library	: for pin helper (/etc/affix/btsrv-conf)
+
+	if you would like to use LAN Access Profile with maquerading you need to
+	iptables utility and compile your kernel with IP TABLES support. For
+	this purpose consult you Linux kernel documentation.
+	
+
+3. Compilation and Installation
+
+   See the file INSTALL for detailed information  about *confugure* script
+   and its options.
+
+   To compile and install Affix follow these steps:
+
+   1) check *System requirements* and install missing packages.
+
+   2) run configuration script
+      ./configure 
+
+      You can enable additional features providing '--enable-FEATURE' options
+      to configure.
+      'configure' accept following feature options.
+      
+      --enable-audio          use audio (default is "yes")
+      --enable-sdp            use sdp (default is "yes")
+      --enable-obex           use obex (default is "yes")
+      --enable-pan            use pan (default is "yes")
+      --enable-hfp            use hfp (default is "no")
+      --enable-debug          use debug (default is "no")
+
+      Additionaly to default enabled options You can enable 
+      Hands Free Profile support and Debugging support.
+      
+      
+   3) to compile run
+      make
+
+   4) to install run
+      make install
+
+  
+   How to use the Affix please read documentation from doc directory or
+   visit Affix WEB site at http://affix.sourceforge.net
+  
+
+4. Mailing Lists
+
+	affix-devel@lists.sourceforge.net	: Developer's List
+	affix-support@lists.sourceforge.net	: User's List
+	
+---
+  Dmitry Kasatkin <dmitry.kasatkin@nokia.com>
+
+

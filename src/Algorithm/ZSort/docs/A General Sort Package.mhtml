@@ -1,0 +1,569 @@
+From: <Saved by WebKit>
+Subject: A General Sort Package
+Date: Tue, 19 Oct 2015 09:17:57 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_1CB9_886E1CA8.1C5018C2"
+
+------=_NextPart_000_1CB9_886E1CA8.1C5018C2
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://efgh.com/software/zsort.htm
+
+<html version=3D"g42dymwpi--nx"><head><meta charset=3D"GBK">
+<title>A General Sort Package</title>
+<meta name=3D"description" content=3D"A public domain program for general s=
+orts.">
+<style id=3D"style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporatio=
+n. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body>
+
+<table>
+<tbody><tr>
+<td>
+<a href=3D"http://efgh.com/software/index.html"><img src=3D"http://efgh.com=
+/software/sitelogo.gif" width=3D"120" height=3D"114" alt=3D"LOGO"></a>
+</td>
+<td>
+<center><h1>A General Sort Package</h1></center>
+</td>
+</tr>
+</tbody></table>
+
+<dl>
+<dt>Title:       </dt><dd>A General Sort Package
+</dd><dt>Language:    </dt><dd>C
+</dd><dt>Author:      </dt><dd>Philip J. Erdelsky
+                 <ul>
+                 <li><a href=3D"mailto:pje@efgh.com">pje@efgh.com</a>
+                 </li><li><a href=3D"http://www.alumni.caltech.edu/~pje/">
+                     http://www.alumni.caltech.edu/~pje/</a>
+                 </li></ul>
+</dd><dt>Date:        </dt><dd>March 10, 2001
+</dd><dt>Usage:       </dt><dd>Public domain; no restrictions on use
+</dd><dt>Portability: </dt><dd>Any C compiler
+</dd><dt>Keywords:    </dt><dd>Sorting
+</dd><dt>Abstract:    </dt><dd>A fairly general package for sorting arbitra=
+ry
+                     items, all of the same size, using an in-memory
+                     merge sort and a file merge sort when memory is
+                     insufficient.
+</dd><dt>Source:      </dt><dd><a href=3D"http://efgh.com/software/zsort.tx=
+t">zsort.txt</a>
+</dd></dl>
+
+<h2>Table of Contents</h2>
+
+<ol>
+<li><a href=3D"http://efgh.com/software/zsort.htm#part1">Introduction</a>
+</li><li><a href=3D"http://efgh.com/software/zsort.htm#part2">Sorting</a>
+</li><li><a href=3D"http://efgh.com/software/zsort.htm#part3">Finding Dupli=
+cates</a>
+</li><li><a href=3D"http://efgh.com/software/zsort.htm#part4">Counting Dist=
+inct Items</a>
+</li><li><a href=3D"http://efgh.com/software/zsort.htm#part5">Counting Item=
+ Frequencies</a>
+</li><li><a href=3D"http://efgh.com/software/zsort.htm#part6">Stable Sorts<=
+/a>
+</li><li><a href=3D"http://efgh.com/software/zsort.htm#part7">Consistent Or=
+dering</a>
+</li><li><a href=3D"http://efgh.com/software/zsort.htm#part8">Modifications=
+</a>
+</li></ol>
+
+<a name=3D"part1"><h2>1. Introduction</h2></a>
+
+<p>
+I have written many sort packages. I am calling this one "ZSORT" in
+the hope that it will be the last sort package I will ever have to
+write. ;-)
+
+  </p><ol>
+
+  <li>It handles items of a completely arbitrary nature, except that they
+  must all be the same size.
+
+  </li><li>It uses the merge sort algorithm, which is non-recursive and of
+  order NlogN in all cases.
+
+  </li><li>It can eliminate duplicate items during the sort, if this option=
+ is
+  specified.
+
+  </li><li>It can be aborted if a user-specified condition is detected whil=
+e
+  two items are being compared.
+
+  </li><li>It is fairly efficient in its use of resources. Small sorts can =
+be
+  done in memory.
+
+  </li><li>It uses temporary files to handle large sorts.
+
+  </li></ol>
+
+<p>
+The package uses a counter of type "unsigned long" to count items in
+temporary files, and it will fail in undefined ways if the counter
+overflows.
+
+
+<a name=3D"part2"></a></p><h2><a name=3D"part2">2. Sorting</a></h2>
+
+<p>
+The package consists of the header file ZSORT.H, which must be included
+in every source code module that uses the package, and the source code
+module ZSORT.C, which must be compiled and linked into the resulting
+application. It is written in C, but it can be called from either C or
+C++. The source file ZSORT.TXT contains both files; you will have
+to separate them. The file ZSORT.C also contains a test program
+that you will have to remove before using the package for other
+purposes.
+
+</p><p>
+The sorting process begins with the following function call, which
+allocates some of the required memory and returns a handle to be passed
+to other functions in the package:
+
+</p><pre>     h =3D ZsortOpen(size, compare, memory, pointer);
+
+     unsigned size;     size of items to be sorted, in bytes (all items
+                        must be the same size)
+
+     ZSORTCOMPARE compare;  comparison function, as described below
+
+     unsigned memory;   maximum number of items to be sorted in memory
+
+     void *pointer;     user-defined pointer to be passed to comparison
+                        function
+
+     ZSORT h;           handle to be passed to other functions, or NULL
+                        if the operation fails for lack of memory
+</pre>
+
+<p>
+The comparison function is defined as follows:
+
+</p><pre>     n =3D compare(p, q, pointer);
+
+     void *p;           pointer to first item
+
+     void *q;           pointer to second item
+
+     void *pointer;     pointer passed to ZsortOpen()
+
+     int n;             ZCOMPABORT if sort is to be aborted
+
+                        ZCOMPDUPP if *p and *q are duplicates, *p is to
+                        be retained and *q is to be removed,
+
+                        ZCOMPDUPQ if *p and *q are duplicates, *q is to
+                        be retained and *p is to be removed,
+
+                        a negative value other than the foregoing if *p
+                        is to precede *q in sorted order,
+
+                        a positive value other than the foregoing if *p
+                        is to follow *q is sorted order,
+
+                        zero if the relative position of *p and *q in
+                        sorted order is unspecified
+</pre>
+
+<p>
+If the comparison function returns ZCOMPDUPP or ZCOMPDUPQ for any pair
+of items, it must NOT return 0 for any other pair of items (and
+vice-versa).
+
+</p><p>
+The comparison function must define a consistent ordering of all the
+items. Details in <a href=3D"http://efgh.com/software/zsort.htm#part7">Sect=
+ion 7</a> below.
+
+</p><p>
+The comparison function may make changes in parts of the items not
+involved in comparison. These changes will appear in the items when they
+are retrieved.
+
+</p><p>
+Then items are submitted, one at a time, to the following function:
+
+</p><pre>     result =3D ZsortSubmit(h, p);
+
+     ZSORT h;           handle returned by successful call on
+                        ZsortOpen()
+
+     const void *p;     pointer to item to be submitted; the item is
+                        copied to an internal buffer, so it need not
+                        remain valid after this function returns
+
+     int result;        0            successful operation
+                        ZSORTABORT   operation aborted
+                        ZSORTMEMFAIL memory allocation failure
+                        ZSORTFILEERR temporary file error
+</pre>
+
+<p>
+The package sorts items in memory as much as possible. When the maximum
+specified in the call on ZsortOpen is exceeded, it writes the excess
+items into temporary files. If "memory" argument to ZsortOpen is very
+large, submitting a single item may cause a considerable delay while a
+block is being sorted before being written to a temporary file.
+
+</p><p>
+When all items have been submitted, the following function is called
+repeatedly to retrieve the items in sorted order:
+
+</p><pre>     result =3D ZsortRetrieve(h, p);
+
+     ZSORT h;           handle returned by successful call on
+                        ZsortOpen()
+
+     void *p;           pointer to buffer to receive retrieved item;
+                        must be allocated by caller
+
+     int result;        0            successful operation
+                        ZSORTEND     no more items
+                        ZSORTABORT   operation aborted
+                        ZSORTMEMFAIL memory allocation failure
+                        ZSORTFILEERR temporary file error
+</pre>
+
+<p>
+The last call on ZsortRetrieve() returns ZSORTEND as its functional
+value and does not return any item.
+
+</p><p>
+The first call on ZsortRetrieve() usually does most of the actual
+sorting, so it may not return promptly.
+
+</p><p>
+It is not necessary to retrieve all sorted items. If ZsortSubmit() is
+called again before all items are retrieved, then all remaining items
+are lost and a new sort begins.
+
+</p><p>
+If ZsortRetrieve() is called again after returning ZSORTEND, it
+continues to return ZSORTEND.
+
+</p><p>
+For additional sorts on other blocks of items with the same size,
+comparison function and other parameters, just repeat the calls on
+ZsortSubmit() and ZsortRetrieve(). The memory blocks and temporary files
+created for the first sort will be re-used before others are allocated.
+
+</p><p>
+Finally, to release all memory blocks and close the temporary files,
+call the following function (failure to do so may cause resource
+leaks):
+
+</p><pre>     ZsortClose(h, erase);
+
+     ZSORT h;           handle returned by successful call on
+                        ZsortOpen()
+
+     int erase;         nonzero (true) if memory blocks and temporary
+                        files are to be erased before they
+                        are freed or deleted
+</pre>
+
+<p>
+If ZsortSubmit() or ZsortRetrieve() returns an error (ZSORTABORT,
+ZSORTMEMFAIL or ZSORTFILEERR), the sort must be abandoned and
+ZsortClose() must be called. Failure to do so may cause resource leaks.
+
+</p><p>
+The package calls the following standard C library functions:
+
+</p><pre>     fclose()  fread()   malloc()  tmpfile()
+     fgetc()   free()    memcpy()
+     fputc()   fwrite()  rewind()
+</pre>
+
+<p>
+The package is thread-safe to a limited extent. Different threads can
+perform sorts with different handles without interference, provided the
+library functions that it calls are thread-safe.
+
+
+
+<a name=3D"part3"></a></p><h2><a name=3D"part3">3. Finding Duplicates</a></=
+h2>
+
+<p>
+To determine whether a set of items contains duplicates, just write the
+comparison function so it aborts the sort when it is asked to compare
+duplicates, does NOT return 0 for non-duplicates, and implements a
+consistent rodering in other respects. (See <a href=3D"http://efgh.com/soft=
+ware/zsort.htm#part7">Section 7</a>
+below.)
+
+</p><p>
+This is, in general, faster than sorting the set and then examining the
+result to see if any two consecutive items are duplicates. But does it
+always work?
+
+</p><p>
+The comparison function is called only about 0.5*N*logN times, although
+there are N*(N-1) pairs of items. How do we know it will be asked to
+compare the duplicates?
+
+</p><p>
+Assume, for purpose of contradiction, that there is a subset of two or
+more duplicate items, but the comparison function is not called for any
+pair in the subset, but only for pairs contining at least one item
+outside the subset. Then imagine two slightly different sets in which
+the items in the subset are not quite identical, but still stand in the
+same relationships to items outside the subset. For example:
+
+</p><pre>     Old set:  9, 1, 2, 3, 4,   4,   4,   5, 6, 7
+
+     New set:  9, 1, 2, 3, 4.1, 4.2, 4.3, 5, 6, 7
+
+     New set:  9, 1, 2, 3, 4.2, 4.1, 4.3, 5, 6, 7
+</pre>
+
+<p>
+Now sort the two new sets with the same algorithm. Since the items in
+the subset are never compared with each other, The sort handles them
+identically. But this would put at least one of the new sets into the
+wrong order. This is the contradiction we sought.
+
+<a name=3D"part4"></a></p><h2><a name=3D"part4">4. Counting Distinct Items<=
+/a></h2>
+
+<p>
+To determine the number of distinct items in a set, just write the
+comparison function to discard duplicates. Then submit all items, and
+count the number of times ZsortRetrieve() returns 0.
+
+
+<a name=3D"part5"></a></p><h2><a name=3D"part5">5. Counting Item Frequencie=
+s</a></h2>
+
+<p>
+Suppose we need a frequency list of a set of items; i.e., a list of the
+distinct items, and the number of times each one appears in the set. We
+could simply sort the set and then run through the results. However,
+there is a more efficient way, especially if the number of distinct
+items is much less than the number of items.
+
+</p><p>
+Combine each item with a count, which is initialized to 1 when the item
+is submitted. When the comparison function finds duplicate items, let it
+add the count in the item to be discarded to the count in the item to be
+retained. The resulting sorted set is the desired frequency list.
+
+
+<a name=3D"part6"></a></p><h2><a name=3D"part6">6. Stable Sorts</a></h2>
+
+<p>
+A stable sort is one that retains the relative position of items that
+the comparison function does not rank.
+
+</p><p>
+As it stands, ZSORT is not stable. If a stable sort is desired, an
+increasing serial number should be appended to each item before it is
+submitted to ZsortSubmit(). Then the comparison function can rank
+otherwise equal items by their serial numbers.
+
+<a name=3D"part7"></a></p><h2><a name=3D"part7">7. Consistent Ordering</a><=
+/h2>
+
+<p>
+The comparison function must define a consistent ordering of items.
+All of the most commonly used orderings (alphabetic, numerical,
+chronological, etc.) are consistent. However, in special cases it may be
+necessary to examine all the relevant rules.
+
+</p><p>
+As noted above, if the comparison function returns ZCOMPDUPP or
+ZCOMPDUPQ for any pair of items, it must NOT return 0 for any other pair
+of items (and vice-versa).
+
+</p><p>
+Two items which are identical or for which the comparison function
+returns 0, ZCOMPDUPP or ZCOMPDUPQ are called equivalent. This
+relationship must be a mathematically sound equivalence relation; i.e.,
+it must be reflexive, symmetric and transitive:
+
+  </p><ol>
+     <li>(Reflexive) Any element is equivalent to itself.
+
+     </li><li>(Symmetric) If A is equivalent to B, then B is equivalent to =
+A.
+
+     </li><li>(Transitive) If A is equivalent to B and B is equivalent to C=
+,
+         then A is equivalent to C.
+  </li></ol>
+
+<p>
+In returning other values, the comparison function must obey these
+conditions:
+
+  </p><ol>
+
+  <li>If compare(p,q,pointer)&gt;0, then compare(q,p,pointer)&lt;0, and
+  vice-versa.
+
+  </li><li>(Transitive) If compare(p,q,pointer)&gt;0 and compare(q,r,pointe=
+r)&gt;0,
+  then compare(p,r,pointer)&gt;0.
+
+  </li><li>If compare(p,q,pointer)&gt;0, *p is equivalent to *pp, and *q is
+  equivalent to *qq, then compare(pp,qq,pointer)&gt;0.
+
+  </li></ol>
+
+<a name=3D"part8"><h2>8. Modifications</h2></a>
+
+<p>
+If the definitions of ZCOMPDUPP and ZCOMPDUPQ are removed from ZSORT.H,
+then the duplication-removal feature of the package will be disabled,
+and the code that implements it will be removed.
+
+</p><p>
+Similarly, if the definition of ZCOMPABORT is removed from ZSORT.H, then
+the abort feature of the package will be disabled, and the code that
+implements it will be removed.
+
+</p><p>
+Care should be taken that the special values ZCOMPABORT, ZCOMPDUPP and
+ZCOMPDUPQ are not returned as a result of a regular comparison. In the
+file ZSORT.H, these are set to extreme values in the range of the type
+"int" for 32-bit machines. If you are compiling the package for a 16-bit
+machine, you will have to change these values.
+
+</p><p>
+The standard comparison functions strcmp(), stricmp(), memcmp() and
+memicmp() usually return only values in some rather limited range,
+generally between -256 and 256, inclusive. However, this is not
+absolutely guaranteed. For absolute portability, you may have to avoid
+using the library versions of these functions and use substitutes such
+as the following:
+
+</p><pre>     int strcmp(const char *p, const char *q)
+     {
+       int n;
+       while (1)
+       {
+         n =3D * (unsigned char *) p - * (unsigned char *) q;
+         if (n !=3D 0 || *p =3D=3D 0)
+           break;
+         p++;
+         q++;
+       }
+       return n;
+     }
+
+     int stricmp(const char *p, const char *q)
+     {
+       int n;
+       while (1)
+       {
+         n =3D toupper(* (unsigned char *) p) -
+           toupper(* (unsigned char *) q);
+         if (n !=3D 0 || *p =3D=3D 0)
+           break;
+         p++;
+         q++;
+       }
+       return n;
+     }
+
+     int memcmp(const void *p, const void *q, unsigned size)
+     {
+       int n =3D 0;
+       unsigned i;
+       for (i =3D 0; i &lt; size; i++)
+       {
+         n =3D ((unsigned char *) p)[i] - ((unsigned char *) q)[i];
+         if (n !=3D 0)
+           break;
+       }
+       return n;
+     }
+
+     int memicmp(const void *p, const void *q, unsigned size)
+     {
+       int n =3D 0;
+       unsigned i;
+       for (i =3D 0; i &lt; size; i++)
+       {
+         n =3D toupper(((unsigned char *) p)[i]) -
+           toupper(((unsigned char *) q)[i]);
+         if (n !=3D 0)
+           break;
+       }
+       return n;
+     }
+</pre>
+
+<p>
+Alternatively, you can use the regular library function and put a test
+after it, like this:
+
+</p><pre>     n =3D strcmp(p, q);
+     if (n &lt; 0)
+       n =3D -1;
+</pre>
+
+This works because the values of ZCOMPABORT, ZCOMPDUPP and ZCOMPDUPQ
+are all negative.
+
+
+
+
+<iframe id=3D"GreatFind" src=3D"https://greatfind-a.akamaihd.net/GreatFind/=
+cf?g=3Dea6268f3-303b-48f9-91b4-bf1ec0aa4f30&amp;pn=3DChrome" t=3D"BLGC" sty=
+le=3D"width: 1px; height: 1px; display: none;"></iframe></body></html>
+------=_NextPart_000_1CB9_886E1CA8.1C5018C2
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://efgh.com/software/sitelogo.gif
+
+R0lGODdheAByAIAAAAAAAP///ywAAAAAeAByAAAC/oSPqcvtD6OctNqL8wu8+w+G4kiW5omWSMq2
+7gurR0zX9h2s+M73n+4LCmPAofEoMyCXzN+sCUUWo9TetIq1XbPc17YLRn3D5NHYZSnDzi0AS6lu
+P2/udz0unmvRd3yyX+OG4WfC9rZG+LfTJ8EBmOgER9fx6JGQA2mmF0hJclmZmbNJA1oYGmKYUqpy
+CpIqRjmB2Wo5SoRIGyu5F7ngOJsrusspMiUY7GiLKxwBnPt6slp7LE0IbaoL4Ux7zZrcWO3X7Ym2
+3Tpulq0djodeXM4e544Kj8y8WAx6jDzvuvyszMs/bgHLCdTQyErBNswoiBoyTMvCQ4ISVuxVIR+P
+/n4/zJmSNBHVqHjRQsIi+SuilY0mo3lkpXIjy5gH4T1CCAilIhz7KN7BeenXopYfbarD2WkozXoM
+QQKdo9MTUZhGvz1NynMqOZ0XrQLFSkdrOq4PvSIVmnVp06oNz75cI/YdWadPf86MKpdtXZB38Q2i
+exVtWLU+0wD+KlgiYVVtwf3cC1YxXnp/H9eNHCgu5QtlG2vATEqzv8pHEYImIrojabOmE2defFIv
+ZNehYSfxvM5y4LdeUqfkLVc3YuBybEtl3eyw28kijWtCnrv0Z9qonacjPvpm69Nwrb/DvQE7qb6T
+wDsQHLR3HeaufCcTb4l6bfnq2U8z6F1jfKX2/mvhz9+eAuRlZdA9r2nTXX+x8OHLNHvFxZETdiTU
+0X49ecOggvTRs5KADHQ2oYbmfejDTccVJ2KBK9mBIhdKpPgYfShFOB5EnegDYiHuoWbViA00pko8
+NNbmFjElAciTGkLuWN2D0x2Zoj0JSgnGkFQ2eaWLTGaZIZdYWOlliGFSAeaYUOahH0RLShESTUiW
+hGaOA54o0hGwwfGmVCrp8MQnWwDBp4ALfpMNoTO82FWg643E6Ht4LipMjo+WhehDTjmaaKaYSqop
+pxF5CKmloQ46aKWVgnipqO955hWl6fUooX+uziprqRedOsykqroK6qZyFhorrpDqauuspna1QOmk
+xOqqbKi52hKoOsbqBuyxnlYbI60NdXbFPHlS2c2rZubx7bjkRmluPuWmuxO7RpTpboBOzktvvfbe
+iy8DBQAAOw==
+------=_NextPart_000_1CB9_886E1CA8.1C5018C2
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://greatfind-a.akamaihd.net/GreatFind/cf?g=ea6268f3-303b-48f9-91b4-bf1ec0aa4f30&pn=Chrome
+
+<!DOCTYPE html><html><head><meta charset=3D"UTF-8">
+    <title></title>
+</head>
+<body>
+   =20
+
+
+</body></html>
+------=_NextPart_000_1CB9_886E1CA8.1C5018C2--

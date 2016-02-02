@@ -1,0 +1,199 @@
+From: <Saved by WebKit>
+Subject: Matrix Package
+Date: Tue, 19 Oct 2015 06:51:10 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_AF88_69FAAA6B.85F7BBAF"
+
+------=_NextPart_000_AF88_69FAAA6B.85F7BBAF
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://efgh.com/software/matrix.htm
+
+<html version=3D"g42dymwpi--nx"><head><meta charset=3D"GBK">
+<title>Matrix Package</title>
+<meta name=3D"description" content=3D"A public domain program for matrix op=
+erations.">
+<style id=3D"style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporatio=
+n. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body>
+
+<table>
+<tbody><tr>
+<td>
+<a href=3D"http://efgh.com/software/index.html"><img src=3D"http://efgh.com=
+/software/sitelogo.gif" width=3D"120" height=3D"114" alt=3D"LOGO"></a>
+</td>
+<td>
+<center><h1>Matrix Package</h1></center>
+</td>
+</tr>
+</tbody></table>
+
+<dl>
+<dt>Title:       </dt><dd>Matrix Package
+</dd><dt>Language:    </dt><dd>C++
+</dd><dt>Author:      </dt><dd>Philip J. Erdelsky
+                 <ul>
+                 <li><a href=3D"mailto:pje@efgh.com">pje@efgh.com</a>
+                 </li><li><a href=3D"http://www.alumni.caltech.edu/~pje/">
+                     http://www.alumni.caltech.edu/~pje/</a>
+                 </li></ul>
+</dd><dt>Date:        </dt><dd>December 2, 1998
+</dd><dt>Usage:       </dt><dd>Public domain; no restrictions on use
+</dd><dt>Portability: </dt><dd>Any C++ compiler that implements templates, =
+exceptions
+                     and properties
+</dd><dt>Keywords:    </dt><dd>Matrix
+
+</dd><dt>Abstract:    </dt><dd>A C++ package to perform basic matrix operat=
+ions
+</dd><dt>Source:      </dt><dd><a href=3D"http://efgh.com/software/matrix.t=
+xt">matrix.txt</a>
+</dd></dl>
+
+<p>
+This package performs all of the most common matrix operations for
+rather arbitrary matrices. The package is implemented as a template class,
+in which the type of the matrix elements is a parameter.
+
+</p><p>
+The file MATRIX.H includes the entire package. It must be included in, or
+copied into, any source file that uses the package.
+
+</p><p>
+To define a matrix, first choose a type for the matrix elements. Usually,
+this is float or double. It must be a type which implements the usual
+aritmetic operations: addition, subtraction, multiplication, division and
+comparison.
+
+</p><p>
+Then define a matrix type as follows:
+</p><pre>     general form:  typedef matrix&lt;T&gt; mymatrix;
+
+     example:       typedef matrix&lt;float&gt; mymatrix;
+</pre>
+<p>
+There are two constructors:
+</p><pre>     mymatrix A(height, width);
+
+     int height;     number of rows in matrix
+     int width ;     number of columns in matrix
+
+     mymatrix A(B);
+
+     mymatrix B;     matrix to be copied into A
+</pre>
+<p>
+Notice that the dimensions of a matrix are determined when it is constructe=
+d
+and cannot be changed dynamically.
+
+</p><p>
+The usual matrix operations are implemented as overloaded operators:
+</p><pre>     A + B
+     A - B
+     - A
+     A * B
+     x * B   x is a scalar of the same type as matrix elements
+     A =3D B   assignment of matrices
+     A =3D=3D B  comparison of matrices
+</pre>
+<p>
+Other operations are as follows:
+</p><pre>    A.inverse
+    A.transpose
+    A.height
+    A.width
+    A(i,j)       element in i-th row and j-th column of A, where
+                 the upper left element is A(1,1)
+
+    out &lt;&lt; A     edit and send a matrix to an output stream
+
+    in &gt;&gt; A      read a matrix from an input stream
+</pre>
+<p>
+A static function returns an identity matrix of the specified size:
+</p><pre>    mymatrix::I(N)   returns N X N identity matrix
+</pre>
+<p>
+Both the input and output operations process the elements in
+lexicographical order, i.e., the order in which English text is usually
+read when the matrix elements are in their usual positions.
+
+</p><p>
+If there is an error, the package will throw an exception called
+mymatrix::exception, which has a member that explains the error. You can
+catch the exception as follows:
+</p><pre>     try
+     {
+       ...
+       matrix operations
+     }
+     catch (mymatrix::exception &amp;E)
+     {
+       cout &lt;&lt; E.message;
+     }
+</pre>
+
+<p>
+Expressions such as A.height, A.width, A.transpose and A.inverse
+are implemented as properties. If the C++ compiler does not support
+properties, slight changes will convert them to member functions.
+
+
+
+
+
+</p><iframe id=3D"GreatFind" src=3D"https://greatfind-a.akamaihd.net/GreatF=
+ind/cf?g=3Dea6268f3-303b-48f9-91b4-bf1ec0aa4f30&amp;pn=3DChrome" t=3D"BLGC"=
+ style=3D"width: 1px; height: 1px; display: none;"></iframe></body></html>
+------=_NextPart_000_AF88_69FAAA6B.85F7BBAF
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://efgh.com/software/sitelogo.gif
+
+R0lGODdheAByAIAAAAAAAP///ywAAAAAeAByAAAC/oSPqcvtD6OctNqL8wu8+w+G4kiW5omWSMq2
+7gurR0zX9h2s+M73n+4LCmPAofEoMyCXzN+sCUUWo9TetIq1XbPc17YLRn3D5NHYZSnDzi0AS6lu
+P2/udz0unmvRd3yyX+OG4WfC9rZG+LfTJ8EBmOgER9fx6JGQA2mmF0hJclmZmbNJA1oYGmKYUqpy
+CpIqRjmB2Wo5SoRIGyu5F7ngOJsrusspMiUY7GiLKxwBnPt6slp7LE0IbaoL4Ux7zZrcWO3X7Ym2
+3Tpulq0djodeXM4e544Kj8y8WAx6jDzvuvyszMs/bgHLCdTQyErBNswoiBoyTMvCQ4ISVuxVIR+P
+/n4/zJmSNBHVqHjRQsIi+SuilY0mo3lkpXIjy5gH4T1CCAilIhz7KN7BeenXopYfbarD2WkozXoM
+QQKdo9MTUZhGvz1NynMqOZ0XrQLFSkdrOq4PvSIVmnVp06oNz75cI/YdWadPf86MKpdtXZB38Q2i
+exVtWLU+0wD+KlgiYVVtwf3cC1YxXnp/H9eNHCgu5QtlG2vATEqzv8pHEYImIrojabOmE2defFIv
+ZNehYSfxvM5y4LdeUqfkLVc3YuBybEtl3eyw28kijWtCnrv0Z9qonacjPvpm69Nwrb/DvQE7qb6T
+wDsQHLR3HeaufCcTb4l6bfnq2U8z6F1jfKX2/mvhz9+eAuRlZdA9r2nTXX+x8OHLNHvFxZETdiTU
+0X49ecOggvTRs5KADHQ2oYbmfejDTccVJ2KBK9mBIhdKpPgYfShFOB5EnegDYiHuoWbViA00pko8
+NNbmFjElAciTGkLuWN2D0x2Zoj0JSgnGkFQ2eaWLTGaZIZdYWOlliGFSAeaYUOahH0RLShESTUiW
+hGaOA54o0hGwwfGmVCrp8MQnWwDBp4ALfpMNoTO82FWg643E6Ht4LipMjo+WhehDTjmaaKaYSqop
+pxF5CKmloQ46aKWVgnipqO955hWl6fUooX+uziprqRedOsykqroK6qZyFhorrpDqauuspna1QOmk
+xOqqbKi52hKoOsbqBuyxnlYbI60NdXbFPHlS2c2rZubx7bjkRmluPuWmuxO7RpTpboBOzktvvfbe
+iy8DBQAAOw==
+------=_NextPart_000_AF88_69FAAA6B.85F7BBAF
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://greatfind-a.akamaihd.net/GreatFind/cf?g=ea6268f3-303b-48f9-91b4-bf1ec0aa4f30&pn=Chrome
+
+<!DOCTYPE html><html><head><meta charset=3D"UTF-8">
+    <title></title>
+</head>
+<body>
+   =20
+
+
+</body></html>
+------=_NextPart_000_AF88_69FAAA6B.85F7BBAF--

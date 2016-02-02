@@ -1,0 +1,23 @@
++ How to handle PDU size greater than 64 for service registration ?
+
++ LanguageBaseAttributeIDList and offsets for other languages
+  Put SvcNameInfo, SvcProvNameInfo and SvcDesc as elements of a
+  struct and sequence of which captures user visible strings
+  for all languages
+
++ Need to provide APIs for easy addition of new language strings
+
+API :
+-----
++ Check sanity of language specific attribute ID/Offset
+  and the assoc'd code
++ Browse group structures and definitions not added
+
+TBD :
+----
++ Attribute identifier defines may not be complete
+  (language specific attrs for other langs)
+
+
+-------------------------------
+

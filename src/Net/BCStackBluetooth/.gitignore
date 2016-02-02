@@ -1,0 +1,44 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+bcstack
+*.Administrator
+
+*.bak
+
+platform/stm32/common/MDK-ARM/STM32F401-Discovery/*
+platform/stm32/common/MDK-ARM/STM32F429I-Discovery/*
+*.dep
+
+*.lst
+
+bluetooth/include/usrconfig.h
+
+*.crf
+
+*.d
+
+*.map
+
+*.log

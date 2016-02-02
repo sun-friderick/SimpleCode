@@ -1,0 +1,5 @@
+# device permissions for Affix bty devices.
+REGISTER	^bty    PERMISSIONS root.dialout  0660
+REGISTER	^bty/([0-9]+) CFUNCTION GLOBAL symlink $devname bty\1
+UNREGISTER	^bty/([0-9]+) CFUNCTION GLOBAL unlink bty\1
+

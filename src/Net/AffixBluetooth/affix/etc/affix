@@ -1,0 +1,194 @@
+#!/bin/sh
+#
+# $Id: affix,v 1.15 2004/05/13 15:41:30 kassatki Exp $
+#
+# Affix hardware initialization script
+#
+#	ACTION=%s 	[register/attach or unregister/detach]
+#	IFACE=%s	[bt0, bt1, etc]
+#	IFTYPE=%s	[usb, pcmcia, uart, uart_cs]
+#
+# ----------------------------------------------------------------
+# Affix USB hotplug params include:
+#	
+#	PRODUCT=%x/%x/%x
+#	TYPE=%d/%d/%d
+#
+# And if usbfs (originally called usbdevfs) is configured, also:
+#
+#	DEVFS=/proc/bus/usb
+#	DEVICE=/proc/bus/usb/%03d/%03d
+# ----------------------------------------------------------------
+# Affix UART hotplug params include:
+#
+#	PRODUCT=%x:%x
+#	DEVICE=/dev/.../%s
+#	SPEED=%d
+#	FLAGS=%s	[flow]
+#
+
+#if [ -t 1 -o ! -x /usr/bin/logger ]; then
+if [ ! -x /usr/bin/logger ]; then
+    mesg () {
+	echo "$@"
+    }
+else
+    mesg () {
+    	test "$#" -eq "0" && return
+	/usr/bin/logger -p user.debug -t $0 "$@"
+    }
+fi
+
+reverse ()
+{
+	rev=""
+	for entry in $1 ; do
+		rev="$entry $rev"
+	done
+	eval "$2=\"$rev\""
+}
+
+cfgdir=/etc/affix
+config=${cfgdir}/affix.conf
+
+# reading options...
+. $config
+
+# init.d support
+case "$1" in
+	start)
+		for mod in $load_modules ; do
+			modprobe $mod
+		done
+		for BTDEV in $BTDEVS ; do
+			# reading options
+			. $config
+			# initialize device
+			mesg "Starting $BTDEV: " $init
+			$init
+		done
+		exit 0
+		;;
+		
+	stop)
+		for BTDEV in $BTDEVS ; do
+			# reading options
+			. $config
+			# initialize device
+			mesg "Stopping $BTDEV: " $exit
+			$exit
+		done
+		reverse "$load_modules" unload_modules
+		for mod in $unload_modules ; do
+			rmmod $mod			
+		done
+		exit 0
+		;;
+		
+	affix)
+		# $1 - affix (if called from hotplug)
+		shift
+		;;
+
+	*)
+		mesg "unknown argument: " $1
+		exit 0
+		;;
+
+esac
+
+# device initialization
+
+ACTION=$1
+IFACE=$2
+IFTYPE=$3
+
+PANIF=`echo pan${IFACE#bt}`
+
+# reading options...
+. ${cfgdir}/affix.conf
+
+btctl="${prefix}/bin/btctl -m ${cfgdir}/device.map $IFACE"
+btpan="${prefix}/bin/btpan $IFACE"
+
+mesg $IFACE $ACTION "("$IFTYPE")"
+mesg $DEVICE $PRODUCT $TYPE $SPEED $FLAGS
+
+case $ACTION in
+	register|attach)
+		# sleep 1 second -> allows return from hcidev_register()
+		# do not remove it from here!!!
+		sleep 1
+		case $IFTYPE in
+		usb)
+			# starting additional hardware initialization
+			test -x /sbin/bluefw && /sbin/bluefw usb $DEVICE
+			;;
+		uart_cs|uart)
+			if [ -n "$DEVICE" -a ! -c $DEVICE ] ; then
+				olddir=`pwd`
+				cd /dev ; ./MAKEDEV `basename $DEVICE`
+				cd $olddir
+			fi
+			# uart initialization for plugged pccards
+			if [ "$IFTYPE" = "uart" ] ; then
+				UART_SPEED=$SPEED
+				UART_FLAGS=$FLAGS
+			fi
+			mesg "$btctl init_uart $PRODUCT $UART_SPEED $UART_FLAGS"
+			$btctl init_uart $PRODUCT $UART_SPEED $UART_FLAGS
+			if [ $? != 0 ] ; then
+				mesg "[btctl init_uart] failed"
+				exit 1
+			fi
+			;;
+		*)
+			;;
+		esac
+		
+		if [ "$auto" = "yes" ] ; then
+			# bring device up... try 3 times
+			mesg "$btctl up"
+			$btctl up || $btctl up || $btctl up
+		fi
+
+		;;
+
+	up)
+		if [ "$setup" = "yes" ] ; then
+			if [ "$IFACE" != "bt0" ] ; then
+				name="$name#${IFACE#bt}"
+			fi
+			mesg "btctl name $name"
+			$btctl name "$name"
+			mesg "btctl security $secmode"
+			$btctl security $secmode 
+			mesg "btctl class $class"
+			$btctl class $class 
+			mesg "btctl scan $scanmode"
+			$btctl scan $scanmode 
+			if [ -n "$audio" ] ; then
+				mesg "activating audio"
+				$btctl audio $audio
+			fi
+		fi
+		# setup PAN
+		if [ -n "$pan_role" ] ; then
+			mesg "btpan init $pan_role"
+			$btpan init $pan_role || PANIF=""
+		fi
+
+		;;
+		
+	unregister|detach)
+		;;
+
+	down)
+		;;
+
+esac
+
+# setup PAN
+PAN="$PANIF,$ACTION,$pan_role,$pan_scheme"
+test -e ${cfgdir}/pan.conf && . ${cfgdir}/pan.conf
+

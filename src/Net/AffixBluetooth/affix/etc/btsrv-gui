@@ -1,0 +1,113 @@
+#!/usr/bin/python
+#
+#   Affix - Bluetooth Protocol Stack for Linux
+#   Copyright (C) 2001 Nokia Corporation
+#   Original Author: Alexey Vyskubov <alexey.vyskubov@nokia.com>
+#
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
+#
+#   This program is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#   General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License along
+#   with this program; if not, write to the Free Software Foundation, Inc.,
+#   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+#
+#   $Id: btsrv-gui,v 1.10 2004/03/03 14:47:01 emeltche Exp $
+#
+#   Affix GUI helper
+#   
+#   slightly modified for real Affix purpose by Dmitry Kasatkin
+#
+
+
+import sys
+
+#import pygtk
+#pygtk.require('2.0')
+# and remove all gtk in objects... like gtk.Label instead gtk.Label
+
+import gtk
+
+class W(gtk.Window):
+	
+	def __init__(self):
+
+		gtk.Window.__init__(self, gtk.WINDOW_TOPLEVEL)
+	
+	def go(self, header):
+	
+		self.r = 'EMPTY'
+
+		self.set_title(header)
+
+		self.connect("delete_event", self.quit)
+		self.table = gtk.Table(2,5)
+		self.add(self.table)
+		self.table.set_border_width(5)
+                self.table.set_row_spacing(0, 9)
+                self.table.set_col_spacing(0, 9)
+
+		self.table.show()
+		label = gtk.Label(header)
+		self.table.attach(label, 0,5, 0,1)
+		label.show()
+		
+		label = gtk.Label('PIN')
+		self.table.attach(label, 0,1, 1,2)
+		label.show()
+		
+		self.pin = gtk.Entry()
+		self.table.attach(self.pin, 1,5, 1,2)
+		self.pin.show()
+		self.pin.connect('activate', self.ok)
+		self.pin.grab_focus()
+
+		bOK = gtk.Button('  OK  ')
+		self.table.attach(bOK, 3,4, 2,3)
+		bOK.show()
+		bOK.connect("clicked", self.ok)
+		
+		bCANCEL = gtk.Button('CANCEL')
+		self.table.attach(bCANCEL, 4,5, 2,3)
+		bCANCEL.show()
+		bCANCEL.connect("clicked", self.quit)
+
+		self.show()
+		gtk.mainloop()
+		return self.r
+
+	
+	def ok(self, data, a=None):
+		
+		self.r = self.pin.get_text()
+		self.quit(1)
+
+	def quit(self, data, a=None):
+
+		self.hide()
+		self.destroy()
+		gtk.mainquit()
+
+
+if len(sys.argv) == 1:
+	sys.exit(0)
+# create a Window object
+t = W()
+if sys.argv[1] == 'try':
+	sys.exit(0)
+elif sys.argv[1] == 'pin':
+	pin = t.go("Connection from %s [%s]" %  (sys.argv[2], sys.argv[3]))
+	#check pin code 
+	print pin
+	sys.exit(0)
+else:
+	print 'Invalid option: %s' % sys.argv[1]
+	sys.exit(0)
+

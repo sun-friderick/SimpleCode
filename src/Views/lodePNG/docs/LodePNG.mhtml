@@ -1,0 +1,330 @@
+From: <Saved by WebKit>
+Subject: LodePNG
+Date: Tue, 12 Oct 2015 07:03:08 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_37FA_1D4A4334.4DAECE5A"
+
+------=_NextPart_000_37FA_1D4A4334.4DAECE5A
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://lodev.org/lodepng/
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><html version=3D"g42=
+dymwpi--nx"><head><meta charset=3D"GBK">
+  <title>LodePNG</title>
+  <link rel=3D"stylesheet" href=3D"http://lodev.org/style/style.css">
+
+ =20
+
+
+ <style id=3D"style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporati=
+on. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+ <body>
+  <h1>LodePNG</h1>
+  <p>
+
+  </p><h2>LodePNG for C (ISO C90) and C++</h2>
+
+  <table>
+    <tbody><tr>
+     <td>
+      LodePNG is a PNG image decoder and encoder, all in one, no dependency=
+ or linkage to zlib or libpng required.<br>
+      It's made for C (ISO C90), and has a C++ wrapper with a more convenie=
+nt interface on top.
+      <p>
+      <a href=3D"https://github.com/lvandeve/lodepng">On GitHub</a>
+      </p><p>
+      See lodepng.h for documentation.
+      </p><p>
+        </p><ul>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/lodepng.cpp">lodepng.cpp</a>: The source file for the C++ version (=
+and after renaming it, for the C version)</li>
+          <li>lodepng.c: Just get lodepng.cpp and rename it to lodepng.c</l=
+i>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/lodepng.h">lodepng.h</a>: header for both the C and C++ version.</l=
+i>
+          <p>
+        </p></ul>
+        Usage examples:
+        <ul>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_decode.cpp">example_decode.cpp</a>: Decoding in C+=
++</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_decode.c">example_decode.c</a>: Decoding in C</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_encode.cpp">example_encode.cpp</a>: Encoding in C+=
++</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_encode.c">example_encode.c</a>: Encoding in C</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_sdl.cpp">example_sdl.cpp</a>: Show PNG image with =
+SDL in C++</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_sdl.c">example_sdl.c</a>: Show PNG image with SDL =
+in C</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_opengl.cpp">example_opengl.cpp</a>: Show PNG image=
+ with OpenGL</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_png_info.cpp">example_png_info.cpp</a>: Lists lots=
+ of information about a PNG image in text form</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_4bit_palette.cpp">example_4bit_palette.cpp</a>: Ge=
+nerates 4-bit PNG with translucent palette</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_reencode.cpp">example_reencode.cpp</a>: Decodes PN=
+G, then reencodes it close to the original</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_optimize_png.cpp">example_optimize_png.cpp</a>: En=
+codes a PNG with higher compression, but slower</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_gzip.cpp">example_gzip.cpp</a>: Encode a file to a=
+ gzip file (.gz)</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_png2bmp.cpp">example_png2bmp.cpp</a>: Convert PNG =
+to BMP</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/examples/example_bmp2png.cpp">example_bmp2png.cpp</a>: Convert BMP =
+to PNG</li>
+        </ul>
+        Other utilities:
+        <ul>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/lodepng_util.cpp">lodepng_util.cpp</a>: Utilities to extract intern=
+al information from PNGs.</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/lodepng_util.h">lodepng_util.h</a>: Header file for lodepng_util.cp=
+p</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/pngdetail.cpp">pngdetail.cpp</a>: Prints detailed info of PNG image=
+s, including filter types and huffman symbols</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/lodepng_unittest.cpp">lodepng_unittest.cpp</a>: Unit tests for Lode=
+PNG</li>
+          <li><a href=3D"https://raw.githubusercontent.com/lvandeve/lodepng=
+/master/lodepng_benchmark.cpp">lodepng_benchmark.cpp</a>: Benchmark for Lod=
+ePNG</li>
+        </ul>
+      <p>
+     </p></td>
+   </tr>
+  </tbody></table>
+
+  <h2>picoPNG</h2>
+
+  <table>
+    <tbody><tr>
+     <td>
+      There is also picoPNG, which is only the decoder part of LodePNG, wra=
+pped in one single C++ function of around 500 lines. This is less well main=
+tained than LodePNG, has less features, and may be less efficient.
+      <br><br>
+      The function, decodePNG, converts any PNG file data, with any colorty=
+pe or interlace mode, into a 32-bit image in an std::vector at the output.
+      <p>
+      <a href=3D"http://lodev.org/lodepng/picopng.cpp">picopng.cpp</a>
+      </p><p>
+     </p></td>
+   </tr>
+  </tbody></table>
+
+  <h2>Other versions</h2>
+
+
+  <table>
+    <tbody><tr>
+     <td>
+        <ul>
+          <li><a href=3D"http://www.dsource.org/projects/scrapple/wiki/Lode=
+PngLibrary">http://www.dsource.org/projects/scrapple/wiki/LodePngLibrary</a=
+>: D programming language port by Lutger</li>
+          <li><a href=3D"http://lodev.org/lodepng/pngread.bas">pngread.bas<=
+/a>, <a href=3D"http://lodev.org/lodepng/pngwrite.bas">pngwrite.bas</a>: BA=
+SIC 7.1 port by Daniel Nice </li>
+        </ul>
+      <p>
+     </p></td>
+   </tr>
+  </tbody></table>
+
+  <h2>FAQ</h2>
+
+  <b>Q: When using OpenGL and decoding textures with LodePNG, the image is =
+upside down.</b>
+  <p>
+  A: LodePNG uses a pixel order where it goes in rows from top to bottom. I=
+n OpenGL,
+  how would you define upside down? There are many things which affect the =
+orientation with
+  which something is drawn in OpenGL: camera orientation, texture coordinat=
+es, the orientation
+  of the object, ... If you don't want to solve the problem by changing Ope=
+nGL coordinates, e.g.
+  because your game engine   uses a bottom to top representation for all te=
+xtures, you can still go through
+  the raw pixel buffer of LodePNG with a for loop and swap the rows to beco=
+me upside down. Remember that
+  for 32-bit RGBA, each row is (width * 4 bytes) long, for 24-bit RGB it's =
+(width * 3 bytes) long.
+  </p><p>
+  <b>Q: The image is wrong when using LodePNG with BITMAPs in Visual Studio=
+ or win32, or with BMP images.</b>
+  </p><p>
+  A: LodePNG uses raw buffers with RGBA or RGB pixels in the common order R=
+GBARGBARGBA... or
+  RGBRGBRGBRGB..., from top to bottom, without any special byte boundaries.
+  BMP images and bitmaps in win32 use a different format. They do three thi=
+ngs differently:
+  </p><ul>
+  <li>Instead of being from top to bottom, it goes from
+  bottom to top (upside down).</li>
+  <li>Instead of using the order red, green, blue, it uses the order
+  blue, green, red, or BGRBGRBGR..., (can result in wrong colors).</li>
+  <li>It has a limitation where rows always must be a multiple of 4 bytes, =
+so if the width of
+  the image is not a multiple of 4 some unused bytes are introduced at the =
+end of each row
+  (can result in a skewed image).</li>
+  </ul>
+  All of this are related to how BMP works, not how PNG or LodePNG work. Wh=
+en you're working with BMP,
+  you need to take each of these three things into account and convert this=
+ to/from the
+  buffer format that LodePNG uses. Also check out the <a href=3D"http://lod=
+ev.org/lodepng/example_png2bmp.cpp">png2bmp</a> and <a href=3D"http://lodev=
+.org/lodepng/example_bmp2png.cpp">bmp2png</a> samples, which already do thi=
+s.
+  <p>
+  <b>Q: What's the difference between zlib, deflate and gzip? And between C=
+RC32 and ADLER32?</b>
+  </p><p>
+  A: That can be confusing. In short:
+  </p><ul>
+  <li>PNG uses zlib. Zlib uses deflate. Gzip uses deflate and is not used b=
+y PNG.</li>
+  <li>PNG uses CRC32, and indirectly ADLER32. Zlib uses ADLER32. Gzip uses =
+CRC32.</li>
+  <li>IETF Standards: PNG is RFC 2083. Zlib is RFC 1950. Deflate is RFC 195=
+1. Gzip is RFC 1952.</li>
+  </ul>
+  <b>Q: picoPNG doesn't support some feature.</b>
+  <p>
+  A: Try LodePNG instead. It supports more than picoPNG, and is better main=
+tained. The code of picoPNG may be small,
+  but its compiled executable may not be. If you want to compile to a reall=
+y small executable, then LodePNG can probably
+  do this better because it supports the C language instead of only C++, an=
+d has the ability to turn off pieces of code
+  you don't need by changing some #defines in the header.
+  </p><p>
+  <b>Q: Error 29 when loading PNG when using XCode.</b>
+  </p><p>
+  A: XCode may modify PNG images to a proprietary file format not compatibl=
+e with the real PNG standard. Disable a setting "Compress PNG Files" under =
+"Packaging" to get valid PNGs.
+  </p><p>
+  <b>Q: Why did the interface of LodePNG change? Why not keep it as is, fix=
+ing compile errors is annoying!</b>
+  </p><p>
+  A: Sorry about that. Sometimes when a feature is added the interface grow=
+s into something inconsistent, and then
+  I try to redesign it to get a new, better, one. And sometimes when a new =
+feature is added the cleanest way to do
+  it requires an interface change. In the last change, the following improv=
+ements were made that changed it:
+  </p><ul>
+  <li>There used to be some fields in camelCase, and others with_underscore=
+s. Now, this is made more consistent: all fields
+  and functions use underscore between words (except between two nouns that=
+ form one word, like bitdepth or palettesize), and all
+  typenames start with a capital and use CamelCase.</li>
+  <li>The large amount of structs got reduced a bit.</li>
+  <li>The C++ class got removed: there was really no reason to have a class=
+ here. A encoder and decoder class with
+  subclass implementations makes sense in a framework that can encode/decod=
+e many different image formats, but not
+  in a single format like here. Instead, a convenient RAII wrapper lodepng:=
+:State is available around the new
+  LodePNGState struct.</li>
+  <li>The C++ namespace is lodepng instead of LodePNG because namespaces lo=
+ok better in small letters imho.</li>
+  </ul>
+
+  <h2>Change History</h2>
+
+  More detailed change history is in the header file.
+
+  <table>
+    <tbody><tr>
+      <td>
+        <p>
+        </p><ul>
+          <li>2005: LodePNG created for C++, it could only decode PNGs.</li=
+>
+          <li>2006: Many interface changes, fixes and improvements.</li>
+          <li>2007: Full PNG and Zlib encoder and compressor added.</li>
+          <li>2008: Converted all the code to C instead of C++, with a C++ =
+wrapper around it.</li>
+          <li>2010: Small bugfixes and header and documentation restructure=
+d.</li>
+          <li>2012: Revamped interface with more consistent names, rewrote =
+some parts, bugfixes.</li>
+        </ul>
+      </td>
+   </tr>
+  </tbody></table>
+
+  <br><br>
+
+
+  <a href=3D"http://lodev.org/">Some other projects</a>
+  <hr>
+  Copyright (c) 2005-2013 by Lode Vandevenne. All rights reserved.
+
+</body></html>
+------=_NextPart_000_37FA_1D4A4334.4DAECE5A
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://lodev.org/style/style.css
+
+body { color: rgb(68, 68, 68); font-family: Helvetica, Arial, sans-serif; m=
+argin-left: 15%; margin-right: 15%; background-image: url(http://lodev.org/=
+style/pattern.png); }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; color: rgb(34, 34, 34); }
+
+h1 { text-align: center; color: rgb(0, 0, 0); }
+
+h2 { color: rgb(0, 0, 0); }
+
+ul.gray { list-style-type: disc; color: gray; }
+
+a { text-decoration: none; }
+
+a:link { color: rgb(112, 112, 238); }
+
+a:visited { }
+
+a:active { color: rgb(255, 0, 0); }
+
+a:hover { color: rgb(255, 0, 0); }
+------=_NextPart_000_37FA_1D4A4334.4DAECE5A--

@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=/usr/include
+
+Name: affix
+Description: Affix Bluetooth stack for Linux
+Version: 2.1.2
+Libs: -L${libdir} -Wl,-rpath -Wl,${libdir} -laffix -laffix_sdp -laffix_sdpsvc -laffix_obex
+Cflags: -I${includedir}/affix
+

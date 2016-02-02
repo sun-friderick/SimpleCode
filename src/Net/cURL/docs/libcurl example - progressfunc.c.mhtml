@@ -1,0 +1,561 @@
+From: <Saved by Blink>
+Subject: libcurl example - progressfunc.c
+Date: Wed, 3 Nov 2015 10:49:54 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_AD0C_36A68DAA.FCFD5220"
+
+------=_NextPart_000_AD0C_36A68DAA.FCFD5220
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://curl.haxx.se/libcurl/c/progressfunc.html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd"><html version=3D"g42dymwpi--nx"><head><meta http=
+-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"> <title>libc=
+url example - progressfunc.c</title>
+
+<link rel=3D"stylesheet" type=3D"text/css" href=3D"http://curl.haxx.se/curl=
+.css">
+<link rel=3D"shortcut icon" href=3D"http://curl.haxx.se/favicon.ico">
+<style id=3D"style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporatio=
+n. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body bgcolor=3D"#ffffff" text=3D"#000000">
+<div class=3D"main">
+<div class=3D"menu">
+<a href=3D"http://curl.haxx.se/libcurl/c/libcurl.html" class=3D"menuitem" t=
+itle=3D"Overview">Overview</a>
+<a href=3D"http://curl.haxx.se/libcurl/c/libcurl-tutorial.html" class=3D"me=
+nuitem" title=3D"Tutorial">Tutorial</a>
+<a href=3D"http://curl.haxx.se/libcurl/c/libcurl-errors.html" class=3D"menu=
+item" title=3D"Error Codes">Errors</a>
+<a href=3D"http://curl.haxx.se/libcurl/c/example.html" class=3D"itemselect"=
+>Examples</a>
+<a href=3D"http://curl.haxx.se/libcurl/c/symbols-in-versions.html" class=3D=
+"menuitem" title=3D"In which versions were which symbols introduced">Symbol=
+s</a>
+<a href=3D"http://curl.haxx.se/libcurl/c/allfuncs.html" class=3D"menuitem" =
+title=3D"List of all libcurl functions">Index</a>
+<a href=3D"http://curl.haxx.se/libcurl/c/libcurl-easy.html" class=3D"menuit=
+em" title=3D"Easy interface tutorial">Easy Interface</a>
+<a href=3D"http://curl.haxx.se/libcurl/c/libcurl-multi.html" class=3D"menui=
+tem" title=3D"Multi Interface tutorial">Multi Interface</a>
+<a href=3D"http://curl.haxx.se/libcurl/c/libcurl-share.html" class=3D"menui=
+tem" title=3D"Share Interface Tutorial">Share Interface</a>
+</div>
+<div class=3D"contents">
+<div class=3D"where"><a href=3D"http://curl.haxx.se/">cURL</a> / <a href=3D=
+"http://curl.haxx.se/libcurl/">libcurl</a> / <a href=3D"http://curl.haxx.se=
+/libcurl/c/">API</a> / <a href=3D"http://curl.haxx.se/libcurl/c/example.htm=
+l">Examples</a> / <b>progressfunc.c</b></div>
+<h1> progressfunc.c </h1>
+<div style=3D"float: right; border: 1px solid black; margin: 4px; padding: =
+4px; ">
+<h2> All Examples </h2>
+<a href=3D"http://curl.haxx.se/libcurl/c/10-at-a-time.html">10-at-a-time</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/anyauthput.html">anyauthput</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/asiohiper.html">asiohiper</a> (C++=
+)<br>
+<a href=3D"http://curl.haxx.se/libcurl/c/cacertinmem.html">cacertinmem</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/certinfo.html">certinfo</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/chkspeed.html">chkspeed</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/cookie_interface.html">cookie_inte=
+rface</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/curlgtk.html">curlgtk</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/curlx.html">curlx</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/debug.html">debug</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/evhiperfifo.html">evhiperfifo</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/externalsocket.html">externalsocke=
+t</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/fileupload.html">fileupload</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/fopen.html">fopen</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/ftp-wildcard.html">ftp-wildcard</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/ftpget.html">ftpget</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/ftpgetinfo.html">ftpgetinfo</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/ftpgetresp.html">ftpgetresp</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/ftpsget.html">ftpsget</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/ftpupload.html">ftpupload</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/ftpuploadresume.html">ftpuploadres=
+ume</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/getinfo.html">getinfo</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/getinmemory.html">getinmemory</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/ghiper.html">ghiper</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/hiperfifo.html">hiperfifo</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/href_extractor.html">href_extracto=
+r</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/htmltidy.html">htmltidy</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/htmltitle.html">htmltitle</a> (C++=
+)<br>
+<a href=3D"http://curl.haxx.se/libcurl/c/http-post.html">http-post</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/http2-download.html">http2-downloa=
+d</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/http2-serverpush.html">http2-serve=
+rpush</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/http2-upload.html">http2-upload</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/httpcustomheader.html">httpcustomh=
+eader</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/httpput.html">httpput</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/https.html">https</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-append.html">imap-append</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-copy.html">imap-copy</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-create.html">imap-create</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-delete.html">imap-delete</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-examine.html">imap-examine</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-fetch.html">imap-fetch</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-list.html">imap-list</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-lsub.html">imap-lsub</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-multi.html">imap-multi</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-noop.html">imap-noop</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-search.html">imap-search</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-ssl.html">imap-ssl</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-store.html">imap-store</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/imap-tls.html">imap-tls</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/multi-app.html">multi-app</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/multi-debugcallback.html">multi-de=
+bugcallback</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/multi-double.html">multi-double</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/multi-post.html">multi-post</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/multi-single.html">multi-single</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/multi-uv.html">multi-uv</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/multithread.html">multithread</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/opensslthreadlock.html">opensslthr=
+eadlock</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/persistant.html">persistant</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-dele.html">pop3-dele</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-list.html">pop3-list</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-multi.html">pop3-multi</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-noop.html">pop3-noop</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-retr.html">pop3-retr</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-ssl.html">pop3-ssl</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-stat.html">pop3-stat</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-tls.html">pop3-tls</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-top.html">pop3-top</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/pop3-uidl.html">pop3-uidl</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/post-callback.html">post-callback<=
+/a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/postinmemory.html">postinmemory</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/postit2.html">postit2</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/progressfunc.html">progressfunc</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/resolve.html">resolve</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/rtsp.html">rtsp</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/sampleconv.html">sampleconv</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/sendrecv.html">sendrecv</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/sepheaders.html">sepheaders</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/sessioninfo.html">sessioninfo</a><=
+br>
+<a href=3D"http://curl.haxx.se/libcurl/c/sftpget.html">sftpget</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/simple.html">simple</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/simplepost.html">simplepost</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/simplessl.html">simplessl</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/smooth-gtk-thread.html">smooth-gtk=
+-thread</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/smtp-expn.html">smtp-expn</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/smtp-mail.html">smtp-mail</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/smtp-multi.html">smtp-multi</a><br=
+>
+<a href=3D"http://curl.haxx.se/libcurl/c/smtp-ssl.html">smtp-ssl</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/smtp-tls.html">smtp-tls</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/smtp-vrfy.html">smtp-vrfy</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/synctime.html">synctime</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/threaded-ssl.html">threaded-ssl</a=
+><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/url2file.html">url2file</a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/usercertinmem.html">usercertinmem<=
+/a><br>
+<a href=3D"http://curl.haxx.se/libcurl/c/xmlstream.html">xmlstream</a><br>
+</div>
+<p>
+<a href=3D"https://github.com/bagder/curl/raw/master/docs/examples/progress=
+func.c">Download progressfunc.c</a>
+</p><pre><i><font color=3D"#B22222">/**************************************=
+*************************************
+ *                                  _   _ ____  _
+ *  Project                     ___| | | |  _ \| |
+ *                             / __| | | | |_) | |
+ *                            | (__| |_| |  _ &lt;| |___
+ *                             \___|\___/|_| \_\_____|
+ *
+ * Copyright (C) 1998 - 2013, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et a=
+l.
+ *
+ * This software is licensed as described in the file COPYING, which
+ * you should have received as part of this distribution. The terms
+ * are also available at http://curl.haxx.se/docs/copyright.html.
+ *
+ * You may opt to use, copy, modify, merge, publish, distribute and/or sell
+ * copies of the Software, and permit persons to whom the Software is
+ * furnished to do so, under the terms of the COPYING file.
+ *
+ * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF AN=
+Y
+ * KIND, either express or implied.
+ *
+ **************************************************************************=
+*/ </font></i>
+#<b><font color=3D"#5F9EA0">include</font></b> <b><font color=3D"#BC8F8F">&=
+lt;stdio.h&gt;</font></b>
+#<b><font color=3D"#5F9EA0">include</font></b> <b><font color=3D"#BC8F8F">&=
+lt;curl/curl.h&gt;</font></b>
+&nbsp;
+#<b><font color=3D"#5F9EA0">define</font></b> <font color=3D"#B8860B">STOP_=
+DOWNLOAD_AFTER_THIS_MANY_BYTES</font>         6000
+#<b><font color=3D"#5F9EA0">define</font></b> <font color=3D"#B8860B">MINIM=
+AL_PROGRESS_FUNCTIONALITY_INTERVAL</font>     3
+&nbsp;
+<b><font color=3D"#228B22">struct</font></b> myprogress {
+  <b><font color=3D"#228B22">double</font></b> lastruntime;
+  CURL *curl;
+};
+&nbsp;
+<i><font color=3D"#B22222">/* this is how the <a href=3D"http://curl.haxx.s=
+e/libcurl/c/CURLOPT_XFERINFOFUNCTION.html">CURLOPT_XFERINFOFUNCTION</a> cal=
+lback works */ </font></i>
+<b><font color=3D"#228B22">static</font></b> <b><font color=3D"#228B22">int=
+</font></b> <b><font color=3D"#0000FF">xferinfo</font></b>(<b><font color=
+=3D"#228B22">void</font></b> *p,
+                    curl_off_t dltotal, curl_off_t dlnow,
+                    curl_off_t ultotal, curl_off_t ulnow)
+{
+  <b><font color=3D"#228B22">struct</font></b> myprogress *myp =3D (<b><fon=
+t color=3D"#228B22">struct</font></b> myprogress *)p;
+  CURL *curl =3D myp-&gt;curl;
+  <b><font color=3D"#228B22">double</font></b> curtime =3D 0;
+&nbsp;
+  <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_getinfo.html">curl_eas=
+y_getinfo</a>(curl, <a href=3D"http://curl.haxx.se/libcurl/c/CURLINFO_TOTAL=
+_TIME.html">CURLINFO_TOTAL_TIME</a>, &amp;curtime);
+&nbsp;
+  <i><font color=3D"#B22222">/* under certain circumstances it may be desir=
+able for certain functionality
+     to only run every N seconds, in order to do this the transaction time =
+can
+     be used */ </font></i>
+  <b><font color=3D"#A020F0">if</font></b>((curtime - myp-&gt;lastruntime) =
+&gt;=3D MINIMAL_PROGRESS_FUNCTIONALITY_INTERVAL) {
+    myp-&gt;lastruntime =3D curtime;
+    fprintf(stderr, <b><font color=3D"#BC8F8F">"TOTAL TIME: %f \r\n"</font>=
+</b>, curtime);
+  }
+&nbsp;
+  fprintf(stderr, <b><font color=3D"#BC8F8F">"UP: %"</font></b> CURL_FORMAT=
+_CURL_OFF_T <b><font color=3D"#BC8F8F">" of %"</font></b> CURL_FORMAT_CURL_=
+OFF_T
+          <b><font color=3D"#BC8F8F">"  DOWN: %"</font></b> CURL_FORMAT_CUR=
+L_OFF_T <b><font color=3D"#BC8F8F">" of %"</font></b> CURL_FORMAT_CURL_OFF_=
+T
+          <b><font color=3D"#BC8F8F">"\r\n"</font></b>,
+          ulnow, ultotal, dlnow, dltotal);
+&nbsp;
+  <b><font color=3D"#A020F0">if</font></b>(dlnow &gt; STOP_DOWNLOAD_AFTER_T=
+HIS_MANY_BYTES)
+    <b><font color=3D"#A020F0">return</font></b> 1;
+  <b><font color=3D"#A020F0">return</font></b> 0;
+}
+&nbsp;
+<i><font color=3D"#B22222">/* for libcurl older than 7.32.0 (<a href=3D"htt=
+p://curl.haxx.se/libcurl/c/CURLOPT_PROGRESSFUNCTION.html">CURLOPT_PROGRESSF=
+UNCTION</a>) */ </font></i>
+<b><font color=3D"#228B22">static</font></b> <b><font color=3D"#228B22">int=
+</font></b> <b><font color=3D"#0000FF">older_progress</font></b>(<b><font c=
+olor=3D"#228B22">void</font></b> *p,
+                          <b><font color=3D"#228B22">double</font></b> dlto=
+tal, <b><font color=3D"#228B22">double</font></b> dlnow,
+                          <b><font color=3D"#228B22">double</font></b> ulto=
+tal, <b><font color=3D"#228B22">double</font></b> ulnow)
+{
+  <b><font color=3D"#A020F0">return</font></b> xferinfo(p,
+                  (curl_off_t)dltotal,
+                  (curl_off_t)dlnow,
+                  (curl_off_t)ultotal,
+                  (curl_off_t)ulnow);
+}
+&nbsp;
+&nbsp;
+<b><font color=3D"#228B22">int</font></b> <b><font color=3D"#0000FF">main</=
+font></b>(<b><font color=3D"#228B22">void</font></b>)
+{
+  CURL *curl;
+  CURLcode res =3D CURLE_OK;
+  <b><font color=3D"#228B22">struct</font></b> myprogress prog;
+&nbsp;
+  curl =3D <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_init.html">cu=
+rl_easy_init</a>();
+  <b><font color=3D"#A020F0">if</font></b>(curl) {
+    prog.lastruntime =3D 0;
+    prog.curl =3D curl;
+&nbsp;
+    <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_setopt.html">curl_ea=
+sy_setopt</a>(curl, <a href=3D"http://curl.haxx.se/libcurl/c/CURLOPT_URL.ht=
+ml">CURLOPT_URL</a>, <b><font color=3D"#BC8F8F">"http://example.com/"</font=
+></b>);
+&nbsp;
+    <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_setopt.html">curl_ea=
+sy_setopt</a>(curl, <a href=3D"http://curl.haxx.se/libcurl/c/CURLOPT_PROGRE=
+SSFUNCTION.html">CURLOPT_PROGRESSFUNCTION</a>, older_progress);
+    <i><font color=3D"#B22222">/* pass the struct pointer into the progress=
+ function */ </font></i>
+    <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_setopt.html">curl_ea=
+sy_setopt</a>(curl, <a href=3D"http://curl.haxx.se/libcurl/c/CURLOPT_PROGRE=
+SSDATA.html">CURLOPT_PROGRESSDATA</a>, &amp;prog);
+&nbsp;
+#<b><font color=3D"#5F9EA0">if</font></b> <font color=3D"#B8860B">LIBCURL_V=
+ERSION_NUM</font> &gt;=3D 0x072000
+    <i><font color=3D"#B22222">/* xferinfo was introduced in 7.32.0, no ear=
+lier libcurl versions will
+       compile as they won't have the symbols around.
+&nbsp;
+       If built with a newer libcurl, but running with an older libcurl:
+       <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_setopt.html">curl=
+_easy_setopt</a>() will fail in run-time trying to set the new
+       callback, making the older callback get used.
+&nbsp;
+       New libcurls will prefer the new callback and instead use that one e=
+ven
+       if both callbacks are set. */ </font></i>
+&nbsp;
+    <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_setopt.html">curl_ea=
+sy_setopt</a>(curl, <a href=3D"http://curl.haxx.se/libcurl/c/CURLOPT_XFERIN=
+FOFUNCTION.html">CURLOPT_XFERINFOFUNCTION</a>, xferinfo);
+    <i><font color=3D"#B22222">/* pass the struct pointer into the xferinfo=
+ function, note that this is
+       an alias to <a href=3D"http://curl.haxx.se/libcurl/c/CURLOPT_PROGRES=
+SDATA.html">CURLOPT_PROGRESSDATA</a> */ </font></i>
+    <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_setopt.html">curl_ea=
+sy_setopt</a>(curl, <a href=3D"http://curl.haxx.se/libcurl/c/CURLOPT_XFERIN=
+FODATA.html">CURLOPT_XFERINFODATA</a>, &amp;prog);
+#<b><font color=3D"#5F9EA0">endif</font></b>
+&nbsp;
+    <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_setopt.html">curl_ea=
+sy_setopt</a>(curl, <a href=3D"http://curl.haxx.se/libcurl/c/CURLOPT_NOPROG=
+RESS.html">CURLOPT_NOPROGRESS</a>, 0L);
+    res =3D <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_perform.html=
+">curl_easy_perform</a>(curl);
+&nbsp;
+    <b><font color=3D"#A020F0">if</font></b>(res !=3D CURLE_OK)
+      fprintf(stderr, <b><font color=3D"#BC8F8F">"%s\n"</font></b>, <a href=
+=3D"http://curl.haxx.se/libcurl/c/curl_easy_strerror.html">curl_easy_strerr=
+or</a>(res));
+&nbsp;
+    <i><font color=3D"#B22222">/* always cleanup */ </font></i>
+    <a href=3D"http://curl.haxx.se/libcurl/c/curl_easy_cleanup.html">curl_e=
+asy_cleanup</a>(curl);
+  }
+  <b><font color=3D"#A020F0">return</font></b> (<b><font color=3D"#228B22">=
+int</font></b>)res;
+}
+</pre>
+</div>
+</div>
+
+
+</body></html>
+------=_NextPart_000_AD0C_36A68DAA.FCFD5220
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://curl.haxx.se/curl.css
+
+body { font-family: arial, helvetica, ariel, sans-serif; color: black; marg=
+in: 0px; padding: 0px; overflow-x: hidden; background-color: white; }
+
+a { text-decoration: none; color: rgb(64, 64, 255); }
+
+a:hover { text-decoration: none; color: rgb(255, 255, 255); background-colo=
+r: rgb(64, 64, 255); }
+
+.title { color: rgb(0, 0, 0); font-family: arial, helvetica, ariel, sans-se=
+rif; font-size: 120%; background-color: rgb(240, 240, 255); }
+
+h1 { border-bottom-style: solid; border-bottom-width: 1px; border-bottom-co=
+lor: black; margin-top: 1em; }
+
+h2 { border-bottom-style: solid; border-bottom-width: 1px; border-bottom-co=
+lor: black; }
+
+.subtitle { font-weight: bold; }
+
+tr.tabletop { color: rgb(0, 0, 0); background-color: rgb(240, 240, 255); }
+
+.tabletop a { color: rgb(255, 255, 255); }
+
+.buildfail { color: rgb(0, 0, 0); background-color: rgb(255, 128, 128); }
+
+.buildserverprob { color: rgb(0, 0, 0); background-color: rgb(255, 255, 0);=
+ }
+
+.buildfine { color: rgb(0, 0, 0); background-color: rgb(0, 255, 0); }
+
+.compile, .changetable { border: 2px outset rgb(255, 255, 255); }
+
+.news { border: 2px outset rgb(128, 128, 255); }
+
+table.secbox { border: 2px outset rgb(128, 128, 255); background-color: rgb=
+(224, 224, 255); }
+
+table.latestmail { border: 2px outset rgb(128, 128, 255); font-size: 100%; =
+}
+
+td.newsdate { text-align: right; }
+
+.mini { font-size: 8pt; font-family: monospace; }
+
+.warning { font-size: 9pt; color: rgb(0, 0, 0); background-color: rgb(255, =
+128, 128); }
+
+.alert { font-size: 120%; color: rgb(255, 255, 255); padding: 4px; backgrou=
+nd-color: rgb(240, 0, 0); }
+
+td.desc { color: rgb(0, 0, 0); background: rgb(224, 224, 255); }
+
+.ostitleleft { color: rgb(0, 0, 0); font-family: arial, helvetica, ariel, s=
+ans-serif; font-size: 120%; font-weight: bold; padding: 4px; border-top-wid=
+th: 1px; border-top-style: solid; border-top-color: black; border-left-widt=
+h: 1px; border-left-style: solid; border-left-color: black; border-right-st=
+yle: none; background-color: rgb(255, 255, 255); }
+
+.ostitleright { color: rgb(0, 0, 0); font-family: arial, helvetica, ariel, =
+sans-serif; font-size: 120%; font-weight: bold; padding: 4px; border-top-wi=
+dth: 1px; border-top-style: solid; border-top-color: black; border-right-wi=
+dth: 1px; border-right-style: solid; border-right-color: black; border-left=
+-style: none; background-color: rgb(255, 255, 255); }
+
+td.ostitle { color: rgb(0, 0, 0); font-family: arial, helvetica, ariel, san=
+s-serif; font-size: 120%; font-weight: bold; padding: 4px; margin: 0px; bor=
+der-top-width: 1px; border-top-style: solid; border-top-color: black; borde=
+r-left-width: 1px; border-left-style: solid; border-left-color: black; bord=
+er-right-width: 1px; border-right-style: solid; border-right-color: black; =
+background-color: rgb(255, 255, 255); }
+
+.latest2 { color: rgb(0, 0, 0); border-left-width: 1px; border-left-style: =
+solid; border-left-color: black; border-right-width: 1px; border-right-styl=
+e: solid; border-right-color: black; margin: 0px; padding: 1px 0px; backgro=
+und-color: rgb(255, 255, 68); }
+
+.older2 { color: rgb(0, 0, 0); border-left-width: 1px; border-left-style: s=
+olid; border-left-color: black; border-right-width: 1px; border-right-style=
+: solid; border-right-color: black; margin: 0px; padding: 1px 0px; backgrou=
+nd-color: rgb(255, 255, 255); }
+
+.col1 { border-left-width: 1px; border-left-style: solid; border-left-color=
+: black; margin: 0px; border-bottom-style: none; border-top-style: none; }
+
+.col7 { margin: 0px; border-right-width: 1px; border-right-style: solid; bo=
+rder-right-color: black; border-bottom-style: none; border-top-style: none;=
+ }
+
+.col2, .col3, .col4, .col5, .col6 { margin: 0px; padding: 0px 4px; }
+
+.osend { border-top-width: 1px; border-top-style: solid; border-top-color: =
+black; margin: 0px 0px 10px; }
+
+.download2 { padding: 10px; background-color: rgb(224, 224, 224); }
+
+span.version { font-weight: bold; font-size: 120%; border: thin solid black=
+; padding: 4px; }
+
+span.whodate { font-weight: bold; }
+
+tr.odd { color: rgb(0, 0, 0); background-color: rgb(224, 224, 224); }
+
+span.metalink { font-weight: bold; }
+
+.menuitem { text-decoration: none; white-space: nowrap; padding: 0px 1em 0p=
+x 0px; font-family: sans-serif; color: rgb(255, 255, 255); }
+
+.menuitem:hover { text-decoration: none; color: rgb(128, 128, 255); }
+
+.itemselect { font-family: sans-serif; text-decoration: none; padding: 0px =
+1em 0px 0px; font-weight: bold; color: rgb(255, 255, 255); }
+
+.menu { width: 100%; text-align: center; padding-top: 0.5em; padding-bottom=
+: 0.5em; line-height: 130%; font-size: 130%; background-color: rgb(64, 64, =
+255); }
+
+.tailmenu { color: rgb(255, 255, 255); padding: 4px; background-color: rgb(=
+64, 128, 255); }
+
+.relatedbox { border: 1px solid black; color: rgb(0, 0, 0); float: right; t=
+ext-align: left; padding: 2px; margin: 4px; background: white; }
+
+div.oslinks { clear: right; border: 1px outset black; color: rgb(0, 0, 0); =
+float: right; text-align: right; padding: 2px; font-size: 80%; background: =
+white; }
+
+div.pollbox { border: 2px outset black; font-size: 80%; color: rgb(0, 0, 0)=
+; float: right; text-align: left; padding: 0px 2px; background: rgb(255, 25=
+5, 224); }
+
+p.ingres { width: 80%; font-family: arial, helvetica, ariel, sans-serif; fo=
+nt-style: italic; margin-left: auto; margin-right: auto; }
+
+div.quote { border: thin solid black; padding: 2px; width: 90%; margin-left=
+: 5%; margin-right: 5%; background-color: rgb(240, 240, 255); }
+
+div.yellowbox { border: 3px outset black; padding: 2px; background-color: r=
+gb(255, 255, 240); }
+
+.mirrorlinks { font-size: 8pt; }
+
+.bindingbox { float: right; border: 1px solid rgb(0, 0, 0); padding: 2px; b=
+ackground-color: rgb(255, 255, 255); }
+
+.bottomad { border: 1px solid rgb(0, 0, 0); padding: 5px; margin-left: auto=
+; margin-right: auto; background-color: rgb(224, 224, 224); }
+
+.main { }
+
+.where { padding-top: 0.5em; }
+
+.contents { padding-top: 0px; margin-top: 0px; max-width: 50em; margin-left=
+: auto; margin-right: auto; }
+
+.filtermenu { display: inline; }
+
+.inputbox { width: 1.5em; background: rgb(255, 255, 255); }
+
+table.download { margin-left: 1em; font-size: 120%; }
+
+td.download { padding-right: 10px; }
+------=_NextPart_000_AD0C_36A68DAA.FCFD5220--

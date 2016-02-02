@@ -1,0 +1,21 @@
+The "example-lang" directory contains a template for adding a language binding
+to Lucy and its object model layer, Clownfish.  See the DevGuide for an
+overview of Lucy's layers:
+
+    http://lucy.apache.org/docs/perl/Lucy/Docs/DevGuide.html
+
+To get started, copy "example-lang" to a directory named after the language
+you'd like to bind to:
+
+    cp -R example-lang xyz
+
+Most of the C files within the "example-lang/src" directory contain stubs for
+routines whose interfaces are defined within "trunk/core".  
+
+    core/src/Lucy/Index/Inverter.cfh        # Declares interface.
+    core/src/Lucy/Index/Inverter.c          # all except Invert_Doc()
+    example-lang/src/Lucy/Index/Inverter.c  # only Invert_Doc() 
+
+Once all the stubs have been implemented correctly, Lucy will theoretically
+build and pass its tests.
+

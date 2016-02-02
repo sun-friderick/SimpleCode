@@ -1,0 +1,5 @@
+
+live555 开发参考文档:
+http://www.live555.com/liveMedia/doxygen/html/classMedium.html
+
+

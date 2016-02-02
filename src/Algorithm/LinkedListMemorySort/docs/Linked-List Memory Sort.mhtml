@@ -1,0 +1,299 @@
+From: <Saved by WebKit>
+Subject: Linked-List Memory Sort
+Date: Tue, 19 Oct 2015 07:06:10 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_085D_A7FB6637.925FC546"
+
+------=_NextPart_000_085D_A7FB6637.925FC546
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://efgh.com/software/llmsort.htm
+
+<html version=3D"g42dymwpi--nx"><head><meta charset=3D"GBK">
+<title>Linked-List Memory Sort</title>
+<meta name=3D"description" content=3D"A public domain program for sorting l=
+inked lists in memory.">
+<style id=3D"style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporatio=
+n. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body>
+
+<table>
+<tbody><tr>
+<td>
+<a href=3D"http://efgh.com/software/index.html"><img src=3D"http://efgh.com=
+/software/sitelogo.gif" width=3D"120" height=3D"114" alt=3D"LOGO"></a>
+</td>
+<td>
+<center><h1>Linked-List Memory Sort</h1></center>
+</td>
+</tr>
+</tbody></table>
+
+<dl>
+<dt>Title:       </dt><dd>Linked-List Memory Sort
+</dd><dt>Language:    </dt><dd>C
+</dd><dt>Author:      </dt><dd>Philip J. Erdelsky
+                 <ul>
+                 <li><a href=3D"mailto:pje@efgh.com">pje@efgh.com</a>
+                 </li><li><a href=3D"http://www.alumni.caltech.edu/~pje/">
+                     http://www.alumni.caltech.edu/~pje/</a>
+                 </li></ul>
+</dd><dt>Date:        </dt><dd>July 31, 1998
+</dd><dt>Usage:       </dt><dd>Public domain; no restrictions on use
+</dd><dt>Portability: </dt><dd>Any C compiler
+</dd><dt>Keywords:    </dt><dd>Linked List, Sort
+
+</dd><dt>Abstract:    </dt><dd>A C function to sort a linked list in memory=
+, using an
+                     arbitrary comparison function and a tape-merge algorit=
+hm,
+                     which is O(n log n) in all cases. The function is
+                     non-recursive and re-entrant, and changes only the lin=
+ks.
+</dd></dl>
+
+<p>Linked lists and sort routines are very common in programming.
+
+</p><p>The function sort_linked_list() will sort virtually any kind of
+singly-linked list, using a comparison function supplied by the calling
+program. It has the following advantages over qsort():
+
+</p><ol>
+     <li>It sorts elements of variable size.
+
+     </li><li>It requires O(n log n) comparisons, regardless of the initial
+     order. The time to sort a list is predictable and consistent. This
+     performance is known to be optimal for general sorts.
+
+     </li><li>The algorithm is iterative, not recursive, so there is no pro=
+blem
+     of stack overflow. The stack requirement is predictable, consistent
+     and small.
+
+     </li><li>It sorts the linked list by changing the pointers, not by mov=
+ing
+     the elements themselves.
+
+     </li><li>It can sort a list too large to fit into an array.
+</li></ol>
+
+<p>The function sorts only singly linked lists. If a list is doubly linked,
+the backward pointers can be restored after the sort by a few lines of
+code.
+
+</p><p>Each element of a linked list to be sorted must contain, as its firs=
+t
+members, one or more pointers. One of the pointers, which must be in the
+same relative position in each element, is a pointer to the next
+element. This pointer is NULL in the last element.
+
+</p><p>The index is the position of this pointer in each element. It is 0 f=
+or
+the first pointer, 1 for the second pointer, etc.
+
+</p><p>Let compare() be a comparison function that compares two elements as
+follows:
+
+</p><pre>     n =3D compare(p, q, pointer);
+
+     void *p, *q;    pointers to two list elements
+
+     void *pointer;  user-defined pointer passed to compare() by
+                     linked_list_sort()
+
+     int n;          result of comparing *p and *q
+                       &gt;0 if *p is to be after *q in sorted order
+                       &lt;0 if *p is to be before *q in sorted order
+                        0 if the order of *p and *q is irrelevant
+</pre>
+
+<p>Let "first" be a pointer to the first element of the list. Then the
+following function call sorts the list and returns a pointer to the
+first element of the sorted list:
+
+</p><pre>     first_sorted =3D
+       sort_linked_list(first, index, compare, pointer, pcount);
+</pre>
+
+<p>The fourth argument (pointer) is passed to compare() without change. The
+example given here makes no use of the pointer. However, it can be an
+invaluable feature if two or more comparison methods share a substantial
+amount of code and differ only in one or more parameter values.
+
+</p><p>The last argument (pcount) is of type (unsigned long *). If it is no=
+t NULL,
+then *pcount is set equal to the number of records in the list.
+
+</p><p>It is permissible to sort an empty list.  If first =3D=3D NULL, the =
+returned
+value will also be NULL.
+
+</p><p>For example, an element may contain both a name and a number:
+
+</p><pre>    struct element
+    {
+      struct element *next_in_alphabetical_order;
+      struct element *next_in_numerical_order;
+      char name[9];
+      int number;
+      /* other members, if any */
+    };
+</pre>
+
+<p>Initially, the two pointers in each element are identical, and the list
+is in arbitrary order, where "first" is a pointer to the first element.
+The following two function calls sort the list twice:
+
+</p><pre>    first_in_alphabetical_order =3D
+      sort_linked_list(first, 0, compare_names, NULL);
+    first_in_numerical_order =3D
+      sort_linked_list(first, 1, compare_numbers, NULL);
+</pre>
+
+<p>Here are the comparison functions:
+
+</p><pre>    int compare_names(struct element *p, struct element *q,
+      void *pointer)
+    {
+      return strcmp(p-&gt;name, q-&gt;name);
+    }
+
+    int compare_numbers(struct element *p, struct element *q,
+      void *pointer)
+    {
+      return p-&gt;number &gt; q-&gt;number ? 1 : -1;
+      /* NOTE: return p-&gt;number - q-&gt;number will suffice if there is
+      no danger of numeric overflow */
+    }
+</pre>
+
+<p>A previous version of this sort, which was published in a technical
+journal, required the forward link to be at the beginning of each
+element. While this made the sort somewhat more efficient, it also made
+it hard to use with multiply linked lists.
+
+</p><p>The algorithm is fairly simple. The linked list (called a "tape" by
+analogy to old magnetic tapes) is first divided into two tapes of the
+same or nearly the same size. This is done by "writing" elements to the
+two tapes alternately.
+
+</p><p>The two tapes are then merged, element by element, into sorted block=
+s
+containing two elements each. The blocks are written alternately to two
+other tapes.
+
+</p><p>The two tapes are then merged, block by block, into sorted blocks of
+four elements each, and the blocks are written alternately to two other
+tapes.
+
+</p><p>The process continues, doubling the block size each time, until all
+elements are in a single sorted block on one tape. The function returns
+a pointer to the first element of that tape.
+
+</p><p>Each merge requires O(n) comparisons, where n is the number of eleme=
+nts.
+The number of merges is O(log n). Hence the entire sort takes O(n log n)
+comparisons.
+
+</p><p>The sort_linked_list() function is reentrant if the comparison funct=
+ion
+is reentrant.
+
+</p><p>C aficionados will be glad to know that this algorithm cannot be cod=
+ed
+easily in Ada or Pascal because it relies on typecasts.
+
+</p><p>The sort_linked_list() function can be called easily from a C++ prog=
+ram
+with a modicum of type checking if the header file LLMSORT.H is included. I=
+t
+contains a template for inline generation of a call on sort_linked_list().
+The format of the call is as follows:
+
+</p><pre>     #include "llmsort.h"
+
+     first_sorted =3D sort_list(first, compare, pointer, pcount);
+
+     yourclass *first;
+     yourclass *first_sorted;
+     void *pointer;
+     unsigned long *pcount;
+</pre>
+
+<p>The function compare() is called as follows:
+
+</p><pre>     n =3D compare(p, q, pointer);
+     const yourclass *p;
+     const yourclass *q;
+     void *pointer;
+     int n;
+</pre>
+
+<p>Here "yourclass" is any class that you may define. The compiler will che=
+ck
+for consistency of argument types and generate the appropriate call on
+sort_linked_list().
+
+</p><p>Source code in text format:
+</p><ul>
+<li><a href=3D"http://efgh.com/software/llmsortc.txt">llmsort.c</a>
+</li><li><a href=3D"http://efgh.com/software/llmsorth.txt">llmsort.h</a>
+</li></ul>
+
+
+
+
+
+<iframe id=3D"GreatFind" src=3D"https://greatfind-a.akamaihd.net/GreatFind/=
+cf?g=3Dea6268f3-303b-48f9-91b4-bf1ec0aa4f30&amp;pn=3DChrome" t=3D"BLGC" sty=
+le=3D"width: 1px; height: 1px; display: none;"></iframe></body></html>
+------=_NextPart_000_085D_A7FB6637.925FC546
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://efgh.com/software/sitelogo.gif
+
+R0lGODdheAByAIAAAAAAAP///ywAAAAAeAByAAAC/oSPqcvtD6OctNqL8wu8+w+G4kiW5omWSMq2
+7gurR0zX9h2s+M73n+4LCmPAofEoMyCXzN+sCUUWo9TetIq1XbPc17YLRn3D5NHYZSnDzi0AS6lu
+P2/udz0unmvRd3yyX+OG4WfC9rZG+LfTJ8EBmOgER9fx6JGQA2mmF0hJclmZmbNJA1oYGmKYUqpy
+CpIqRjmB2Wo5SoRIGyu5F7ngOJsrusspMiUY7GiLKxwBnPt6slp7LE0IbaoL4Ux7zZrcWO3X7Ym2
+3Tpulq0djodeXM4e544Kj8y8WAx6jDzvuvyszMs/bgHLCdTQyErBNswoiBoyTMvCQ4ISVuxVIR+P
+/n4/zJmSNBHVqHjRQsIi+SuilY0mo3lkpXIjy5gH4T1CCAilIhz7KN7BeenXopYfbarD2WkozXoM
+QQKdo9MTUZhGvz1NynMqOZ0XrQLFSkdrOq4PvSIVmnVp06oNz75cI/YdWadPf86MKpdtXZB38Q2i
+exVtWLU+0wD+KlgiYVVtwf3cC1YxXnp/H9eNHCgu5QtlG2vATEqzv8pHEYImIrojabOmE2defFIv
+ZNehYSfxvM5y4LdeUqfkLVc3YuBybEtl3eyw28kijWtCnrv0Z9qonacjPvpm69Nwrb/DvQE7qb6T
+wDsQHLR3HeaufCcTb4l6bfnq2U8z6F1jfKX2/mvhz9+eAuRlZdA9r2nTXX+x8OHLNHvFxZETdiTU
+0X49ecOggvTRs5KADHQ2oYbmfejDTccVJ2KBK9mBIhdKpPgYfShFOB5EnegDYiHuoWbViA00pko8
+NNbmFjElAciTGkLuWN2D0x2Zoj0JSgnGkFQ2eaWLTGaZIZdYWOlliGFSAeaYUOahH0RLShESTUiW
+hGaOA54o0hGwwfGmVCrp8MQnWwDBp4ALfpMNoTO82FWg643E6Ht4LipMjo+WhehDTjmaaKaYSqop
+pxF5CKmloQ46aKWVgnipqO955hWl6fUooX+uziprqRedOsykqroK6qZyFhorrpDqauuspna1QOmk
+xOqqbKi52hKoOsbqBuyxnlYbI60NdXbFPHlS2c2rZubx7bjkRmluPuWmuxO7RpTpboBOzktvvfbe
+iy8DBQAAOw==
+------=_NextPart_000_085D_A7FB6637.925FC546
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://greatfind-a.akamaihd.net/GreatFind/cf?g=ea6268f3-303b-48f9-91b4-bf1ec0aa4f30&pn=Chrome
+
+<!DOCTYPE html><html><head><meta charset=3D"UTF-8">
+    <title></title>
+</head>
+<body>
+   =20
+
+
+</body></html>
+------=_NextPart_000_085D_A7FB6637.925FC546--

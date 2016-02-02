@@ -1,0 +1,44 @@
+#   $Id: TODO,v 1.15 2003/09/19 12:19:28 kds Exp $
+#
+
+check
+- most of the structures want THIS_MODULE
+- a lot of changes in USB: struct usb_driver, new functions
+- change CLI to IRQ_SAVE_FLAGS
+
+
+- struct tty_driver
+	int (*tiocmget)(struct tty_struct *tty, struct file *file);
+	int (*tiocmset)(struct tty_struct *tty, struct file *file,
+			unsigned int set, unsigned int clear);
+	void (*set_ldisc)(struct tty_struct *tty);
+
+- struct tty_operations ???
+- struct tty_struct
+- struct tty_ldisc
+	void	(*set_termios)(struct tty_struct *tty, struct termios * old);
+
+- struct socket
+- struct sock
+- struct proto_ops
+- struct net_proto_family
+
+- struct usb_driver
+	usb_get_dev() to hold device tructure in probe()
+
+	
+
+RedHat 9 kernel has differences
+-	recalc_sigpending(current);
+-	spin_unlock_irqrestore(&current->sigmask_lock, flags);
++	recalc_sigpending();
++	spin_unlock_irqrestore(&current->sighand->siglock, flags);
+
+or ???????
+
+-	recalc_sigpending(current);
+-	spin_unlock_irq(&current->sigmask_lock);
++	recalc_sigpending();
++	spin_unlock_irq(&current->sig->siglock);
+
+

@@ -1,0 +1,250 @@
+From: <Saved by WebKit>
+Subject: DES Encryption Package
+Date: Tue, 19 Oct 2015 06:40:13 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_B73C_B0AEA845.5FAE9720"
+
+------=_NextPart_000_B73C_B0AEA845.5FAE9720
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://efgh.com/software/des.htm
+
+<html version=3D"g42dymwpi--nx"><head><meta charset=3D"GBK">
+<title>DES Encryption Package</title>
+<meta name=3D"description" content=3D"A public domain program for DES encry=
+ption and decryption.">
+<style id=3D"style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporatio=
+n. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body>
+
+<table>
+<tbody><tr>
+<td>
+<a href=3D"http://efgh.com/software/index.html"><img src=3D"http://efgh.com=
+/software/sitelogo.gif" width=3D"120" height=3D"114" alt=3D"LOGO"></a>
+</td>
+<td>
+<center>
+<h1>DES Encryption Package</h1>
+<h2>Version 2 - Including Triple DES</h2>
+</center>
+</td>
+</tr>
+</tbody></table>
+
+<dl>
+<dt>Title:       </dt><dd>DES Encryption Package
+</dd><dt>Language:    </dt><dd>C++
+</dd><dt>Author:      </dt><dd>Philip J. Erdelsky
+                 <ul>
+                 <li><a href=3D"mailto:pje@efgh.com">pje@efgh.com</a>
+                 </li><li><a href=3D"http://www.alumni.caltech.edu/~pje/">
+                     http://www.alumni.caltech.edu/~pje/</a>
+                 </li></ul>
+</dd><dt>Date:        </dt><dd>July 15, 1999
+</dd><dt>Usage:       </dt><dd>Public domain; no restrictions on use
+</dd><dt>Portability: </dt><dd>Any C++ compiler
+</dd><dt>Keywords:    </dt><dd>DES, Crypto, Encryption, Cryptography
+
+</dd><dt>Abstract:    </dt><dd>A C++ package to perform DES encryption and =
+decryption
+                     on arbitrary data.
+</dd></dl>
+
+<p>
+The Data Encryption Standard (DES) has been a standard encryption method
+in the United States for a number of years. It is moderately secure. No
+easy ways have been found to crack it, although a brute-force approach,
+using expensive special-purpose equipment, is probably feasible.
+
+</p><p>
+In Version 1, only plain DES was implemented. In Version 2, a variant
+called Triple DES has been added. This method uses three keys and encrypts
+each block of data successively with each key. Triple DES is slower than
+regular DES, but it gives added security.
+For reasons that are beyond the scope of this document, Triple DES
+is actually only as secure as
+a block encryption method using a key twice as long as that used by regular
+DES. If a password is used,
+these methods, like any others, are only as secure as the password.
+
+</p><p>
+Technically, this package does not implement DES precisely as
+it was originally defined. The original DES
+contains some additional permutations which do not make the algorithm
+more secure but just make it easier to implement in hardware.  Also,
+a technically correct implementation uses a 64-bit key which is
+converted to a 56-bit key by ignoring every eighth bit. For details,
+see the book "Applied Cryptography" by Bruce Schneier.
+
+</p><p>
+On January 15, 2002, two small errors in the S-boxes were corrected when
+my attention was called to them by an observant reader.
+
+</p><p>
+The DES encryption and decryption package resides in the file DES.CPP,
+which must be compiled and linked into an application that uses it. Any
+module that calls on the package must include the header file DES.H.
+These files are available in text format:
+
+</p><ul>
+<li><a href=3D"http://efgh.com/software/desc.txt">DES.CPP</a>
+</li><li><a href=3D"http://efgh.com/software/desh.txt">DES.H</a>
+</li></ul>
+
+<p>
+If Triple DES is desired (in addition to regular DES), the label
+TRIPLEDES must be defined, usually by a -D option on the compiler
+command line.
+
+</p><p>
+For the fastest operation, data used by the package is packed one bit
+per byte. Each byte must be either 0 or 1. The results will be highly
+anomalous if this is not the case.
+
+</p><p>
+To DES encrypt or decrypt, first declare an object of the des
+encryption class:
+
+</p><pre>     des crypto;
+</pre>
+
+<p>
+To Triple DES encrypt or decrypt, first declare an object of the
+triple_des encryption class:
+
+</p><pre>     triple_des crypto;
+</pre>
+
+<p>
+If you have a 56-bit key, you can initialize a des object to encrypt and
+decrypt with the specified key by calling a member function:
+
+</p><pre>     crypto.initialize(key);
+
+     const unsigned char key[DES_KEY_SIZE];
+                      56-bit encryption and decryption
+                      key, packed one bit per byte (each
+                      byte must be either 0 or 1)
+</pre>
+
+<p>
+If you have a 168-bit key, you can initialize a triple_des object to
+encrypt and
+decrypt with the specified key by calling a member function:
+
+</p><pre>     crypto.initialize(key);
+
+     const unsigned char key[3*DES_KEY_SIZE];
+                      168-bit encryption and decryption
+                      key, packed one bit per byte (each
+                      byte must be either 0 or 1)
+</pre>
+
+
+
+<p>
+Alternatively, you may generate a key and initialize the object with a
+password:
+
+</p><pre>     crypto.password(p);
+
+     const char *p;   pointer to nul-terminated password
+</pre>
+
+<p>
+The password may be any length (except zero), but only the first 32
+characters will be used for regular DES, and only the first 48 characters
+will be used for Triple DES. It may contain any characters except nuls.
+It is case-sensitive; i.e., passwords that differ only in capitalization
+will produce different keys.
+
+</p><p>
+Then to encrypt or decrypt a block of 64 bits, call the member
+functions:
+
+</p><pre>     crypto.encrypt(data);
+
+     crypto.decrypt(data);
+
+     unsigned char data[DES_DATA_SIZE];
+                       64-bit block of data to be
+                       encrypted or decrypted, packed one
+                       bit per byte (each byte must be
+                       either 0 or 1)
+</pre>
+
+<p>
+The encrypted or decrypted data is written back into the same buffer in
+the same format (one bit per byte).
+
+</p><p>
+When DES.CPP is compiled as a standalone application, it produces a command=
+-line
+application that encrypts or decrypts a file using a password taken from th=
+e
+first command-line argument. If TRIPLEDES is defined, it uses Triple DES
+encryption and runs noticeably slower; otherwise it uses regular DES. The
+two methods are not compatible. A file encrypted with regular DES cannot be
+decrypted with Triple DES, or vice-versa, even if the passwords are identic=
+al.
+
+
+
+</p><p>
+
+
+
+</p><iframe id=3D"GreatFind" src=3D"https://greatfind-a.akamaihd.net/GreatF=
+ind/cf?g=3Dea6268f3-303b-48f9-91b4-bf1ec0aa4f30&amp;pn=3DChrome" t=3D"BLGC"=
+ style=3D"width: 1px; height: 1px; display: none;"></iframe></body></html>
+------=_NextPart_000_B73C_B0AEA845.5FAE9720
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://efgh.com/software/sitelogo.gif
+
+R0lGODdheAByAIAAAAAAAP///ywAAAAAeAByAAAC/oSPqcvtD6OctNqL8wu8+w+G4kiW5omWSMq2
+7gurR0zX9h2s+M73n+4LCmPAofEoMyCXzN+sCUUWo9TetIq1XbPc17YLRn3D5NHYZSnDzi0AS6lu
+P2/udz0unmvRd3yyX+OG4WfC9rZG+LfTJ8EBmOgER9fx6JGQA2mmF0hJclmZmbNJA1oYGmKYUqpy
+CpIqRjmB2Wo5SoRIGyu5F7ngOJsrusspMiUY7GiLKxwBnPt6slp7LE0IbaoL4Ux7zZrcWO3X7Ym2
+3Tpulq0djodeXM4e544Kj8y8WAx6jDzvuvyszMs/bgHLCdTQyErBNswoiBoyTMvCQ4ISVuxVIR+P
+/n4/zJmSNBHVqHjRQsIi+SuilY0mo3lkpXIjy5gH4T1CCAilIhz7KN7BeenXopYfbarD2WkozXoM
+QQKdo9MTUZhGvz1NynMqOZ0XrQLFSkdrOq4PvSIVmnVp06oNz75cI/YdWadPf86MKpdtXZB38Q2i
+exVtWLU+0wD+KlgiYVVtwf3cC1YxXnp/H9eNHCgu5QtlG2vATEqzv8pHEYImIrojabOmE2defFIv
+ZNehYSfxvM5y4LdeUqfkLVc3YuBybEtl3eyw28kijWtCnrv0Z9qonacjPvpm69Nwrb/DvQE7qb6T
+wDsQHLR3HeaufCcTb4l6bfnq2U8z6F1jfKX2/mvhz9+eAuRlZdA9r2nTXX+x8OHLNHvFxZETdiTU
+0X49ecOggvTRs5KADHQ2oYbmfejDTccVJ2KBK9mBIhdKpPgYfShFOB5EnegDYiHuoWbViA00pko8
+NNbmFjElAciTGkLuWN2D0x2Zoj0JSgnGkFQ2eaWLTGaZIZdYWOlliGFSAeaYUOahH0RLShESTUiW
+hGaOA54o0hGwwfGmVCrp8MQnWwDBp4ALfpMNoTO82FWg643E6Ht4LipMjo+WhehDTjmaaKaYSqop
+pxF5CKmloQ46aKWVgnipqO955hWl6fUooX+uziprqRedOsykqroK6qZyFhorrpDqauuspna1QOmk
+xOqqbKi52hKoOsbqBuyxnlYbI60NdXbFPHlS2c2rZubx7bjkRmluPuWmuxO7RpTpboBOzktvvfbe
+iy8DBQAAOw==
+------=_NextPart_000_B73C_B0AEA845.5FAE9720
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://greatfind-a.akamaihd.net/GreatFind/cf?g=ea6268f3-303b-48f9-91b4-bf1ec0aa4f30&pn=Chrome
+
+<!DOCTYPE html><html><head><meta charset=3D"UTF-8">
+    <title></title>
+</head>
+<body>
+   =20
+
+
+</body></html>
+------=_NextPart_000_B73C_B0AEA845.5FAE9720--

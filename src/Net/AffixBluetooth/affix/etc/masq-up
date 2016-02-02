@@ -1,0 +1,13 @@
+#! /bin/sh
+#
+# $Id: masq-up,v 1.1 2002/07/12 12:44:06 kds Exp $
+#
+# Setup masquerading for a PPP connection
+#
+
+if [ "$PPP_IPPARAM" == "MASQUERADE" ] ; then
+	iptables -t nat -A POSTROUTING -j MASQUERADE -s $PPP_REMOTE
+fi
+
+exit 0
+

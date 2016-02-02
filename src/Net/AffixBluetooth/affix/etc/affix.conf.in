@@ -1,0 +1,68 @@
+#
+# $Id: affix.conf.in,v 1.12 2004/05/18 11:37:16 kassatki Exp $
+#
+
+# Bluetooth progs and libs instalation prefix
+prefix=@prefix@
+
+# Affix modules to load
+load_modules=""
+#load_modules="affix affix_rfcomm"
+
+# start Bluetooth server
+start_btsrv="yes"
+
+# enable PAN. empty to disabled
+pan_role="nap"
+#pan_role="panu"
+
+# following schemes are for NAP role
+# pan interfaces is added to br0 bridge
+pan_scheme="bridge"
+# pan interfaces will masquerade all traffic from clients 
+#pan_scheme="masq"
+
+# setting default device options
+
+# automatically brings UP
+auto="yes"
+# do configuration with following options
+setup="yes"
+# device options
+name=`hostname`
+secmode="service pair"
+scanmode="+disc +conn"
+class="computer laptop information audio networking transfer"
+audio=""
+#audio="on sync setting 0x40"
+
+# interface specific options -> overide default
+case $IFACE in
+	bt0)
+		# automatically brings UP
+		auto="yes"
+		# do configuration with following options
+		setup="yes"
+		;;
+
+esac
+
+# builtin adapter to initialize -> see bellow
+#BTDEVS="ttySB0"
+BTDEVS=""
+
+# builtin device initialization options
+case $BTDEV in
+	ttySB0)
+		# iPaq device
+		init="${prefix}/bin/btctl open_uart /dev/ttySB0 bcsp 230400"
+		exit="${prefix}/bin/btctl close_uart /dev/ttySB0"
+		;;
+
+	*)
+		init=""
+		exit=""
+		;;
+		
+esac
+

@@ -1,0 +1,59 @@
+
+
+jsoncpp编译：
+
+下载scons
+http://www.scons.org/
+解压  tar -zxvf scons-2.0.1.tar.gz
+设定环境变量
+# export MYSCONS=/home/yuj/work/svn/SkyEye/c++_app/wp_server/scons-2.1.0()
+# export SCONS_LIB_DIR=$MYSCONS/engine
+开始编译jsoncpp
+# cd jsoncpp-src-0.5.0
+# python $MYSCONS/script/scons.py platform=linux-gcc
+若报错 查看路径下 没有scons.py文件，将文件名修改为scons，如下. 可能是以前的版本改用命令如下：
+# python $MYSCONS/script/scons platform=linux-gcc
+通过生成文件在 
+./jsoncpp-src-0.5.0\libs\linux-gcc-4.4.6目录下面
+libjson_linux-gcc-4.4.4_libmt.a
+libjson_linux-gcc-4.4.4_libmt.so
+创建符号链接，方便文件链接时使用：
+ln -s /home/yuj/work/svn/SkyEye/c++_app/wp_server/jsoncpp-src-0.5.0/libs/linux-gcc-4.4.6/libjson_linux-gcc-4.4.6_libmt.so /usr/local/lib/libjson.so
+
+执行
+/sbin/ldconfig
+
+编译：
+g++ -o testMainjson testMainJson.cpp -I../jsoncpp-src-0.5.0/include -L../jsoncpp-src-0.5.0/libs/linux-gcc-4.4.6 -ljson
+
+
+
+
+libghttp编译
+
+./configure --prefix=../../test/lib/ghttp
+
+make
+若是报错：“libtool: link: only absolute run-paths are allowed”
+在makefile中查找“-rpath ”，在后面添加绝对路径“/root/work/test/weather_cpp/lib/ghttp”，
+或者在configure时直接使用绝对路径；保存再编译OK。
+保存再编译OK。
+
+make install
+安装成功；
+
+
+
+g++ -Wall weather.cpp main.cpp weather.hpp  -o weather.elf -Ilib/jsoncpp/ -Ilib/ghttp/include/ -Llib/jsoncpp/linux-gcc-4.4.3/ -Llib/ghttp/lib/ -ljson_linux-gcc-4.4.3_libmt -lghttp
+
+源文件编译：
+g++ -Wall weather_1.cpp  -o weather.elf -Ilib/jsoncpp/ -Ilib/ghttp/include/ -Llib/jsoncpp/linux-gcc-4.4.3/ -Llib/ghttp/lib/ -ljson_linux-gcc-4.4.3_libmt -lghttp
+
+设置连接库文件环境变量：
+export LD_LIBRARY_PATH="/root/work/test/weather_cpp/lib/jsoncpp/linux-gcc-4.4.3:/root/work/test/weather_cpp/lib/ghttp/lib"
+
+
+
+
+
+

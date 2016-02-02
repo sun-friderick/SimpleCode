@@ -1,0 +1,26 @@
+
+FILE( GLOB_RECURSE disk_b200_SRCS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}		
+	${CMAKE_CURRENT_SOURCE_DIR}/*.c
+	${CMAKE_CURRENT_SOURCE_DIR}/DiskDev.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/DiskManager.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/DiskPartition.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/DiskEvent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/disk_js_api.cpp
+	)
+
+include_directories(		
+	${PROJECT_SOURCE_DIR}/EC2108_C27/include
+	${PROJECT_SOURCE_DIR}/EC2108_C27/include/middle
+	${PROJECT_SOURCE_DIR}/EC2108_C27/include/middle_public
+	${PROJECT_SOURCE_DIR}/EC2108_C27/include/porting
+	${PROJECT_SOURCE_DIR}/EC2108_C27/include/netwk
+	${PROJECT_SOURCE_DIR}/EC2108_C27/include/tr069
+	../include
+	../include/app
+	../include/broswer		
+	${PROJECT_SOURCE_DIR}/EC2108_C27/7405/include
+	${PROJECT_SOURCE_DIR}/EC2108_C27/7405/include/porting_include
+	${PROJECT_SOURCE_DIR}/EC2108_C27/platform/include/
+	)
+add_library( disk_b200 STATIC ${disk_b200_SRCS})
+

@@ -1,0 +1,93 @@
+#! /bin/sh
+#
+# $Id: affix.rc.deb,v 1.3 2003/03/14 10:47:40 kds Exp $
+#
+# Affix bluetooth subsystem starting and stopping
+#
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+NAME=affix
+DESC="Affix"
+PIDFILE=/var/run/$NAME.pid
+
+AFFIX=/etc/affix/affix
+AFFIXCONF=/etc/affix/affix.conf
+
+test -r $AFFIX || exit 0
+test -r $AFFIXCONF || exit 0
+
+# read configuration options
+. $AFFIXCONF
+
+BTSRV=${prefix}/bin/btsrv
+BTSRV_ARGS=""
+
+if [ "$start_btsrv" = "yes" ] ; then
+	test -x $BTSRV || exit 0
+fi
+
+set -e
+
+start()
+{
+	echo "Starting Affix service..."
+	# load modules, init devices
+	$AFFIX start
+	if [ "$start_btsrv" = "yes" ] ; then
+		start-stop-daemon --start -q -b -m --pidfile $PIDFILE --exec $BTSRV -- $BTSRV_ARGS
+	fi
+	echo "done."
+}
+
+stop()
+{
+	echo "Stopping Affix service..."
+	if [ "$start_btsrv" = "yes" ] ; then
+		if ! start-stop-daemon --stop -q --pidfile $PIDFILE --name btsrv
+		then
+			start-stop-daemon --stop -q --oknodo --exec $BTSRV --name btsrv
+		fi
+	fi
+	# unload modules
+	$AFFIX stop
+	echo "done."
+}
+
+
+case "$1" in
+  start)
+  	start
+	;;
+	
+  stop)
+  	stop
+	;;
+	
+  #reload)
+	# Sending SIGHUP..
+	#
+	# echo -n "Reloading $DESC configuration..."
+	# start-stop-daemon --stop --signal 1 --quiet --pidfile /var/run/$NAME.pid --exec $BTSRV
+	# echo "done."
+  	#;;
+	
+  restart|force-reload)
+	#
+	#	If the "reload" option is implemented, move the "force-reload"
+	#	option to the "reload" entry above. If not, "force-reload" is
+	#	just the same as "restart".
+	#
+	stop
+	sleep 1
+	start
+	;;
+	
+  *)
+	N=/etc/init.d/$NAME
+	# echo "Usage: $N {start|stop|restart|reload|force-reload}" >&2
+	echo "Usage: $N {start|stop|restart|force-reload}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

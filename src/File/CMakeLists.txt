@@ -1,0 +1,16 @@
+
+########################################################################################
+#############               添加源码子目录                                ############## 
+########################################################################################
+add_subdirectory( ParserIni )
+add_subdirectory( ParserJsonC )
+add_subdirectory( ParserJsonCPP )
+add_subdirectory( ParserTinyXML2 )
+add_subdirectory( Sqlite3 )
+add_subdirectory( Unix2Dos )
+
+
+MESSAGE(status "Add sub-directory: ${CMAKE_CURRENT_SOURCE_DIR} .")
+
+
+

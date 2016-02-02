@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# $Id: serial,v 1.1 2002/07/12 12:44:06 kds Exp $
+
+
+logerror()
+{
+	echo $1 >&2
+	logger -p daemon.err $1
+}
+
+usage()
+{
+	echo "Usage: $0 line" >&2
+}
+
+
+echo "$0 Line: $1, id: $2, address: $3, channel: $4" >&2
+

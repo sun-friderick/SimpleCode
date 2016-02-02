@@ -1,0 +1,32 @@
+#include "oclint/AbstractASTMatcherRule.h"
+#include "oclint/RuleSet.h"
+
+using namespace std;
+using namespace clang;
+using namespace clang::ast_matchers;
+using namespace oclint;
+
+class {{RULE_CLASS_NAME}}Rule : public AbstractASTMatcherRule
+{
+public:
+    virtual const string name() const override
+    {
+        return "{{RULE_NAME}}";
+    }
+
+    virtual int priority() const override
+    {
+        return {{RULE_PRIORITY}};
+    }
+
+    virtual void callback(const MatchFinder::MatchResult &result) override
+    {
+    }
+
+    virtual void setUpMatcher() override
+    {
+    }
+
+};
+
+static RuleSet rules(new {{RULE_CLASS_NAME}}Rule());

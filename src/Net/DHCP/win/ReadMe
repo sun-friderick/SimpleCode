@@ -1,0 +1,28 @@
+ENHANCEMENTS in 7.29
+
+1) Major Debug and Code Fix for Zone Replication under Heavy Load
+
+DNS FEATURES
+
+Supports upto 125 forwarding servers
+Supports Dynamic Caching
+Supports Zone Transfers
+Supports Aliases
+Support MX Servers
+Support Wildcard Hosts
+Supports Primary and Secondary Mode of Operations
+Supports Child Zones
+Supports DNS Proxy
+
+DHCP FEATURES
+
+Support upto 125 Ranges
+Support upto 125 listening interfaces
+Support Static hosts
+Support Relay Agents
+Display Lease Status in HTML
+Support Global DHCP Options
+Support Client Options
+Support DHCP Range(s) based options
+Support Mac Range and other Filters
+Support Replicated fail safe DHCP Operation

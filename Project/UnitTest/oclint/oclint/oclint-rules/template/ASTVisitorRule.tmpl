@@ -1,0 +1,27 @@
+#include "oclint/AbstractASTVisitorRule.h"
+#include "oclint/RuleSet.h"
+
+using namespace std;
+using namespace clang;
+using namespace oclint;
+
+class {{RULE_CLASS_NAME}}Rule : public AbstractASTVisitorRule<{{RULE_CLASS_NAME}}Rule>
+{
+public:
+    virtual const string name() const override
+    {
+        return "{{RULE_NAME}}";
+    }
+
+    virtual int priority() const override
+    {
+        return {{RULE_PRIORITY}};
+    }
+
+    virtual void setUp() override {}
+    virtual void tearDown() override {}
+
+    {{VISIT_AST_NODE_BLOCK}}
+};
+
+static RuleSet rules(new {{RULE_CLASS_NAME}}Rule());

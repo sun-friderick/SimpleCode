@@ -1,0 +1,34 @@
+
+
+Step1:
+    发送获取城市天气查询码的请求，向URL地址 http://61.4.185.48:81/g/ 发送http的GET请求；
+    若成功则继续；
+    若此时网络不通，则返回并提示失败；
+
+Step2：
+    Step1中返回的数据中得到所在城市的城市天气查询码City_ID, 如北京的City_ID： 101010100；
+    若成功则继续；
+    若解析不到城市天气查询码，则返回并提示失败；
+    
+Step3:
+    拼装URL地址，使用step1得到的City_ID拼装成查询天气的URL和查询空气质量指数的URL；
+    若成功则继续；
+    例如查询北京的天气URL:http://m.weather.com.cn/atad/101010100.html，查询AQI空气质量指数的URL:http://weatherapi.market.xiaomi.com/wtr-v2/weather?cityId=101010100；
+
+Step4:
+    发送查询天气和空气质量信息请求，使用http的GET请求step3中拼装好的URL；
+    若成功则继续；
+    若请求的URL地址不存在或由于某些原因不能访问，则使用备用地址，如："http://weather.51wnl.com/weatherinfo/GetMoreWeather?cityCode=101010100&weatherType=0"；
+    若备用地址也不存在，则返回并提示获取信息失败；
+    
+Step5:
+    解析step3得到的数据，step3获得的数据通过JSON解析获取天气和空气质量指数信息，例如：
+    空气质量："aqi":"36","no2":"22","pm10":"30","pm25":"19","so2":"10",
+    天气："temp":"13℃~0℃","weather":"晴转多云"
+    若成功则返回查询到的数据；
+    若解析失败，则返回并提示解析失败；
+    
+
+
+
+

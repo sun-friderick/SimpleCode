@@ -1,0 +1,191 @@
+# 
+#   Affix - Bluetooth Protocol Stack for Linux
+#   Copyright (C) 2001 Nokia Corporation
+#   Original Author: Dmitry Kasatkin <dmitry.kasatkin@nokia.com>
+#
+#   $Id: README,v 1.3 2003/03/06 09:29:18 kds Exp $
+
+
+Contents
+
+1. Overview and features
+2. System requirements
+3. Compilation Installation
+4. Assigned numbers
+5. Mailing Lists
+
+
+1. Overview and features
+
+	Affix - Bluetooth Protocol Stack for Linux has been developed at 
+	Nokia Research Center in Helsinki, Finland.
+
+	This package contains kernel level part of the Affix stack
+	and includes following modules:
+	- affix.o
+	  HCI layer, L2CAP and RFCOMM protocols and its socket interfaces.
+
+	- affix_rfcomm.o
+	  RFCOMM protocols and its socket interface.
+
+	- affix_pan.o
+	  PAN profile module.
+
+
+	  Bluetooth Drivers
+	- affix_uart.o
+	  UART (H4) transport driver for UART/H4/Nokia based Bluetooth adapters.
+
+	- affix_uart_cs.o
+	  PCMCIA UART card enabler.
+
+	
+	- affix_usb.o
+	  Transport driver for USB Bluetooth devices.
+
+	- affix_bluecard_cs.o
+	  PCMCIA Bluecard card driver (like Anycom)
+
+	- affix_bt3c_cs.o
+	  PCMCIA 3COM card driver
+	  
+
+	These drivers support a wide-range of hardware. The full list can be
+	obtained from http://affix.sourceforge.net
+
+	Affix features:
+	- Modular implementation.
+	- Socket interface to HCI, L2CAP and RFCOMM protocols.
+	- Bluetooth module interface independence.
+	- SMP safe.
+	- Multiple Bluetooth devices support.
+
+
+
+2. System requirements
+
+	Bluetooth USB devices require USB support by Linux kernel. 
+	Bluetooth PCMCIA devices requires PCMCIA support by Linux kernel.
+       
+	The following libraries are needed for building and using the Affix	
+	package:
+	- pcmcia-cs  : PCMCIA device manager
+
+	Recommended packages:
+	- hotplug    : hotplugging support for USB devices
+
+	We recommend to use DEVFS device file system
+
+
+3. Compilation and Installation
+
+	NOTES!!!
+	- Try first to compile Affix as modules
+	- Do not enable BlueZ support in the kernel.
+	  it can lead to loading BlueZ drivers.
+	- recommended to use DEVFS
+
+	The installation requires root permissions and includes the following
+	steps:
+	1) Installing the source code
+
+	   Unpack the package to the /usr/src/directory.
+	   tar xvfz -C /usr/src <affix package name>
+		
+	2) Patching and compiling the kernel.
+
+	   !!! If you do not want compile Affix as a part of the kernel you have to
+	   skip this step.
+
+	   !!! We recommend you try module version first!!!!!
+
+	   Perform the following steps:
+		1) patch a kernel source tree
+		   cd /usr/src/affix
+		   make patch_kernel
+	   	2) configure and compile kernel
+		   Configure the kernel (e.g., "make xconfig") and enable the desired
+		   elements from the "Affix Bluetooth" submenu. Compile and install
+		   the kernel in the standard way.
+		   !!! Note that subsequent sections contain instructions regarding the
+		   kernel configuration options which should be enabled.
+	   
+	3) Configure Affix software
+	
+	   Run "make config" in the driver root directory and follow
+	   instructions.
+
+	4) Compile Affix software
+	
+	   Run "make all" in the driver root directory.
+
+	   !!! Do not enable debugging (say No) if you do not need it.
+
+	5) Install Affix software
+	
+	   Run "make install" in the driver root directory to install the
+	   driver's loadable modules and control programs and system scripts
+	   into the system directories.
+
+	6) Update system configuration.
+
+  	- For PCMCIA Bluetooth devices:
+	   Affix installer copies configuration files from etc/pcmcia to
+	   /etc/pcmcia for all supported PCMCIA devices. Check if your PCMCIA
+	   configuration read those files automaticaly.
+	   
+	   Otherwise you need add configuration options manually, from
+	   etc/pcmcia/*.conf.
+
+	- For USB Bluetooth devices:
+	    Install the hot-plug package if automatic loading of the "affix_usb.o"
+	    driver is required when the device is plugged in.
+	    Otherwise manual loading of the "affix_usb.o" module is required.
+
+
+	Some notes:
+
+	1) PCMCIA Bluetooth devices
+	After loading the driver Bluetooth pcmcia device can be used for
+	communication. To run the device it should be inserted into the pcmcia
+	slot or virtually inserted using command "cardctl insert <slot number>"
+
+	!! to remove the card run "cardctl eject <slot number>" first.
+
+	1) USB Bluetooth devices
+	After compiling and installing the Affix modules the hot-plug daemon
+	will automatically load the "affix_usb.o" module if a compatible device
+	is plugged into the USB socket.
+
+
+4. Assigned numbers
+	!!!! These numbers assigned for testing purpose and should be
+	registered to prevent conflicts. Those numbers have been selected
+	as if they were not used in the kernel.
+
+	1. Line discipline for the Bluetooth card (with serial interface).
+	   #define N_NCC	14
+
+	2. Type of the Bluetooth network device interface and BLUETOOTH packet type
+	   #define ARPHRD_BLUETOOTH	0x8000
+	   #define ETH_P_BLUETOOTH	0x0027
+
+	3. Socket protocol family
+	   #define PF_AFFIX		27
+	   #define AF_AFFIX		PF_AFFIX
+	   #define SOL_AFFIX		277
+
+	5. Virtual terminal major number.
+	   #define BTY_MAJOR	60
+	   60 is dedicated for testing purpose.
+
+
+5. Mailing Lists
+
+	affix-devel@lists.sourceforge.net	: Developer's List
+	affix-support@lists.sourceforge.net	: User's List
+	
+---
+  Dmitry Kasatkin <dmitry.kasatkin@nokia.com>
+
+

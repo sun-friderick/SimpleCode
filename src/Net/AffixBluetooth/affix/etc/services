@@ -1,0 +1,11 @@
+# Bluetooth services
+#
+
+# name	LongName		class		Proto		PSM
+SER	SerialPort		0x1101		RFCOMM	
+LAN	LAN			0x1102		RFCOMM	
+DUN	DialupNetworking	0x1103		RFCOMM
+Head	Headset			0x1108		RFCOMM	
+FAX	FAX			0x1111		RFCOMM	
+Audio	Audio			0x111F		RFCOMM	
+
